@@ -29,6 +29,16 @@ class Form extends Component {
 
 		//TODO Validation for <= 10 players, empty fields
 		e.preventDefault();
+
+		const playerOb = {
+			name: this.state.name,
+			skill: this.state.skill,
+			timestamp: Date.now(),
+		}
+
+		this.props.addPlayer(playerOb)
+
+		this.setState({name: "", skill: 0})
 	}
 
 	render() {
