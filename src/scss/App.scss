@@ -17,6 +17,7 @@
 // Colors
 $primary: #FFF;
 $secondary: #F2D72D;
+$selected: #CDCDCD;
 $black: #1B1C20;
 
 // Fonts
@@ -25,11 +26,26 @@ $sans-font: "Jura";
 
 // Size
 $sub-heading: 1.5em;
+$inputFontSize: 1.5em;
 
 // Dimensions
 
 $padding: 1em;
 $margin: .5em;
+
+// Extends/placeholders
+
+%input-text {
+	display: block;
+	margin: $margin 0 $margin * 2;
+
+	box-sizing: border-box;
+	padding: $padding / 3;
+	width: 100%;
+
+	font-family: $sans-font;
+	font-size: $inputFontSize;
+}
 
 // Mixins
 
@@ -38,12 +54,15 @@ $margin: .5em;
 
 	margin: $margin 0 $margin * 4;
 	padding: $padding $padding / 4;
+	width: 100%;
 
 	background-color: $bgColor;
+	border: none;
 	box-shadow: 1.5px 3px 3px $black;
 
 	color: $black;
 	font-family: $sans-font;
+	font-size: 1em;
 	text-align: center;
 }
 
@@ -87,6 +106,10 @@ h1, h2 {
 	}
 }
 
+.btn--progress {
+	@include button($secondary);
+}
+
 // Header styling
 .header {
 	padding: $padding;
@@ -119,8 +142,55 @@ h1, h2 {
 		font-family: $sans-font;
 		text-align: center;
 	}
-	.btn--progress {
-		@include button($secondary);
+}
+
+// Add player section
+
+.add-players {
+	.add-players__heading {
+		margin-bottom: 0;
+
+		color: $primary;
+		font-size: $sub-heading * 1.5;
+	}
+	// Add players form
+	form {
+		.input--text {
+			@extend %input-text;
+		}
+		.skill-buttons {
+			.skill-buttons__text {
+				margin-bottom: 0;
+
+				color: $primary;
+				font-family: $main-header-font;
+				font-size: 1.5em;
+				text-align: center;
+			}
+		}
+		.input--radio {
+			display: none;
+			
+			&:checked + .label-radio {
+				background-color: $selected;
+			}			
+		}
+		
+
+		.label-radio {
+			display: inline-block;
+
+			box-sizing: border-box;
+			margin: $margin 0 $margin * 2;
+			padding: 1em;
+			width: 33.3%;
+
+			font-family: $sans-font;
+			text-align: center;
+
+			background-color: $primary;
+		}
+		
 	}
 }
 

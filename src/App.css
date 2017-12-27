@@ -7,6 +7,15 @@
   src: url("./assets/fonts/Jura/Jura-Regular.ttf");
   src: url("./assets/fonts/Jura/Jura-SemiBold.ttf"); }
 
+.add-players form .input--text {
+  display: block;
+  margin: 0.5em 0 1em;
+  box-sizing: border-box;
+  padding: 0.33333em;
+  width: 100%;
+  font-family: "Jura";
+  font-size: 1.5em; }
+
 body {
   min-height: 100vh;
   background-image: url("./assets/images/app-bg.jpg");
@@ -27,14 +36,30 @@ h1, h2 {
   display: block;
   margin: 0.5em 0 2em;
   padding: 1em 0.25em;
+  width: 100%;
   background-color: #FFF;
+  border: none;
   box-shadow: 1.5px 3px 3px #1B1C20;
   color: #1B1C20;
   font-family: "Jura";
+  font-size: 1em;
   text-align: center; }
   .btn:active {
     position: relative;
     top: 3px; }
+
+.btn--progress {
+  display: block;
+  margin: 0.5em 0 2em;
+  padding: 1em 0.25em;
+  width: 100%;
+  background-color: #F2D72D;
+  border: none;
+  box-shadow: 1.5px 3px 3px #1B1C20;
+  color: #1B1C20;
+  font-family: "Jura";
+  font-size: 1em;
+  text-align: center; }
 
 .header {
   padding: 1em; }
@@ -56,12 +81,30 @@ h1, h2 {
     color: #FFF;
     font-family: "Jura";
     text-align: center; }
-  .landing .btn--progress {
-    display: block;
-    margin: 0.5em 0 2em;
-    padding: 1em 0.25em;
-    background-color: #F2D72D;
-    box-shadow: 1.5px 3px 3px #1B1C20;
-    color: #1B1C20;
-    font-family: "Jura";
-    text-align: center; }
+
+.add-players .add-players__heading {
+  margin-bottom: 0;
+  color: #FFF;
+  font-size: 2.25em; }
+
+.add-players form .skill-buttons .skill-buttons__text {
+  margin-bottom: 0;
+  color: #FFF;
+  font-family: "Iceland";
+  font-size: 1.5em;
+  text-align: center; }
+
+.add-players form .input--radio {
+  display: none; }
+  .add-players form .input--radio:checked + .label-radio {
+    background-color: #CDCDCD; }
+
+.add-players form .label-radio {
+  display: inline-block;
+  box-sizing: border-box;
+  margin: 0.5em 0 1em;
+  padding: 1em;
+  width: 33.3%;
+  font-family: "Jura";
+  text-align: center;
+  background-color: #FFF; }
