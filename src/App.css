@@ -2,8 +2,19 @@
   font-family: "Iceland";
   src: url("./assets/fonts/Iceland/Iceland-Regular.ttf"); }
 
+body {
+  height: 100vh;
+  background-image: url("./assets/images/app-bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat; }
+
 .header {
   padding: 1em; }
   .header .header__main-heading {
     margin: 0;
-    font-family: "Iceland"; }
+    color: #FFF;
+    font-family: "Iceland";
+    font-size: 3em;
+    text-align: center; }
+    .header .header__main-heading span {
+      color: #F2D72D; }

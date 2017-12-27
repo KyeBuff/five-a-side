@@ -1,5 +1,4 @@
 // Fonts
-
 //TODO
 	//Convert font types
 @font-face {
@@ -7,14 +6,39 @@
 	src: url("./assets/fonts/Iceland/Iceland-Regular.ttf");
 }
 
-// Header styling
+// Variables
 
+// Colors
+$primary: #FFF;
+$secondary: #F2D72D;
+
+// Fonts
+$main-header: "Iceland";
+
+// Body styling
+body {
+	height: 100vh;
+
+	background-image: url("./assets/images/app-bg.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+// Header styling
 .header {
 	padding: 1em;
+
 	.header__main-heading {
 		margin: 0;
 
-		font-family: "Iceland";
+		color: $primary;
+		font-family: $main-header;
+		font-size: 3em;
+		text-align: center;
+
+		span {
+			color: $secondary;
+		}
 	}	
 }
 
