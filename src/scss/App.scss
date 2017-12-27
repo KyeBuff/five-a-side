@@ -1,3 +1,20 @@
-.test-write {
-	color: red;  
+// Fonts
+
+//TODO
+	//Convert font types
+@font-face {
+	font-family: "Iceland";
+	src: url("./assets/fonts/Iceland/Iceland-Regular.ttf");
 }
+
+// Header styling
+
+.header {
+	padding: 1em;
+	.header__main-heading {
+		margin: 0;
+
+		font-family: "Iceland";
+	}	
+}
+
