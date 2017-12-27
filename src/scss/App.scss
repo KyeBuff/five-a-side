@@ -6,39 +6,123 @@
 	src: url("./assets/fonts/Iceland/Iceland-Regular.ttf");
 }
 
+@font-face {
+	font-family: "Jura";
+	src: url("./assets/fonts/Jura/Jura-Regular.ttf");
+	src: url("./assets/fonts/Jura/Jura-SemiBold.ttf");
+}
+
 // Variables
 
 // Colors
 $primary: #FFF;
 $secondary: #F2D72D;
+$black: #1B1C20;
 
 // Fonts
-$main-header: "Iceland";
+$main-header-font: "Iceland";
+$sans-font: "Jura";
+
+// Size
+$sub-heading: 1.5em;
+
+// Dimensions
+
+$padding: 1em;
+$margin: .5em;
+
+// Mixins
+
+@mixin button($bgColor) {
+	display: block;
+
+	margin: $margin 0 $margin * 4;
+	padding: $padding $padding / 4;
+
+	background-color: $bgColor;
+	box-shadow: 1.5px 3px 3px $black;
+
+	color: $black;
+	font-family: $sans-font;
+	text-align: center;
+}
 
 // Body styling
 body {
-	height: 100vh;
+	min-height: 100vh;
 
 	background-image: url("./assets/images/app-bg.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 }
 
+// Container styling
+
+.container {
+	padding: $padding * 1.5;
+}
+
+// Generics - towards top to be overriden
+
+// Anchors
+
+a {
+	text-decoration: none;
+}
+
+// Headings 
+
+h1, h2 {
+	font-family: $main-header-font;
+	text-align: center;
+}
+
+// Button generic styling
+
+.btn {
+	@include button($primary);
+	&:active {
+		position: relative;
+		top: 3px;
+	}
+}
+
 // Header styling
 .header {
-	padding: 1em;
+	padding: $padding;
 
 	.header__main-heading {
 		margin: 0;
 
 		color: $primary;
-		font-family: $main-header;
 		font-size: 3em;
-		text-align: center;
 
 		span {
 			color: $secondary;
 		}
 	}	
 }
+
+// landing styling
+
+.landing {
+	margin-top: $margin * 5;
+	padding: $padding;
+	.landing__heading {
+		color: $primary; 
+		font-size: $sub-heading;
+	}
+	.landing__text {
+		margin-bottom: 0;
+
+		color: $primary;
+		font-family: $sans-font;
+		text-align: center;
+	}
+	.btn--progress {
+		@include button($secondary);
+	}
+}
+
+
 
