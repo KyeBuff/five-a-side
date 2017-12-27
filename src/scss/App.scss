@@ -89,6 +89,11 @@ a {
 	text-decoration: none;
 }
 
+ul {
+	list-style: none;
+	padding: 0;
+}
+
 // Headings 
 
 h1, h2 {
@@ -182,7 +187,7 @@ h1, h2 {
 
 			box-sizing: border-box;
 			margin: $margin 0 $margin * 2;
-			padding: 1em;
+			padding: $padding;
 			width: 33.3%;
 
 			font-family: $sans-font;
@@ -194,5 +199,33 @@ h1, h2 {
 	}
 }
 
+// Players List
 
+//TODO Button styling 
+.player-list {
+	.player-list__item {
+		margin: $margin 0;
+		padding: $padding;
+
+		background-color: $primary;
+
+		font-family: $sans-font;
+		.player-ratings__star {
+			display: inline-block;
+			height: 15px;
+			margin-top: $margin / 2;
+			width: 15px;
+
+			background-image: url("./assets/images/icons/star.png");
+			background-size: cover;
+		}
+		.player-list__item__button--edit {
+			text-decoration: underline;
+		}
+		.player-list__item__button--delete {
+			float: right;
+			text-decoration: underline;
+		}
+	}
+}
 

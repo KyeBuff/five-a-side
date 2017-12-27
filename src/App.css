@@ -28,6 +28,10 @@ body {
 a {
   text-decoration: none; }
 
+ul {
+  list-style: none;
+  padding: 0; }
+
 h1, h2 {
   font-family: "Iceland";
   text-align: center; }
@@ -108,3 +112,21 @@ h1, h2 {
   font-family: "Jura";
   text-align: center;
   background-color: #FFF; }
+
+.player-list .player-list__item {
+  margin: 0.5em 0;
+  padding: 1em;
+  background-color: #FFF;
+  font-family: "Jura"; }
+  .player-list .player-list__item .player-ratings__star {
+    display: inline-block;
+    height: 15px;
+    margin-top: 0.25em;
+    width: 15px;
+    background-image: url("./assets/images/icons/star.png");
+    background-size: cover; }
+  .player-list .player-list__item .player-list__item__button--edit {
+    text-decoration: underline; }
+  .player-list .player-list__item .player-list__item__button--delete {
+    float: right;
+    text-decoration: underline; }

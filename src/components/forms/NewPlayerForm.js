@@ -26,6 +26,8 @@ class Form extends Component {
 	}
 
 	onSubmit(e) {
+
+		//TODO Validation for <= 10 players, empty fields
 		e.preventDefault();
 	}
 
