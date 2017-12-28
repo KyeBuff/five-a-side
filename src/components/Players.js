@@ -20,7 +20,7 @@ class Players extends Component {
 				<h2 className="add-players__heading">Add a player</h2>
 				<NewPlayerForm addPlayer={this.addPlayer}/>
 				<h2 className="add-players__heading">Current players</h2>
-				<PlayerList />
+				<PlayerList players={this.props.players}/>
 				<button 
 					className="btn btn--progress"
 				>Generate teams</button>
