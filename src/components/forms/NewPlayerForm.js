@@ -7,6 +7,7 @@ class Form extends Component {
 		this.state = {
 			name: "",
 			skill: 0,
+			valid: true,
 		}
 		this.onNameChange = this.onNameChange.bind(this);
 		this.onSkillChange = this.onSkillChange.bind(this);
@@ -36,16 +37,24 @@ class Form extends Component {
 			timestamp: Date.now(),
 		}
 
-		this.props.addPlayer(playerOb)
+		this.setState({valid: false});
 
-		this.setState({name: "", skill: 0})
+		//Empty name validation
+		if(playerOb.name) {
+			this.props.addPlayer(playerOb)
+
+			this.setState({name: "", skill: 0, valid: true})
+		}
 	}
 
 	render() {
-		// 
+
+		const { valid } = this.state;
+
 		return (
 			<form onSubmit={this.onSubmit}>
 				<input className="input--text" type="text" placeholder="Player name..." onChange={this.onNameChange} value={this.state.name} />
+				{valid ? null : <p className="add-players__info">Please enter a player name</p>}
 				<div className="skill-buttons">
 					<p className="skill-buttons__text">Skill level</p>
 					<input id="radio-low" className="input--radio" type="radio" name="skill" value={0} onChange={this.onSkillChange} checked={this.state.skill === 0} />

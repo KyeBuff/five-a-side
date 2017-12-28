@@ -1,5 +1,6 @@
 const actionTypes = {
 	SET_PLAYER: "[Teams] setPlayer",
+	UPDATE_TEAM_NAME: "[Teams][Team] updateTeamName",
 }
 
 const setPlayer = (player) => ({
@@ -7,6 +8,13 @@ const setPlayer = (player) => ({
 	player,
 });
 
+const updateTeamName = (teamName, id) => ({
+	type: actionTypes.UPDATE_TEAM_NAME,
+	teamName,
+	id,
+});
+
 export {
 	setPlayer,
+	updateTeamName
 }

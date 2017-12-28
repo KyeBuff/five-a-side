@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { Link } from 'react-router-dom';
 import NewPlayerForm from './forms/NewPlayerForm';
 import PlayerList from './lists/PlayerList';
 
@@ -15,15 +16,27 @@ class Players extends Component {
 	}
 
 	render() {
+		const { players } = this.props;
+		// TODO tidy up messages
 		return (
-			<section className="add-players">
-				<h2 className="add-players__heading">Add a player</h2>
+			<section className="players">
+				<h2 className="players__heading">Add a player</h2>
 				<NewPlayerForm addPlayer={this.addPlayer}/>
-				<h2 className="add-players__heading">Current players</h2>
-				<PlayerList players={this.props.players}/>
-				<button 
-					className="btn btn--progress"
-				>Generate teams</button>
+				<h2 className="players__heading">Current players</h2>
+				<p className="players__info">{10 - players.size} players required.</p>
+				<PlayerList players={players} actionButtons={true}/>
+				{players.size === 10 ? 
+					<Link 
+						className="btn btn--progress"
+						to="/team-one"
+					>View teams</Link> 
+					:
+					<button 
+						className="btn"
+						disabled={true}
+					>View teams</button>
+				}
+				
 			</section>
 		)
 	}

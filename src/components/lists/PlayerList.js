@@ -4,7 +4,15 @@ import PlayerListItem from './PlayerListItem';
 const PlayerList = (props) => (
 	<ul className="player-list">
 		{
-			props.players.map(player => <PlayerListItem key={player.get('timestamp')} name={player.get('name')} skill={player.get('skill')} />)
+			props.players.map(player => (
+				<PlayerListItem 
+					key={player.get('timestamp')} 
+					name={player.get('name')} 
+					skill={player.get('skill')} 
+					actionButtons={props.actionButtons}
+				/>
+				)
+			)
 		}
 	</ul>
 )

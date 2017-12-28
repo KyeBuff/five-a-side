@@ -18,6 +18,8 @@ const initialState = Map({
 	players: List([]),
 });
 
+
+// TODO refactor this reducer
 const setPlayer = (state, player) => {
 
 	//Make player immutable
@@ -31,50 +33,49 @@ const setPlayer = (state, player) => {
 	//Random number between 1 and 2 to assign to teams
 	const rng = Math.floor(Math.random() * 2) + 1;
 
+	//Match team by id with rng 
 	const team = state.get('teams').find(team => team.get('id') === rng);
 
-	if(team.get('players').size > 4) {
+	//If the team size is less than 5
+		//Add player to this team using ID to match
+	if(team.get('players').size < 5) {
 		return state.update('teams', teams => teams.map(t => {
-			if(t.get('id') !== rng && t.get('players').size < 5) {
-				return t.update('players', players => players.push(newPlayer));
+			if(t.get('id') === rng) {
+				//Updates on teams players array
+				return team.update('players', players => players.push(newPlayer));
 			}
 			return t;
 		}))
 	} else {
 		return state.update('teams', teams => teams.map(t => {
-			if(t.get('id') === rng) {
-				return team.update('players', players => players.push(newPlayer));
+			//We have to check both ID and players length to prevent overloading this team
+			if(t.get('id') !== rng && t.get('players').size < 5) {
+				return t.update('players', players => players.push(newPlayer));
 			}
 			return t;
 		}))
 	}
+}
+
+const updateTeamName = (state, {teamName, id}) => {
+
+	return state.update('teams', teams => teams.map(t => {
+		if(t.get('id') === id) {
+			return t.set('teamName', teamName);
+		}
+		return t;
+	}))
+
 }
 
 const reducer = (state=initialState, action) => {
 
 	switch(action.type) {
 		case "[Teams] setPlayer": return setPlayer(state, action.player);
+		case "[Teams][Team] updateTeamName": return updateTeamName(state, action);
 		default: return state;
 	}
 
 }
 
 export default reducer;
-
-
-	// return state.update("teams", teams => teams.map(team => {
-
-	// 	//length check first as RNG won't matter if length === 5
-
-	// 	if(team.get('players').size === 5) {
-	// 		return team;
-	// 	}
-
-	// 	// If team ID matches RNG
-	// 	if(team.get('id') === rng) {
-	// 		return team.update("players", players => players.push(newPlayer));
-	// 	}
-
-	// 	return team;
-
-	// }));

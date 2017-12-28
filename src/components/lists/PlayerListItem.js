@@ -23,8 +23,15 @@ class PlayerListItem extends Component {
 		return (
 	  	<li className="player-list__item">
 	  		{name}
-	  		<button className="player-list__item__button--edit">Edit</button>
-	  		<button className="player-list__item__button--delete">Delete</button>
+	  		{this.props.actionButtons ? 
+	  		//div required due to adjacent JSX error
+	  		<div> 
+		  		<button className="player-list__item__button--edit">Edit</button>
+		  		<button className="player-list__item__button--delete">Delete</button>
+		  	</div>
+	  		:
+	  		null
+	  		}
 	  		<div className="player-ratings">
 	  			{stars.map(star => star)}
 	  		</div>

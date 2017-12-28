@@ -17,7 +17,7 @@
 // Colors
 $primary: #FFF;
 $secondary: #F2D72D;
-$selected: #CDCDCD;
+$gray: #CDCDCD;
 $black: #1B1C20;
 
 // Fonts
@@ -47,11 +47,19 @@ $margin: .5em;
 	font-size: $inputFontSize;
 }
 
+%h2 {
+	margin-bottom: 0;
+
+	color: $primary;
+	font-size: $sub-heading * 1.5;
+}
+
 // Mixins
 
 @mixin button($bgColor) {
 	display: block;
 
+	box-sizing: border-box;
 	margin: $margin 0 $margin * 4;
 	padding: $padding $padding / 4;
 	width: 100%;
@@ -94,6 +102,16 @@ ul {
 	padding: 0;
 }
 
+p {
+	font-family: $sans-font;
+}
+
+button {
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+}
+
 // Headings 
 
 h1, h2 {
@@ -108,6 +126,12 @@ h1, h2 {
 	&:active {
 		position: relative;
 		top: 3px;
+	}
+	&:disabled {
+		background-color: $gray;
+		opacity: 0.4;
+
+		color: $black;
 	}
 }
 
@@ -151,12 +175,19 @@ h1, h2 {
 
 // Add player section
 
-.add-players {
-	.add-players__heading {
-		margin-bottom: 0;
+.players {
+	.players__heading {
+		@extend %h2;
+	}
 
-		color: $primary;
-		font-size: $sub-heading * 1.5;
+	.players__info {
+		margin-top: $margin;
+		padding: $padding / 2;
+
+		background-color: $black;
+
+		color: #FF3000;
+		text-align: center;
 	}
 	// Add players form
 	form {
@@ -177,7 +208,7 @@ h1, h2 {
 			display: none;
 			
 			&:checked + .label-radio {
-				background-color: $selected;
+				background-color: $gray;
 			}			
 		}
 		
@@ -226,6 +257,24 @@ h1, h2 {
 			float: right;
 			text-decoration: underline;
 		}
+	}
+}
+
+// Team section
+
+.team {
+	.team__heading {
+		@extend %h2;
+		margin-top: 0;
+	}
+	.team__button--edit {
+		display: block;
+
+		margin-top: $margin * 4;
+		width: 100%;
+
+		color: $primary;
+		text-align: center;
 	}
 }
 
