@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.min.css';
 import Header from './components/Header';
-import AddPlayers from './components/AddPlayers';
+import Players from './containers/Players';
 import Landing from './components/landing-page/Landing';
 import {
     Route,
@@ -15,7 +15,7 @@ class App extends Component {
         <Header />
         <Switch>
           <Route exact path="/" component={Landing} />
-          <Route exact path="/add-players" component={AddPlayers} />
+          <Route exact path="/add-players" component={Players} />
         </Switch>
       </div>
     );

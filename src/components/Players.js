@@ -3,7 +3,7 @@ import NewPlayerForm from './forms/NewPlayerForm';
 import PlayerList from './lists/PlayerList';
 
 // Rename?
-class AddPlayers extends Component {
+class Players extends Component {
 
 	constructor(props) {
 		super(props);
@@ -11,6 +11,7 @@ class AddPlayers extends Component {
 			players: []
 		}
 		this.addPlayer = this.addPlayer.bind(this);
+		this.generateTeams = this.generateTeams.bind(this);
 	}
 
 	addPlayer(player) {
@@ -21,6 +22,10 @@ class AddPlayers extends Component {
 		this.setState({players});
 	}
 
+	generateTeams() {
+		this.props.fetchPlayers();
+	}
+
 	render() {
 		return (
 			<section className="add-players">
@@ -28,11 +33,14 @@ class AddPlayers extends Component {
 				<NewPlayerForm addPlayer={this.addPlayer}/>
 				<h2 className="add-players__heading">Current players</h2>
 				<PlayerList players={this.state.players}/>
-				<button className="btn btn--progress">Generate teams</button>
+				<button 
+					className="btn btn--progress"
+					onClick={this.generateTeams}
+				>Generate teams</button>
 			</section>
 		)
 	}
 		
 }
 
-export default AddPlayers;
+export default Players;
