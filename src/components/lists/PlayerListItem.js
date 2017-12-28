@@ -4,10 +4,30 @@ class PlayerListItem extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			isEditing: false,
 			// Pass down current name into editedName
-			editedName: ""
+			playerName: "",
+			isEditing: false,
 		}
+		this.toggleEdit = this.toggleEdit.bind(this)
+		this.onNameChange = this.onNameChange.bind(this)
+		this.onNameSubmit = this.onNameSubmit.bind(this)
+	}
+
+	toggleEdit() {
+		this.setState({isEditing: true});
+	}
+
+	onNameChange(e) {
+		const playerName = e.target.value;
+		this.setState({playerName});
+	}
+
+	onNameSubmit(e) {
+		e.preventDefault();
+
+		this.setState({isEditing: false});
+
+		// this.props.updateTeamName(this.state.teamName);
 	}
 
 	render() {
@@ -22,19 +42,35 @@ class PlayerListItem extends Component {
 
 		return (
 	  	<li className="player-list__item">
-	  		{name}
-	  		{this.props.actionButtons ? 
-	  		//div required due to adjacent JSX error
-	  		<div> 
-		  		<button className="player-list__item__button--edit">Edit</button>
-		  		<button className="player-list__item__button--delete">Delete</button>
+	  		{this.state.isEditing ? 
+				<form onSubmit={this.onNameSubmit}>
+					<input 
+						className="input--text"
+						type="text" 
+						onChange={this.onNameChange}
+						value={this.state.teamName}
+					/>
+				</form>
+		  	:
+				<div>
+		  		{name}
+		  		{this.props.actionButtons ? 
+		  		//div required due to adjacent JSX error
+		  		<div> 
+			  		<button 
+			  			className="player-list__item__button--edit"
+			  			onClick={this.toggleEdit}
+			  		>Edit</button>
+			  		<button className="player-list__item__button--delete">Delete</button>
+			  	</div>
+		  		:
+		  		null
+		  		}
+		  		<div className="player-ratings">
+		  			{stars.map(star => star)}
+		  		</div>
 		  	</div>
-	  		:
-	  		null
-	  		}
-	  		<div className="player-ratings">
-	  			{stars.map(star => star)}
-	  		</div>
+				}
 	  	</li>
 		)
 	}

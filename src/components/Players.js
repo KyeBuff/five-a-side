@@ -26,15 +26,15 @@ class Players extends Component {
 				<p className="players__info">{10 - players.size} players required.</p>
 				<PlayerList players={players} actionButtons={true}/>
 				{players.size === 10 ? 
-					<Link 
-						className="btn btn--progress"
-						to="/team-one"
-					>View teams</Link> 
-					:
-					<button 
-						className="btn"
-						disabled={true}
-					>View teams</button>
+				<Link 
+					className="btn btn--progress"
+					to="/team-one"
+				>View teams</Link> 
+				:
+				<button 
+					className="btn"
+					disabled={true}
+				>View teams</button>
 				}
 				
 			</section>

@@ -7,7 +7,7 @@
   src: url("./assets/fonts/Jura/Jura-Regular.ttf");
   src: url("./assets/fonts/Jura/Jura-SemiBold.ttf"); }
 
-.players form .input--text {
+.players form .input--text, .team form .input--text {
   display: block;
   margin: 0.5em 0 1em;
   box-sizing: border-box;
@@ -19,7 +19,7 @@
 .players .players__heading, .team .team__heading {
   margin-bottom: 0;
   color: #FFF;
-  font-size: 2.25em; }
+  font-size: 3em; }
 
 body {
   min-height: 100vh;
@@ -157,7 +157,14 @@ h1, h2 {
 
 .team .team__button--edit {
   display: block;
-  margin-top: 2em;
+  margin: 2em 0;
   width: 100%;
   color: #FFF;
   text-align: center; }
+  .team .team__button--edit .team__button__text {
+    display: inline-block;
+    margin-top: .5em;
+    text-decoration: underline; }
+
+.team form .input--text {
+  margin-top: 1.5em; }

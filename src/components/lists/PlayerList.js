@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PlayerListItem from './PlayerListItem';
 
 const PlayerList = (props) => (

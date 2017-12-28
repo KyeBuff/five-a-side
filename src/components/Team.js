@@ -40,6 +40,7 @@ class Team extends Component {
 				{ this.state.isEditingName ? 
 				<form onSubmit={this.onNameSubmit}>
 					<input 
+						className="input--text"
 						type="text" 
 						onChange={this.onNameChange}
 						value={this.state.teamName}
@@ -51,7 +52,7 @@ class Team extends Component {
 					onClick={this.toggleEdit}
 				>
 					<h2 className="team__heading">{team.get('teamName')}</h2>
-					Edit team name
+					<span className="team__button__text">Edit team name</span>
 				</button> 
 				}
 				<PlayerList players={team.get('players')} actionButtons={false}/>
