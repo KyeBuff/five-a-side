@@ -1,12 +1,12 @@
 const actionTypes = {
-	SET_PLAYERS: "[Teams] setPlayers",
+	SET_PLAYER: "[Teams] setPlayer",
 }
 
-const setPlayers = (players) => ({
-	type: actionTypes.SET_PLAYERS,
-	players,
+const setPlayer = (player) => ({
+	type: actionTypes.SET_PLAYER,
+	player,
 });
 
 export {
-	setPlayers,
+	setPlayer,
 }

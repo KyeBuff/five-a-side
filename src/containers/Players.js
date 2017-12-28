@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 import Players from '../components/Players';
-import {setPlayers} from '../actions/state';
+import {setPlayer} from '../actions/state';
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		fetchPlayers: (players) => dispatch(setPlayers()),
+		addPlayer: (player) => dispatch(setPlayer(player)),
 	}
 }	
 

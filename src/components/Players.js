@@ -7,23 +7,11 @@ class Players extends Component {
 
 	constructor(props) {
 		super(props);
-		this.state = {
-			players: []
-		}
 		this.addPlayer = this.addPlayer.bind(this);
-		this.generateTeams = this.generateTeams.bind(this);
 	}
 
 	addPlayer(player) {
-		const players = [...this.state.players];
-
-		players.push(player);
-
-		this.setState({players});
-	}
-
-	generateTeams() {
-		this.props.fetchPlayers();
+		this.props.addPlayer(player);
 	}
 
 	render() {
@@ -32,10 +20,9 @@ class Players extends Component {
 				<h2 className="add-players__heading">Add a player</h2>
 				<NewPlayerForm addPlayer={this.addPlayer}/>
 				<h2 className="add-players__heading">Current players</h2>
-				<PlayerList players={this.state.players}/>
+				<PlayerList />
 				<button 
 					className="btn btn--progress"
-					onClick={this.generateTeams}
 				>Generate teams</button>
 			</section>
 		)
