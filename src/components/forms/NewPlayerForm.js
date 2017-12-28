@@ -32,9 +32,9 @@ class Form extends Component {
 		e.preventDefault();
 
 		const playerOb = {
+			id: Date.now(),
 			name: this.state.name,
 			skill: this.state.skill,
-			timestamp: Date.now(),
 		}
 
 		this.setState({valid: false});

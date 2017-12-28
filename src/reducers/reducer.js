@@ -68,11 +68,24 @@ const updateTeamName = (state, {teamName, id}) => {
 
 }
 
+// TODO remove players section of state and retrieve players from teams
+const updatePlayerName = (state, {teamName, id}) => {
+
+	return state.update('teams', teams => teams.map(t => {
+		if(t.get('id') === id) {
+			return t.set('teamName', teamName);
+		}
+		return t;
+	}))
+
+}
+
 const reducer = (state=initialState, action) => {
 
 	switch(action.type) {
 		case "[Teams] setPlayer": return setPlayer(state, action.player);
 		case "[Teams][Team] updateTeamName": return updateTeamName(state, action);
+		case "[Teams][Team][Players][Player] updatePlayerName": return updatePlayerName(state, action);
 		default: return state;
 	}
 

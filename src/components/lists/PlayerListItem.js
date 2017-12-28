@@ -27,7 +27,7 @@ class PlayerListItem extends Component {
 
 		this.setState({isEditing: false});
 
-		// this.props.updateTeamName(this.state.teamName);
+		this.props.updatePlayerName(this.state.playerName);
 	}
 
 	render() {

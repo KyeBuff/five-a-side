@@ -69,6 +69,8 @@ h1, h2 {
     background-color: #CDCDCD;
     opacity: 0.4;
     color: #1B1C20; }
+  .btn[type="submit"] {
+    -webkit-appearance: none; }
 
 .btn--progress {
   display: block;

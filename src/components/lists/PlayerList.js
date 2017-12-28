@@ -6,7 +6,8 @@ const PlayerList = (props) => (
 		{
 			props.players.map(player => (
 				<PlayerListItem 
-					key={player.get('timestamp')} 
+					key={player.get('id')} 
+					id={player.get('id')} 
 					name={player.get('name')} 
 					skill={player.get('skill')} 
 					actionButtons={props.actionButtons}
