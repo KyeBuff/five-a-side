@@ -15,46 +15,64 @@ const initialState = Map({
 			players: List([]),
 		}),
 	]),
-	players: List([]),
+	numPlayers: 0
 });
 
 
 // TODO refactor this reducer
 const setPlayer = (state, player) => {
 
-	//Make player immutable
-	const newPlayer = Map(player);
-
-	//Update players list to pass down to PlayerList.
-	if(state.get('players').size < 10) {
-		state = state.update("players", players => players.push(newPlayer));
-	}
-
-	//Random number between 1 and 2 to assign to teams
 	const rng = Math.floor(Math.random() * 2) + 1;
 
-	//Match team by id with rng 
-	const team = state.get('teams').find(team => team.get('id') === rng);
+	console.log('dad');
 
-	//If the team size is less than 5
-		//Add player to this team using ID to match
-	if(team.get('players').size < 5) {
+	//Update players list to pass down to PlayerList.
+	if(state.get('numPlayers') < 10) {
 		return state.update('teams', teams => teams.map(t => {
-			if(t.get('id') === rng) {
+
+			if(t.get('id') === rng && t.get('players').size < 5) {
 				//Updates on teams players array
-				return team.update('players', players => players.push(newPlayer));
+				player.teamID = rng;
+				return t.update('players', players => players.push(Map(player)));
 			}
+
 			return t;
-		}))
-	} else {
-		return state.update('teams', teams => teams.map(t => {
-			//We have to check both ID and players length to prevent overloading this team
-			if(t.get('id') !== rng && t.get('players').size < 5) {
-				return t.update('players', players => players.push(newPlayer));
-			}
-			return t;
-		}))
+		}));
 	}
+
+	return state;
+
+}
+
+const setTeams = (state) => {
+		// Map over each player
+
+	//Match team by id with rng 
+
+	// return state.update('players', players => players.map(player => {
+
+	// 	//If the team size is less than 5
+	// 		//Add player to this team using ID to match
+	// 	state.update('teams', teams => teams.map(t => {
+	// 		if(t.get('id') === rng && t.get('players').size < 5) {
+	// 			console.log(rng, t.get('id'));
+	// 			//Updates on teams players array
+	// 			return t.update('players', players => players.push(player));
+	// 		}
+
+	// 		if(t.get('id') !== rng && t.get('players').size < 5) {
+	// 			return t.update('players', players => players.push(player));
+	// 		}
+
+	// 		return t;
+	// 	}))
+
+	// 	return player;
+
+	// }));
+
+	// return state;
+
 }
 
 const updateTeamName = (state, {teamName, id}) => {
@@ -69,26 +87,39 @@ const updateTeamName = (state, {teamName, id}) => {
 }
 
 // TODO remove players section of state and retrieve players from teams
-const updatePlayerName = (state, {teamName, id}) => {
+const updatePlayerName = (state, {playerName, id}) => {
+	return state;
+
+}
+
+const removePlayer = (state, {timestamp, teamID}) => {
+
+	console.log(timestamp, teamID);
 
 	return state.update('teams', teams => teams.map(t => {
-		if(t.get('id') === id) {
-			return t.set('teamName', teamName);
+
+		if(t.get('id') === teamID) {
+			return t.update('players', players => players.filter(player => player.get('timestamp') !== timestamp));
 		}
+
 		return t;
-	}))
+
+	}));
 
 }
 
 const reducer = (state=initialState, action) => {
 
 	switch(action.type) {
-		case "[Teams] setPlayer": return setPlayer(state, action.player);
+		case "[Players] setPlayer": return setPlayer(state, action.player);
+		case "[Teams] setTeams": return setTeams(state);
 		case "[Teams][Team] updateTeamName": return updateTeamName(state, action);
 		case "[Teams][Team][Players][Player] updatePlayerName": return updatePlayerName(state, action);
+		case "[Teams][Team][Players][Player] removePlayer": return removePlayer(state, action)
 		default: return state;
 	}
 
 }
 
 export default reducer;
+

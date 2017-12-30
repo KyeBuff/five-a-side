@@ -11,6 +11,7 @@ class PlayerListItem extends Component {
 		this.toggleEdit = this.toggleEdit.bind(this)
 		this.onNameChange = this.onNameChange.bind(this)
 		this.onNameSubmit = this.onNameSubmit.bind(this)
+		this.removePlayer = this.removePlayer.bind(this)
 	}
 
 	toggleEdit() {
@@ -28,6 +29,10 @@ class PlayerListItem extends Component {
 		this.setState({isEditing: false});
 
 		this.props.updatePlayerName(this.state.playerName);
+	}
+
+	removePlayer(e) {
+		this.props.removePlayer();
 	}
 
 	render() {
@@ -66,7 +71,10 @@ class PlayerListItem extends Component {
 		  			{stars.map(star => star)}
 		  		</div>
 		  		{this.props.actionButtons ? 
-		  		<button className="player-list__item__button--delete"></button>
+		  		<button 
+		  			className="player-list__item__button--delete"
+		  			onClick={this.removePlayer}
+		  		></button>
 		  		:
 		  		null
 		  		}
