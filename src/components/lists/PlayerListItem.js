@@ -53,22 +53,23 @@ class PlayerListItem extends Component {
 				</form>
 		  	:
 				<div>
-		  		{name}
-		  		{this.props.actionButtons ? 
-		  		//div required due to adjacent JSX error
-		  		<div> 
-			  		<button 
-			  			className="player-list__item__button--edit"
-			  			onClick={this.toggleEdit}
-			  		>Edit</button>
-			  		<button className="player-list__item__button--delete">Delete</button>
-			  	</div>
-		  		:
-		  		null
-		  		}
+					{this.props.actionButtons ?
+					<button 
+		  			className="player-list__item__button--edit"
+		  			onClick={this.toggleEdit}
+		  		>{name} <span className="edit-icon"></span>
+			  	</button>
+			  	:
+			  	name
+			  	}
 		  		<div className="player-ratings">
 		  			{stars.map(star => star)}
 		  		</div>
+		  		{this.props.actionButtons ? 
+		  		<button className="player-list__item__button--delete"></button>
+		  		:
+		  		null
+		  		}
 		  	</div>
 				}
 	  	</li>

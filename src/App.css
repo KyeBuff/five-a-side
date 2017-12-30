@@ -137,10 +137,12 @@ h1, h2 {
   background-color: #FFF; }
 
 .player-list .player-list__item {
+  position: relative;
   margin: 0.5em 0;
-  padding: 1em;
+  padding: 0.66667em;
   background-color: #FFF;
-  font-family: "Jura"; }
+  font-family: "Jura";
+  font-size: 1.25em; }
   .player-list .player-list__item .player-ratings__star {
     display: inline-block;
     height: 15px;
@@ -149,9 +151,29 @@ h1, h2 {
     background-image: url("./assets/images/icons/star.png");
     background-size: cover; }
   .player-list .player-list__item .player-list__item__button--edit {
-    text-decoration: underline; }
+    display: block;
+    padding: 0;
+    width: 75%;
+    font-family: "Jura";
+    font-size: 1.25em;
+    text-align: left; }
+    .player-list .player-list__item .player-list__item__button--edit .edit-icon {
+      display: inline-block;
+      height: 15px;
+      width: 15px;
+      background-image: url("./assets/images/icons/edit.png");
+      background-size: cover;
+      background-position: top;
+      font-size: .5em; }
   .player-list .player-list__item .player-list__item__button--delete {
-    float: right;
+    position: absolute;
+    right: 1em;
+    top: calc(50% - 10px);
+    height: 20px;
+    width: 20px;
+    background-image: url("./assets/images/icons/delete.png");
+    background-size: cover;
+    font-family: "Jura";
     text-decoration: underline; }
 
 .team .team__heading {
