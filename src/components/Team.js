@@ -16,6 +16,10 @@ class Team extends Component {
 		this.onNameSubmit = this.onNameSubmit.bind(this)
 	}
 
+	componentDidMount() {
+		window.scrollTo(0, 0);
+	}
+
 	toggleEdit() {
 		this.setState({isEditingName: true});
 	}
@@ -56,12 +60,18 @@ class Team extends Component {
 				</button> 
 				}
 				<PlayerList players={team.get('players')} actionButtons={false}/>
-				<Link 
-					className="btn btn--progress" 
-					to={team.get('id') === 1 ? "/team-two" : "summary" }
-					>
-					{team.get('id') === 1 ? "Go to Team two" : "View summary" }
-				</Link>
+				<nav className="footer-nav">
+					<Link 
+						className="btn footer-nav__link"
+						to={team.get('id') === 1 ? "/players" : "/team-one"}
+					>Go back</Link> 
+					<Link 
+						className="btn btn--progress" 
+						to={team.get('id') === 1 ? "/team-two" : "/" }
+						>
+						{team.get('id') === 1 ? "Go to Team two" : "Return to home" }
+					</Link>
+				</nav>
 			</section>
 		)
 	}

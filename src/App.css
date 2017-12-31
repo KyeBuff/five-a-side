@@ -192,3 +192,9 @@ h1, h2 {
 
 .team form .input--text {
   margin-top: 1.5em; }
+
+.footer-nav {
+  display: flex;
+  justify-content: space-between; }
+  .footer-nav a.footer-nav__link:first-of-type {
+    margin-right: .5em; }

@@ -333,3 +333,17 @@ h1, h2 {
 	}
 }
 
+
+// Navigation
+
+// Footer
+
+.footer-nav {
+	display: flex;
+	justify-content: space-between;
+
+	a.footer-nav__link:first-of-type {
+		margin-right: .5em;
+	}
+}
+

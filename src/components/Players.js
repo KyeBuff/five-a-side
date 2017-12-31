@@ -11,13 +11,16 @@ class Players extends Component {
 		this.addPlayer = this.addPlayer.bind(this);
 	}
 
+	componentDidMount() {
+		window.scrollTo(0, 0);
+	}
+
 	addPlayer(player) {
 		this.props.addPlayer(player);
 	}
 
 	render() {
 		const { players } = this.props;
-		console.log(players.size);
 		// TODO tidy up messages
 		return (
 			<section className="players">
@@ -30,17 +33,23 @@ class Players extends Component {
 				null
 				}
 				<PlayerList players={players} actionButtons={true}/>
-				{players.size === 10 ? 
-				<Link 
-					className="btn btn--progress"
-					to="/team-one"
-				>View teams</Link> 
-				:
-				<button 
-					className="btn"
-					disabled={true}
-				>View teams</button>
-				}
+				<nav className="footer-nav">
+					<Link 
+						className="btn footer-nav__link"
+						to="/"
+					>Go back</Link> 
+					{players.size === 10 ? 
+					<Link 
+						className="btn btn--progress footer-nav__link"
+						to="/team-one"
+					>View teams</Link> 
+					:
+					<button 
+						className="btn footer-nav__link"
+						disabled={true}
+					>View teams</button>
+					}
+				</nav>
 				
 			</section>
 		)

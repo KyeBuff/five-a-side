@@ -14,6 +14,9 @@ import {
 //404
 //Prevent user entering URL team-one etc
 
+// TODO 
+//Save teams at the end
+
 class App extends Component {
   render() {
     return (
@@ -21,7 +24,7 @@ class App extends Component {
         <Header />
         <Switch>
           <Route exact path="/" component={Landing} />
-          <Route path="/add-players" component={Players} />
+          <Route path="/players" component={Players} />
           <Route path="/team-one" component={TeamOne} />
           <Route path="/team-two" component={TeamTwo} />
         </Switch>
