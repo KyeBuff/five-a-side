@@ -343,7 +343,39 @@ h1, h2 {
 	justify-content: space-between;
 
 	a.footer-nav__link:first-of-type {
-		margin-right: .5em;
+		margin-right: $margin * 2;
+	}
+}
+
+@media (min-width: 768px) {
+	.container { 
+		margin: 0 auto;
+		width: 70%;
+	}
+
+	.player-list {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		.player-list__item {
+			flex: 1 0 48%;
+
+			box-sizing: border-box;
+			&:nth-of-type(odd) {
+				margin: $margin $margin $margin 0; 
+			}
+			&:nth-of-type(even) {
+				margin: $margin 0 $margin $margin; 
+			}
+		}
+	}
+}
+
+ /* Medium Devices, Desktops */
+@media (min-width : 992px) {
+	.container {
+		margin: 0 auto;
+		width: 60%;
 	}
 }
 
