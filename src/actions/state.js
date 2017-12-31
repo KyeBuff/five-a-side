@@ -17,10 +17,9 @@ const updateTeamName = (teamName, id) => ({
 	id,
 });
 
-const removePlayer = (timestamp, teamID) => ({
+const removePlayer = (timestamp) => ({
 	type: actionTypes.REMOVE_PLAYER,
 	timestamp,
-	teamID
 });
 
 const balanceTeams = () => ({

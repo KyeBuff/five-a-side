@@ -12,10 +12,6 @@ class Players extends Component {
 		this.balanceTeams = this.balanceTeams.bind(this);
 	}
 
-	componentDidMount() {
-		window.scrollTo(0, 0);
-	}
-
 	addPlayer(player) {
 		this.props.addPlayer(player);
 	}

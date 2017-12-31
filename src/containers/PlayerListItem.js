@@ -9,9 +9,9 @@ import {removePlayer} from '../actions/state';
 // 	}
 // }	
 
-const mapDispatchToProps = (dispatch, {timestamp, teamID}) => {
+const mapDispatchToProps = (dispatch, {timestamp}) => {
 	return {
-		removePlayer: () => dispatch(removePlayer(timestamp, teamID)),
+		removePlayer: () => dispatch(removePlayer(timestamp)),
 	}
 }	
 

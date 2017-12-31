@@ -59,19 +59,20 @@ const updateTeamName = (state, {teamName, id}) => {
 // TODO remove players section of state and retrieve players from teams
 const updatePlayerName = (state, {playerName, id}) => {
 	return state;
-
 }
 
-const removePlayer = (state, {timestamp, teamID}) => {
+const removePlayer = (state, {timestamp}) => {
 
-	return state.update('teams', teams => teams.map(t => {
+	return state.update('players', players => players.filter(player => player.get('timestamp') !== timestamp));
 
-		if(t.get('id') === teamID) {
-			return t.update('players', players => players.filter(player => player.get('timestamp') !== timestamp));
-		}
+	// return state.update('teams', teams => teams.map(t => {
 
-		return t;
-	}));
+	// 	if(t.get('id') === teamID) {
+	// 		return t.update('players', players => players.filter(player => player.get('timestamp') !== timestamp));
+	// 	}
+
+	// 	return t;
+	// }));
 }
 
 const balanceTeams = (state) => {
