@@ -6,7 +6,7 @@ class Form extends Component {
 		super(props);
 		this.state = {
 			name: "",
-			skill: 0,
+			skill: 1,
 			valid: true,
 		}
 		this.onNameChange = this.onNameChange.bind(this);
@@ -43,7 +43,7 @@ class Form extends Component {
 		if(playerOb.name) {
 			this.props.addPlayer(playerOb)
 
-			this.setState({name: "", skill: 0, valid: true})
+			this.setState({name: "", skill: 1, valid: true})
 		}
 	}
 
@@ -57,11 +57,11 @@ class Form extends Component {
 				{valid ? null : <p className="add-players__info">Please enter a player name</p>}
 				<div className="skill-buttons">
 					<p className="skill-buttons__text">Skill level</p>
-					<input id="radio-low" className="input--radio" type="radio" name="skill" value={0} onChange={this.onSkillChange} checked={this.state.skill === 0} />
+					<input id="radio-low" className="input--radio" type="radio" name="skill" value={1} onChange={this.onSkillChange} checked={this.state.skill === 1} />
 					<label htmlFor="radio-low" className="label-radio">Low</label>
-					<input id="radio-med" className="input--radio" type="radio" name="skill" value={1} onChange={this.onSkillChange} checked={this.state.skill === 1} />
+					<input id="radio-med" className="input--radio" type="radio" name="skill" value={2} onChange={this.onSkillChange} checked={this.state.skill === 2} />
 					<label htmlFor="radio-med" className="label-radio">Med</label>
-					<input id="radio-high" className="input--radio" type="radio" name="skill" value={2} onChange={this.onSkillChange} checked={this.state.skill === 2} />
+					<input id="radio-high" className="input--radio" type="radio" name="skill" value={3} onChange={this.onSkillChange} checked={this.state.skill === 3} />
 					<label htmlFor="radio-high" className="label-radio">High</label>
 				</div>
 				<input className="btn btn--progress" type="submit" value="Add player" />

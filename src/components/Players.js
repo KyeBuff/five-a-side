@@ -27,6 +27,7 @@ class Players extends Component {
 	render() {
 		const { players } = this.props;
 		// TODO tidy up messages
+		// Warning that teams will be lost on go back?
 		return (
 			<div>
 				<section className="players">
@@ -50,12 +51,12 @@ class Players extends Component {
 						className="btn btn--progress footer-nav__link"
 						to="/team-one"
 						onClick={this.balanceTeams}
-					>View teams</Link> 
+					>Generate teams</Link> 
 					:
 					<button 
 						className="btn footer-nav__link"
 						disabled={true}
-					>View teams</button>
+					>Generate teams</button>
 					}
 				</nav>
 			</div>

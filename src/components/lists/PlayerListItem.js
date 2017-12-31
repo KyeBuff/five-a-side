@@ -39,7 +39,7 @@ class PlayerListItem extends Component {
 		// TODO - better way of doing this?
 		const stars = [];
 
-		for(let i=-1; i<skill; i++) {
+		for(let i=0; i<skill; i++) {
 			stars.push(<span key={i} className="player-ratings__star"></span>);
 		}
 

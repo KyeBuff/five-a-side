@@ -6,8 +6,8 @@ const PlayerList = (props) => (
 		<h2 className="players__heading">Current players</h2>
 		{props.fullList ?
 		<div>
-			{props.players.size < 10 ? 
-			<p className="players__info">{10 - props.players.size} players required.</p>
+			{props.players.size < 4 ? 
+			<p className="players__info">At least {4 - props.players.size} more players required.</p>
 			:
 			null
 			}
