@@ -6,16 +6,10 @@ class PlayerListItem extends Component {
 		this.state = {
 			// Pass down current name into editedName
 			playerName: "",
-			isEditing: false,
 		}
-		this.toggleEdit = this.toggleEdit.bind(this)
 		this.onNameChange = this.onNameChange.bind(this)
 		this.onNameSubmit = this.onNameSubmit.bind(this)
 		this.removePlayer = this.removePlayer.bind(this)
-	}
-
-	toggleEdit() {
-		this.setState({isEditing: true});
 	}
 
 	onNameChange(e) {
@@ -26,12 +20,13 @@ class PlayerListItem extends Component {
 	onNameSubmit(e) {
 		e.preventDefault();
 
-		this.setState({isEditing: false});
-
 		this.props.updatePlayerName(this.state.playerName);
 	}
 
 	removePlayer(e) {
+
+		//Removed edit functionality so that we push user to add player form at the top on remove
+		window.scrollTo(0, 0);
 		this.props.removePlayer();
 	}
 
@@ -58,15 +53,7 @@ class PlayerListItem extends Component {
 				</form>
 		  	:
 				<div>
-					{this.props.actionButtons ?
-					<button 
-		  			className="player-list__item__button--edit"
-		  			onClick={this.toggleEdit}
-		  		>{name} <span className="edit-icon"></span>
-			  	</button>
-			  	:
-			  	name
-			  	}
+					{name}
 		  		<div className="player-ratings">
 		  			{stars.map(star => star)}
 		  		</div>
