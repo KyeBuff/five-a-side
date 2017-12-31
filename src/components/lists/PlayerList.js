@@ -2,21 +2,35 @@ import React from 'react';
 import PlayerListItem from '../../containers/PlayerListItem';
 
 const PlayerList = (props) => (
-	<ul className="player-list">
-		{
-			props.players.map(player => (
-				<PlayerListItem 
-					key={player.get('timestamp')} 
-					timestamp={player.get('timestamp')} 
-					name={player.get('name')} 
-					skill={player.get('skill')} 
-					teamID={player.get('teamID')}
-					actionButtons={props.actionButtons}
-				/>
-				)
-			)
+	<div className="players__list-section">
+		<h2 className="players__heading">Current players</h2>
+		{props.fullList ?
+		<div>
+			{props.players.size < 10 ? 
+			<p className="players__info">{10 - props.players.size} players required.</p>
+			:
+			null
+			}
+		</div>
+		:
+		null
 		}
-	</ul>
+		<ul className={props.fullList ? "player-list player-list--full" : "player-list"}>
+			{
+				props.players.map(player => (
+					<PlayerListItem 
+						key={player.get('timestamp')} 
+						timestamp={player.get('timestamp')} 
+						name={player.get('name')} 
+						skill={player.get('skill')} 
+						teamID={player.get('teamID')}
+						actionButtons={props.actionButtons}
+					/>
+					)
+				)
+			}
+		</ul>
+	</div>
 )
 
 export default PlayerList;

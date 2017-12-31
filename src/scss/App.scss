@@ -1,6 +1,9 @@
 // Fonts
 //TODO
 	//Convert font types
+	//Logo size/styling
+
+// TODO - Team component styling
 @font-face {
 	font-family: "Iceland";
 	src: url("./assets/fonts/Iceland/Iceland-Regular.ttf");
@@ -38,7 +41,7 @@ $margin: .5em;
 
 %input-text {
 	display: block;
-	margin: $margin 0 $margin * 2;
+	margin: $margin / 1.25 0 $margin * 2;
 
 	box-sizing: border-box;
 	padding: $padding / 3;
@@ -134,7 +137,7 @@ h1, h2 {
 
 		color: $black;
 	}
-	&[type="submit"] {
+	&[type="submit"] {	
 		// ios override
 		-webkit-appearance: none;
 	}
@@ -181,20 +184,12 @@ h1, h2 {
 // Add player section
 
 .players {
+	// Add players form
+
 	.players__heading {
 		@extend %h2;
 	}
-
-	.players__info {
-		margin-top: $margin;
-		padding: $padding / 2;
-
-		background-color: $black;
-
-		color: $red;
-		text-align: center;
-	}
-	// Add players form
+	
 	form {
 		.input--text {
 			@extend %input-text;
@@ -238,64 +233,81 @@ h1, h2 {
 // Players List
 
 //TODO Button styling 
-.player-list {
-	.player-list__item {
-		position: relative;
+//TODO CLASS NAMING?
+.players__list-section {
+	.players__heading {
+		@extend %h2;
+	}
 
-		margin: $margin 0;
-		padding: $padding / 1.5;
+	.players__info {
+		margin-top: $margin;
+		padding: $padding / 2;
 
-		background-color: $primary;
+		background-color: $black;
 
-		font-family: $sans-font;
-		font-size: 1.25em;
+		color: $red;
+		text-align: center;
+	}
+	.player-list {
+		margin-top: 0;
+		.player-list__item {
+			position: relative;
 
-		.player-ratings__star {
-			display: inline-block;
-			height: 15px;
-			margin-top: $margin / 2;
-			width: 15px;
+			margin: $margin 0;
+			padding: $padding / 1.5;
 
-			background-image: url("./assets/images/icons/star.png");
-			background-size: cover;
-		}
-		.player-list__item__button--edit {
-			display: block;
-
-			padding: 0;
-			width: 75%;
+			background-color: $primary;
 
 			font-family: $sans-font;
 			font-size: 1.25em;
 
-			text-align: left;
-
-			& .edit-icon {
+			.player-ratings__star {
 				display: inline-block;
-
 				height: 15px;
+				margin-top: $margin / 2;
 				width: 15px;
 
-				background-image: url("./assets/images/icons/edit.png");
-				background-size: cover; 
-				background-position: top;
-
-				font-size: .5em;
+				background-image: url("./assets/images/icons/star.png");
+				background-size: cover;
 			}
-		}
-		.player-list__item__button--delete {
-			position: absolute;
-			right: $padding;
-			top: calc(50% - 10px);
+			.player-list__item__button--edit {
+				display: block;
 
-			height: 20px;
-			width: 20px;
+				padding: 0;
+				width: 75%;
 
-			background-image: url("./assets/images/icons/delete.png");
-			background-size: cover; 
+				font-family: $sans-font;
+				font-size: 1.25em;
 
-			font-family: $sans-font;
-			text-decoration: underline;
+				text-align: left;
+
+				& .edit-icon {
+					display: inline-block;
+
+					height: 15px;
+					width: 15px;
+
+					background-image: url("./assets/images/icons/edit.png");
+					background-size: cover; 
+					background-position: top;
+
+					font-size: .5em;
+				}
+			}
+			.player-list__item__button--delete {
+				position: absolute;
+				right: $padding;
+				top: calc(50% - 10px);
+
+				height: 20px;
+				width: 20px;
+
+				background-image: url("./assets/images/icons/delete.png");
+				background-size: cover; 
+
+				font-family: $sans-font;
+				text-decoration: underline;
+			}
 		}
 	}
 }
@@ -353,6 +365,12 @@ h1, h2 {
 		width: 70%;
 	}
 
+	.header {
+		.header__main-heading {
+			font-size: 4em;
+		}	
+	}
+
 	.player-list {
 		display: flex;
 		flex-wrap: wrap;
@@ -362,20 +380,88 @@ h1, h2 {
 
 			box-sizing: border-box;
 			&:nth-of-type(odd) {
-				margin: $margin $margin $margin 0; 
+				margin: $margin $margin * 2 $margin 0; 
 			}
-			&:nth-of-type(even) {
-				margin: $margin 0 $margin $margin; 
+			&:last-of-type() {
+				margin: $margin 0 $margin 0; 
 			}
+		}
+	}
+
+	.landing {
+		.landing__heading {
+			font-size: $sub-heading * 1.5;
 		}
 	}
 }
 
- /* Medium Devices, Desktops */
-@media (min-width : 992px) {
+@media (min-width:992px) {
 	.container {
-		margin: 0 auto;
 		width: 60%;
 	}
+
+	.header {
+		margin-top: $margin * 3;
+
+		.header__main-heading {
+			font-size: 5em;
+		}	
+	}
+
 }
 
+@media (min-width: 1200px) {
+
+	.container {
+		width: 80%;
+	}
+
+	.header {
+		margin-top: 0;
+
+		.header__main-heading {
+			font-size: 4em;
+		}	
+	}
+	.landing {
+		margin: $margin * 15 auto 0;
+		width: 75%;
+		.landing__heading {
+			font-size: $sub-heading * 2;
+		}
+		.landing__text {
+			margin-bottom: 0;
+		}
+	}
+
+	.players {
+		overflow: auto;
+		.players__heading {
+			font-size: 2.5em;
+		}
+		.players__info {
+			background-color: transparent;
+		}
+		.players__add-section {
+			float: left;
+
+			box-sizing: border-box;
+			padding: 0 $padding * 2 $padding * 2;
+			width: 50%;
+		}
+		.players__list-section {
+			float: left;
+
+			box-sizing: border-box;
+			padding: 0 $padding * 2 $padding * 2;
+			width: 50%;
+		}
+	}
+
+	.footer-nav {
+		padding: 0 $padding * 2;
+		a.footer-nav__link:first-of-type {
+			margin-right: $margin * 8;
+		}
+	}
+}

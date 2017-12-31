@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Header = () => (
-	<header className="header">
+	<header className="header header-lg">
 		<h1 className="header__main-heading">
 			5<br />
 			&lt;

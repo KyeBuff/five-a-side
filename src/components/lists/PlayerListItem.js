@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+// TODO add edit and fill form data with player
+//Change button if editing and on submit change back to add player
+
 class PlayerListItem extends Component {
 	constructor(props){
 		super(props);
@@ -20,7 +23,7 @@ class PlayerListItem extends Component {
 	onNameSubmit(e) {
 		e.preventDefault();
 
-		this.props.updatePlayerName(this.state.playerName);
+		// this.props.updatePlayerName(this.state.playerName);
 	}
 
 	removePlayer(e) {

@@ -59,7 +59,11 @@ class Team extends Component {
 					<span className="team__button__text">Edit team name</span>
 				</button> 
 				}
-				<PlayerList players={team.get('players')} actionButtons={false}/>
+				<PlayerList 
+					players={team.get('players')} 
+					actionButtons={false}
+					className="player-list"
+				/>
 				<nav className="footer-nav">
 					<Link 
 						className="btn footer-nav__link"

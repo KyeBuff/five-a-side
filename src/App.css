@@ -9,14 +9,14 @@
 
 .players form .input--text, .team form .input--text {
   display: block;
-  margin: 0.5em 0 1em;
+  margin: 0.4em 0 1em;
   box-sizing: border-box;
   padding: 0.33333em;
   width: 100%;
   font-family: "Jura";
   font-size: 1.5em; }
 
-.players .players__heading, .team .team__heading {
+.players .players__heading, .players__list-section .players__heading, .team .team__heading {
   margin-bottom: 0;
   color: #FFF;
   font-size: 3em; }
@@ -107,13 +107,6 @@ h1, h2 {
     font-family: "Jura";
     text-align: center; }
 
-.players .players__info {
-  margin-top: 0.5em;
-  padding: 0.5em;
-  background-color: #1B1C20;
-  color: #FF3000;
-  text-align: center; }
-
 .players form .skill-buttons .skill-buttons__text {
   margin-bottom: 0;
   color: #FFF;
@@ -136,45 +129,54 @@ h1, h2 {
   text-align: center;
   background-color: #FFF; }
 
-.player-list .player-list__item {
-  position: relative;
-  margin: 0.5em 0;
-  padding: 0.66667em;
-  background-color: #FFF;
-  font-family: "Jura";
-  font-size: 1.25em; }
-  .player-list .player-list__item .player-ratings__star {
-    display: inline-block;
-    height: 15px;
-    margin-top: 0.25em;
-    width: 15px;
-    background-image: url("./assets/images/icons/star.png");
-    background-size: cover; }
-  .player-list .player-list__item .player-list__item__button--edit {
-    display: block;
-    padding: 0;
-    width: 75%;
+.players__list-section .players__info {
+  margin-top: 0.5em;
+  padding: 0.5em;
+  background-color: #1B1C20;
+  color: #FF3000;
+  text-align: center; }
+
+.players__list-section .player-list {
+  margin-top: 0; }
+  .players__list-section .player-list .player-list__item {
+    position: relative;
+    margin: 0.5em 0;
+    padding: 0.66667em;
+    background-color: #FFF;
     font-family: "Jura";
-    font-size: 1.25em;
-    text-align: left; }
-    .player-list .player-list__item .player-list__item__button--edit .edit-icon {
+    font-size: 1.25em; }
+    .players__list-section .player-list .player-list__item .player-ratings__star {
       display: inline-block;
       height: 15px;
+      margin-top: 0.25em;
       width: 15px;
-      background-image: url("./assets/images/icons/edit.png");
+      background-image: url("./assets/images/icons/star.png");
+      background-size: cover; }
+    .players__list-section .player-list .player-list__item .player-list__item__button--edit {
+      display: block;
+      padding: 0;
+      width: 75%;
+      font-family: "Jura";
+      font-size: 1.25em;
+      text-align: left; }
+      .players__list-section .player-list .player-list__item .player-list__item__button--edit .edit-icon {
+        display: inline-block;
+        height: 15px;
+        width: 15px;
+        background-image: url("./assets/images/icons/edit.png");
+        background-size: cover;
+        background-position: top;
+        font-size: .5em; }
+    .players__list-section .player-list .player-list__item .player-list__item__button--delete {
+      position: absolute;
+      right: 1em;
+      top: calc(50% - 10px);
+      height: 20px;
+      width: 20px;
+      background-image: url("./assets/images/icons/delete.png");
       background-size: cover;
-      background-position: top;
-      font-size: .5em; }
-  .player-list .player-list__item .player-list__item__button--delete {
-    position: absolute;
-    right: 1em;
-    top: calc(50% - 10px);
-    height: 20px;
-    width: 20px;
-    background-image: url("./assets/images/icons/delete.png");
-    background-size: cover;
-    font-family: "Jura";
-    text-decoration: underline; }
+      font-family: "Jura";
+      text-decoration: underline; }
 
 .team .team__heading {
   margin-top: 0; }
@@ -203,6 +205,8 @@ h1, h2 {
   .container {
     margin: 0 auto;
     width: 70%; }
+  .header .header__main-heading {
+    font-size: 4em; }
   .player-list {
     display: flex;
     flex-wrap: wrap;
@@ -211,12 +215,51 @@ h1, h2 {
       flex: 1 0 48%;
       box-sizing: border-box; }
       .player-list .player-list__item:nth-of-type(odd) {
-        margin: 0.5em 0.5em 0.5em 0; }
-      .player-list .player-list__item:nth-of-type(even) {
-        margin: 0.5em 0 0.5em 0.5em; } }
+        margin: 0.5em 1em 0.5em 0; }
+      .player-list .player-list__item:last-of-type {
+        margin: 0.5em 0 0.5em 0; }
+  .landing .landing__heading {
+    font-size: 2.25em; } }
 
-/* Medium Devices, Desktops */
 @media (min-width: 992px) {
   .container {
-    margin: 0 auto;
-    width: 60%; } }
+    width: 60%; }
+  .header {
+    margin-top: 1.5em; }
+    .header .header__main-heading {
+      font-size: 5em; } }
+
+@media (min-width: 1200px) {
+  .container {
+    width: 80%; }
+  .header {
+    margin-top: 0; }
+    .header .header__main-heading {
+      font-size: 4em; }
+  .landing {
+    margin: 7.5em auto 0;
+    width: 75%; }
+    .landing .landing__heading {
+      font-size: 3em; }
+    .landing .landing__text {
+      margin-bottom: 0; }
+  .players {
+    overflow: auto; }
+    .players .players__heading {
+      font-size: 2.5em; }
+    .players .players__info {
+      background-color: transparent; }
+    .players .players__add-section {
+      float: left;
+      box-sizing: border-box;
+      padding: 0 2em 2em;
+      width: 50%; }
+    .players .players__list-section {
+      float: left;
+      box-sizing: border-box;
+      padding: 0 2em 2em;
+      width: 50%; }
+  .footer-nav {
+    padding: 0 2em; }
+    .footer-nav a.footer-nav__link:first-of-type {
+      margin-right: 4em; } }
