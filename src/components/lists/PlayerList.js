@@ -22,7 +22,7 @@ const PlayerList = (props) => (
 						key={player.get('timestamp')} 
 						timestamp={player.get('timestamp')} 
 						name={player.get('name')} 
-						skill={player.get('skill')} 
+						rating={player.get('rating')} 
 						teamID={player.get('teamID')}
 						actionButtons={props.actionButtons}
 					/>

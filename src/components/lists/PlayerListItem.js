@@ -31,12 +31,12 @@ class PlayerListItem extends Component {
 	}
 
 	render() {
-		const { name, skill } = this.props;
+		const { name, rating } = this.props;
 
 		// TODO - better way of doing this?
 		const stars = [];
 
-		for(let i=0; i<skill; i++) {
+		for(let i=0; i<rating; i++) {
 			stars.push(<span key={i} className="player-ratings__star"></span>);
 		}
 

@@ -75,16 +75,15 @@ const removePlayer = (state, {timestamp}) => {
 	// }));
 }
 
-const balanceTeams = (state) => {
-
-	const playersBySkill = state.get('players').sort((a,b) => a.get('skill') - b.get('skill'));
+// generateTeams pulled into separate function, to allow recursive calls to balance teams based on rating.
+const generateTeams = (players) => {
 
 	let teamOneSize = 0;
 	let teamTwoSize = 0;
 
-	const maxTeamSize = state.get('players').size / 2;
+	const maxTeamSize = players.size / 2;
 
-	const playersWithTeam = playersBySkill.map(player => {
+	const playersWithTeam = players.map(player => {
 		const rng = Math.floor(Math.random() * 2) + 1;
 
 		if(teamOneSize < maxTeamSize && teamTwoSize < maxTeamSize) {
@@ -106,6 +105,70 @@ const balanceTeams = (state) => {
 	const teamOne = playersWithTeam.filter(player => player.get('teamID') === 1);
 	const teamTwo = playersWithTeam.filter(player => player.get('teamID') === 2);
 
+	const teamOneRating = teamOne.reduce((tot, player) => tot + player.get('rating'), 0);
+	const teamTwoRating = teamTwo.reduce((tot, player) => tot + player.get('rating'), 0);
+
+	const ratingDifference = Math.abs(teamOneRating - teamTwoRating);
+	const tolerance = 1;
+
+	console.log(teamOneRating, teamTwoRating, ratingDifference);
+
+	// Recursive call maintains randomn assignment and allows a rating difference tolerance
+	if(ratingDifference > tolerance) {
+		return generateTeams(players);
+	}
+
+	console.log(teamOneRating, teamTwoRating, ratingDifference);
+
+	return List([
+		teamOne,
+		teamTwo,
+	]);
+
+} 
+
+const balanceTeams = (state) => {
+
+	// const playersBySkill = state.get('players').sort((a,b) => a.get('rating') - b.get('rating'));
+
+	// APPROACH ONE - REGENERATE UNTIL TOLERANCE
+	const teams = generateTeams(state.get('players'));
+
+
+	const teamOne = teams.find(team => team.find(player => player.get('teamID') === 1));
+	const teamTwo = teams.find(team => team.find(player => player.get('teamID') === 2));
+
+
+
+	// let teamOneSize = 0;
+	// let teamTwoSize = 0;
+
+	// const maxTeamSize = state.get('players').size / 2;
+
+	// const playersWithTeam = state.get('players').map(player => {
+	// 	const rng = Math.floor(Math.random() * 2) + 1;
+
+	// 	if(teamOneSize < maxTeamSize && teamTwoSize < maxTeamSize) {
+	// 		rng === 1 ? teamOneSize += 1 : teamTwoSize += 1;
+	// 		return player.set('teamID', rng);
+	// 	}
+
+	// 	if(teamOneSize > maxTeamSize - 1) {
+	// 		teamTwoSize += 1;
+	// 		return player.set('teamID', 2);
+	// 	} 
+
+	// 	if(teamTwoSize > maxTeamSize - 1) {
+	// 		teamOneSize += 1;
+	// 		return player.set('teamID', 1);
+	// 	} 
+	// });
+
+	// const teamOne = playersWithTeam.filter(player => player.get('teamID') === 1);
+	// const teamTwo = playersWithTeam.filter(player => player.get('teamID') === 2);
+
+	
+
 	return state.update('teams', teams => teams.map(team => {
 
 		if(team.get('id') === 1) {
@@ -116,8 +179,7 @@ const balanceTeams = (state) => {
 
 	}));
 
-	// const teamOneRating = teamOne.reduce((tot, player) => tot + player.get('skill'), 0);
-	// const teamTwoRating = teamTwo.reduce((tot, player) => tot + player.get('skill'), 0);
+
 
 	// return state.update('teams', team => {
 

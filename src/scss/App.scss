@@ -198,8 +198,8 @@ h1, h2 {
 		.input--text {
 			@extend %input-text;
 		}
-		.skill-buttons {
-			.skill-buttons__text {
+		.rating-buttons {
+			.rating-buttons__text {
 				margin-bottom: 0;
 
 				color: $primary;
