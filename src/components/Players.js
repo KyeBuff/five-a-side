@@ -4,12 +4,18 @@ import NewPlayerForm from './forms/NewPlayerForm';
 import PlayerList from './lists/PlayerList';
 
 // Rename?
+// State which tracks if teams generated to prevent overwriting?
+
 class Players extends Component {
 
 	constructor(props) {
 		super(props);
 		this.addPlayer = this.addPlayer.bind(this);
 		this.balanceTeams = this.balanceTeams.bind(this);
+	}
+
+	componentDidMount() {
+		window.scrollTo(0, 0);
 	}
 
 	addPlayer(player) {
@@ -30,6 +36,11 @@ class Players extends Component {
 					<div className="players__add-section">
 						<h2 className="players__heading">Add a player</h2>
 						<NewPlayerForm addPlayer={this.addPlayer}/>
+						{players.size < 4 ? 
+						<p className="players__info--lg">At least {4 - players.size} more players required.</p>
+						:
+						null
+						}
 					</div>
 					<PlayerList 
 						players={players} 

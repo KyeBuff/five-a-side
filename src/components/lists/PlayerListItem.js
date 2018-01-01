@@ -27,9 +27,6 @@ class PlayerListItem extends Component {
 	}
 
 	removePlayer(e) {
-
-		//Removed edit functionality so that we push user to add player form at the top on remove
-		window.scrollTo(0, 0);
 		this.props.removePlayer();
 	}
 

@@ -185,11 +185,15 @@ h1, h2 {
 
 .players {
 	// Add players form
-
+	.players__add-section {
+		.players__info--lg {
+			display: none;
+		}
+	}
 	.players__heading {
 		@extend %h2;
 	}
-	
+
 	form {
 		.input--text {
 			@extend %input-text;
@@ -242,8 +246,6 @@ h1, h2 {
 	.players__info {
 		margin-top: $margin;
 		padding: $padding / 2;
-
-		background-color: $black;
 
 		color: $red;
 		text-align: center;
@@ -439,8 +441,8 @@ h1, h2 {
 		.players__heading {
 			font-size: 2.5em;
 		}
-		.players__info {
-			background-color: transparent;
+		.container-players__info--sm-md {
+			display: none;
 		}
 		.players__add-section {
 			float: left;
@@ -448,6 +450,15 @@ h1, h2 {
 			box-sizing: border-box;
 			padding: 0 $padding * 2 $padding * 2;
 			width: 50%;
+
+			.players__info--lg {
+				display: block;
+
+				padding: $padding / 2;
+
+				color: $red;
+				text-align: center;
+			}
 		}
 		.players__list-section {
 			float: left;
@@ -455,6 +466,11 @@ h1, h2 {
 			box-sizing: border-box;
 			padding: 0 $padding * 2 $padding * 2;
 			width: 50%;
+			.player-list--full {
+				align-items: flex-start;
+				align-content: flex-start;
+				height: 468.28px;
+			}
 		}
 	}
 
