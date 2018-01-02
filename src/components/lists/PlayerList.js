@@ -3,7 +3,7 @@ import PlayerListItem from '../../containers/PlayerListItem';
 
 const PlayerList = (props) => (
 	<div className="players__list-section">
-		<h2 className="players__heading">Current players</h2>
+		<h2 className="players__heading">{props.players.size === 0 ? "Players will show here..." : "Current players"}</h2>
 		{props.fullList ?
 		<div className="container-players__info--sm-md">
 			{props.players.size !== 0 && props.players.size < 4 ? 
