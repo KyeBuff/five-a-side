@@ -6,8 +6,9 @@ const PlayerList = (props) => (
 		<h2 className="players__heading">Current players</h2>
 		{props.fullList ?
 		<div className="container-players__info--sm-md">
-			{props.players.size < 4 ? 
-			<p className="players__info">At least {4 - props.players.size} more players required.</p>
+			{props.players.size !== 0 && props.players.size < 4 ? 
+				/* check if size === 3 as array is increasing*/
+			<p className="players__info">At least {4 - props.players.size} more {props.players.size === 3 ? "player" : "players"} required.</p>
 			:
 			null
 			}
