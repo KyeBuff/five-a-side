@@ -8,6 +8,7 @@ class Form extends Component {
 			name: "",
 			rating: 1,
 			valid: true,
+			showSkillOptions: false,
 		}
 		this.onNameChange = this.onNameChange.bind(this);
 		this.onSkillChange = this.onSkillChange.bind(this);
@@ -23,7 +24,9 @@ class Form extends Component {
 	onNameChange(e) {
 		const name = e.target.value;
 
-		this.setState({name});
+		const showSkillOptions = name.length > 0 ? true : false;
+
+		this.setState({name, showSkillOptions});
 	}
 
 	onSubmit(e) {
@@ -55,8 +58,9 @@ class Form extends Component {
 			<form onSubmit={this.onSubmit}>
 				<input className="input--text" type="text" placeholder="Player name..." onChange={this.onNameChange} value={this.state.name} />
 				{valid ? null : <p className="players__info">Please enter a player name</p>}
+				{this.state.showSkillOptions ? 
 				<div className="rating-buttons">
-					<p className="rating-buttons__text">Skill level</p>
+					<p className="rating-buttons__text">Choose a skill level</p>
 					<input id="radio-low" className="input--radio" type="radio" name="rating" value={1} onChange={this.onSkillChange} checked={this.state.rating === 1} />
 					<label htmlFor="radio-low" className="label-radio">Low</label>
 					<input id="radio-med" className="input--radio" type="radio" name="rating" value={2} onChange={this.onSkillChange} checked={this.state.rating === 2} />
@@ -64,6 +68,9 @@ class Form extends Component {
 					<input id="radio-high" className="input--radio" type="radio" name="rating" value={3} onChange={this.onSkillChange} checked={this.state.rating === 3} />
 					<label htmlFor="radio-high" className="label-radio">High</label>
 				</div>
+				:
+				null
+				}
 				<input className="btn btn--progress" type="submit" value="Add player" />
 			</form>
 		);	
