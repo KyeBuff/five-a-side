@@ -6,7 +6,7 @@ const Modal = (props) => (
 		<div className="modal__content">
 			<p className="modal__message">{props.message}</p>
 			<Link 
-				className="btn btn--progress modal__link"
+				className="btn btn--danger modal__link"
 				to={props.onProceed}
 			>Go back</Link> 
 			<button 

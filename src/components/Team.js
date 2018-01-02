@@ -49,6 +49,7 @@ class Team extends Component {
 	}
 
 	render() {
+		// TODO reusable footer nav component
 		const { team } = this.props;
 		return (
 			<div>

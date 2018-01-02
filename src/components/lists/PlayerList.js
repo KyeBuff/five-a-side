@@ -34,7 +34,7 @@ const PlayerList = (props) => (
 		{props.players.size > 0 && props.fullList ?
 			/*Style for btn different?*/
 		<button 
-			className="btn btn--progress"
+			className="btn btn--danger"
 			onClick={props.clearPlayers}
 		>Clear players
 		</button>
