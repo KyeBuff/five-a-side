@@ -30,8 +30,6 @@ class Players extends Component {
 
 	render() {
 		const { players } = this.props;
-		// TODO tidy up messages
-		// Warning that teams will be lost on go back?
 		return (
 			<div>
 				<section className="players">

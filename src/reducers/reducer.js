@@ -149,5 +149,25 @@ const reducer = (state=initialState, action) => {
 
 }
 
+// Selectors
+
+const fetchPlayers = state => {
+  return state.get('players');
+}
+
+const fetchTeamOne = state => {
+	return state.get('teams').find(team => team.get('id') === 1);
+}
+
+const fetchTeamTwo = state => {
+	return state.get('teams').find(team => team.get('id') === 2);
+}
+
 export default reducer;
+
+export {
+	fetchPlayers,
+	fetchTeamOne,
+	fetchTeamTwo
+}
 

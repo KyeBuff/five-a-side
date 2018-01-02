@@ -74,15 +74,23 @@ class Team extends Component {
 					<PlayerList 
 						players={team.get('players')} 
 						actionButtons={false}
+						fullList={false}
 						className="player-list"
 					/>
 					<nav className="footer-nav">
+						{team.get('id') === 2 ?
+						<Link 
+							className="btn footer-nav__link"
+							to="/team-one"
+						>Go back</Link> 
+						:
 						<button 
 							className="btn footer-nav__link"
 							onClick={this.showModal}
 						>Go back</button> 
+						}
 						<Link 
-							className="btn btn--progress" 
+							className="btn btn--progress footer-nav__link" 
 							to={team.get('id') === 1 ? "/team-two" : "/" }
 							>
 							{team.get('id') === 1 ? "Go to Team two" : "Return to home" }

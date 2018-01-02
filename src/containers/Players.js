@@ -1,11 +1,13 @@
 import { connect } from 'react-redux';
 import Players from '../components/Players';
 import {setPlayer, balanceTeams, clearPlayers} from '../actions/state';
+// Importing selector
+import { fetchPlayers } from '../reducers/reducer';
 
 const mapStateToProps = (state) => {
 	//TODO convert to selector
 	return {
-		players: state.get('players'),
+		players: fetchPlayers(state),
 	}
 }	
 

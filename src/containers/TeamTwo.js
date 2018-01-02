@@ -1,16 +1,16 @@
 import { connect } from 'react-redux';
 import { updateTeamName } from '../actions/state';
 import Team from '../components/Team';
+import {fetchTeamTwo} from '../reducers/reducer';
 
 const mapStateToProps = (state) => {
 	//TODO convert to selector
 	return {
-		team: state.get('teams').find(team => team.get('id') === 2),
+		team: fetchTeamTwo(state),
 	}
 }	
 
 const mapDispatchToProps = (dispatch, props) => {
-	//TODO more effective way? team id
 	const id = 2;
 	return {
 		updateTeamName: (teamName) => dispatch(updateTeamName(teamName, id)),

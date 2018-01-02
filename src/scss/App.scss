@@ -3,6 +3,8 @@
 	//Convert font types
 	//Logo size/styling
 
+	// TODO BOX SHADOWS
+
 // TODO - Team component styling
 @font-face {
 	font-family: "Iceland";
@@ -363,7 +365,7 @@ h1, h2 {
 	display: flex;
 	justify-content: space-between;
 
-	a.footer-nav__link:first-of-type {
+	.footer-nav__link:first-child {
 		margin-right: $margin * 2;
 	}
 }
@@ -381,6 +383,7 @@ h1, h2 {
 }
 
 // Modal
+// TODO SET MAX WIDTH
 
 .modal {
 	position: fixed;
@@ -544,7 +547,7 @@ h1, h2 {
 	}
 	.footer-nav {
 		padding: 0 $padding * 2;
-		a.footer-nav__link:first-of-type {
+		.footer-nav__link:first-child {
 			margin-right: $margin * 8;
 		}
 	}

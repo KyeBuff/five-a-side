@@ -206,7 +206,7 @@ h1, h2 {
 .footer-nav {
   display: flex;
   justify-content: space-between; }
-  .footer-nav a.footer-nav__link:first-of-type {
+  .footer-nav .footer-nav__link:first-child {
     margin-right: 1em; }
 
 .page-not-found .page-not-found__message {
@@ -314,5 +314,5 @@ h1, h2 {
     padding: 0 2em; }
   .footer-nav {
     padding: 0 2em; }
-    .footer-nav a.footer-nav__link:first-of-type {
+    .footer-nav .footer-nav__link:first-child {
       margin-right: 4em; } }
