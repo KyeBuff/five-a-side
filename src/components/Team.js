@@ -11,6 +11,10 @@ class Team extends Component {
 			teamName: this.props.team.get('teamName'),
 			isEditingName: false,
 			showModal: false,
+			modal: {
+				proceedTo: '',
+				message: '',
+			}
 		}
 		this.toggleEdit = this.toggleEdit.bind(this)
 		this.onNameChange = this.onNameChange.bind(this)
@@ -40,8 +44,14 @@ class Team extends Component {
 		this.props.updateTeamName(this.state.teamName);
 	}
 
-	showModal() {
-		this.setState({showModal: true});
+	showModal(proceedTo, message) {
+		this.setState({
+			showModal: true, 
+			modal: {
+				proceedTo,
+				message
+			}
+		});
 	}
 
 	hideModal() {
@@ -51,6 +61,7 @@ class Team extends Component {
 	render() {
 		// TODO reusable footer nav component
 		const { team } = this.props;
+
 		return (
 			<div>
 				<section className="team">
@@ -87,22 +98,35 @@ class Team extends Component {
 						:
 						<button 
 							className="btn footer-nav__link"
-							onClick={this.showModal}
+							onClick={() => {
+								this.showModal(team.get('id') === 1 ? "/players" : "/team-one", "You will lose your current teams if you go back. Do you still want to go back?")
+								}
+							}
 						>Go back</button> 
 						}
+						{team.get('id') === 1 ?
 						<Link 
 							className="btn btn--progress footer-nav__link" 
 							to={team.get('id') === 1 ? "/team-two" : "/" }
 							>
 							{team.get('id') === 1 ? "Go to Team two" : "Return to home" }
 						</Link>
+						:
+						<button 
+							className="btn btn--progress footer-nav__link"
+							onClick={() => {
+								this.showModal("/", "You will lose your current teams if you return to home. Do you still want to return to home?")
+								}
+							}
+						>Return to home</button>
+						}
 					</nav>
 				</section>
 				{this.state.showModal ?
 				<Modal 
 					onCancel={this.hideModal} 
-					onProceed={team.get('id') === 1 ? "/players" : "/team-one"}
-					message="You will lose your current teams if you go back. Do you still want to go back?"
+					onProceed={this.state.modal.proceedTo}
+					message={this.state.modal.message}
 					/>
 				:
 				null

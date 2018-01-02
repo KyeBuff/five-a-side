@@ -23,13 +23,14 @@
 $primary: #FFF;
 $secondary: #F2D72D;
 $danger: #9F1E00;
+$warning: #C46A11;
 $gray: #CDCDCD;
 $black: #1B1C20;
 
 // Fonts
 $main-header-font: "Iceland", "Courier", serif;
 $sans-font: "Jura", "Courier", sans-serif;
-
+ 
 // Size
 $sub-heading: 1.5em;
 $inputFontSize: 1.5em;
@@ -48,8 +49,9 @@ $margin: .5em;
 	margin: $margin / 1.25 0 $margin * 2;
 
 	box-sizing: border-box;
+	border-radius: 5px;
 	padding: $padding / 3;
-	width: 100%;
+		width: 100%;
 
 	font-family: $sans-font;
 	font-size: $inputFontSize;
@@ -74,6 +76,7 @@ $margin: .5em;
 
 	background-color: $bgColor;
 	border: none;
+	border-radius: 5px;
 	box-shadow: 1.5px 3px 3px $black;
 
 	color: $black;
@@ -86,7 +89,8 @@ $margin: .5em;
 body {
 	min-height: 100vh;
 
-	background-image: url("./assets/images/app-bg.jpg");
+	background-image: linear-gradient($black, transparent 150%),
+		url("./assets/images/app-bg.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 }
@@ -168,6 +172,8 @@ h1, h2 {
 	padding: $padding;
 
 	.header__main-heading {
+		margin: 0;
+
 		color: $primary;
 		font-size: 4em;
 
@@ -204,7 +210,9 @@ h1, h2 {
 			margin-top: $margin;
 			padding: $padding / 2;
 
-			color: $danger;
+			background-color: $warning;
+
+			color: $primary;
 			text-align: center;
 		}
 		.players__info--lg {
@@ -236,8 +244,7 @@ h1, h2 {
 				background-color: $gray;
 			}			
 		}
-		
-
+		//TODO border radius
 		.label-radio {
 			display: inline-block;
 
@@ -251,7 +258,6 @@ h1, h2 {
 
 			background-color: $primary;
 		}
-		
 	}
 }
 
@@ -268,7 +274,9 @@ h1, h2 {
 		margin-top: $margin;
 		padding: $padding / 2;
 
-		color: $danger;
+		background-color: $warning;
+
+		color: $primary;
 		text-align: center;
 	}
 	.player-list {
@@ -280,6 +288,7 @@ h1, h2 {
 			padding: $padding / 1.5;
 
 			background-color: $primary;
+			border-radius: 5px;
 			box-shadow: 1.5px 3px 3px $black;
 
 			font-family: $sans-font;
@@ -342,6 +351,9 @@ h1, h2 {
 	.team__heading {
 		@extend %h2;
 		margin-top: 0;
+		margin-bottom: $margin / 4;
+
+		font-size: 3.5em;
 	}
 	.team__button--edit {
 		display: block;
@@ -504,7 +516,8 @@ h1, h2 {
 @media (min-width: 1200px) {
 
 	.container {
-		width: 60%;
+		max-width: 800px;
+		width: 70%;
 	}
 
 	.header {
@@ -545,7 +558,9 @@ h1, h2 {
 
 				padding: $padding / 2;
 
-				color: $danger;
+				background-color: $warning;
+
+				xcolor: $primary;
 				text-align: center;
 			}
 		}
@@ -555,6 +570,11 @@ h1, h2 {
 			box-sizing: border-box;
 			padding: 0 $padding * 2 $padding * 2;
 			width: 50%;
+
+			.name--small {
+				font-size: .8em;
+			}
+
 			.player-list--full {
 				align-items: flex-start;
 				align-content: flex-start;
@@ -581,7 +601,7 @@ h1, h2 {
 	.footer-nav {
 		padding: 0 $padding * 2;
 		.footer-nav__link:first-child {
-			margin-right: $margin * 8;
+			// margin-right: $margin * 8;
 		}
 	}
 

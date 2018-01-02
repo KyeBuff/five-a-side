@@ -38,7 +38,7 @@ class Players extends Component {
 						<NewPlayerForm addPlayer={this.addPlayer}/>
 						{players.size !== 0 && players.size < 4 ? 
 						/* check if size === 3 as array is increasing*/
-						<p className="players__info--lg">At least {4 - players.size} more {players.size === 3 ? "players" : "player"} required.</p>
+						<p className="players__info--lg">At least {4 - players.size} more {players.size === 3 ? "player" : "players"} required.</p>
 						:
 						null
 						}

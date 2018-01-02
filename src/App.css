@@ -11,6 +11,7 @@
   display: block;
   margin: 0.4em 0 1em;
   box-sizing: border-box;
+  border-radius: 5px;
   padding: 0.33333em;
   width: 100%;
   font-family: "Jura", "Courier", sans-serif;
@@ -23,7 +24,7 @@
 
 body {
   min-height: 100vh;
-  background-image: url("./assets/images/app-bg.jpg");
+  background-image: linear-gradient(#1B1C20, transparent 150%), url("./assets/images/app-bg.jpg");
   background-size: cover;
   background-repeat: no-repeat; }
 
@@ -57,6 +58,7 @@ h1, h2 {
   width: 100%;
   background-color: #FFF;
   border: none;
+  border-radius: 5px;
   box-shadow: 1.5px 3px 3px #1B1C20;
   color: #1B1C20;
   font-family: "Jura", "Courier", sans-serif;
@@ -80,6 +82,7 @@ h1, h2 {
   width: 100%;
   background-color: #F2D72D;
   border: none;
+  border-radius: 5px;
   box-shadow: 1.5px 3px 3px #1B1C20;
   color: #1B1C20;
   font-family: "Jura", "Courier", sans-serif;
@@ -94,6 +97,7 @@ h1, h2 {
   width: 100%;
   background-color: #9F1E00;
   border: none;
+  border-radius: 5px;
   box-shadow: 1.5px 3px 3px #1B1C20;
   color: #1B1C20;
   font-family: "Jura", "Courier", sans-serif;
@@ -108,6 +112,7 @@ h1, h2 {
 .header {
   padding: 1em; }
   .header .header__main-heading {
+    margin: 0;
     color: #FFF;
     font-size: 4em; }
     .header .header__main-heading span {
@@ -128,7 +133,8 @@ h1, h2 {
 .players .players__add-section .players__info {
   margin-top: 0.5em;
   padding: 0.5em;
-  color: #9F1E00;
+  background-color: #C46A11;
+  color: #FFF;
   text-align: center; }
 
 .players .players__add-section .players__info--lg {
@@ -159,7 +165,8 @@ h1, h2 {
 .players__list-section .players__info {
   margin-top: 0.5em;
   padding: 0.5em;
-  color: #9F1E00;
+  background-color: #C46A11;
+  color: #FFF;
   text-align: center; }
 
 .players__list-section .player-list {
@@ -169,6 +176,7 @@ h1, h2 {
     margin: 0.5em 0;
     padding: 0.66667em;
     background-color: #FFF;
+    border-radius: 5px;
     box-shadow: 1.5px 3px 3px #1B1C20;
     font-family: "Jura", "Courier", sans-serif;
     font-size: 1.25em; }
@@ -206,7 +214,9 @@ h1, h2 {
       text-decoration: underline; }
 
 .team .team__heading {
-  margin-top: 0; }
+  margin-top: 0;
+  margin-bottom: 0.125em;
+  font-size: 3.5em; }
 
 .team .team__button--edit {
   display: block;
@@ -298,7 +308,8 @@ h1, h2 {
 
 @media (min-width: 1200px) {
   .container {
-    width: 60%; }
+    max-width: 800px;
+    width: 70%; }
   .header {
     margin-top: 0; }
     .header .header__main-heading {
@@ -324,13 +335,16 @@ h1, h2 {
       .players .players__add-section .players__info--lg {
         display: block;
         padding: 0.5em;
-        color: #9F1E00;
+        background-color: #C46A11;
+        xcolor: #FFF;
         text-align: center; }
     .players .players__list-section {
       float: left;
       box-sizing: border-box;
       padding: 0 2em 2em;
       width: 50%; }
+      .players .players__list-section .name--small {
+        font-size: .8em; }
       .players .players__list-section .player-list--full {
         align-items: flex-start;
         align-content: flex-start;
@@ -343,8 +357,6 @@ h1, h2 {
     padding: 0 2em; }
   .footer-nav {
     padding: 0 2em; }
-    .footer-nav .footer-nav__link:first-child {
-      margin-right: 4em; }
   .modal .modal__content {
     left: 33.3%;
     width: 33.3%; } }
