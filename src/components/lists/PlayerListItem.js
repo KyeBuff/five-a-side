@@ -18,14 +18,14 @@ class PlayerListItem extends Component {
 
 		for(let i=0; i<rating; i++) {
 			stars.push(
-				<span key={i} className="player-ratings__star"></span>
+				<span key={i} className="ratings__star"></span>
 			);
 		}
 
 		return (
 	  	<li className="player-list__item">
 				<span className={name.length > 7 ? "name--small" : "name"}>{name.length >= 11 ? name.slice(0, 9) + "..." : name}</span>
-	  		<div className="player-ratings">
+	  		<div className="ratings">
 	  			{stars.map(star => star)}
 	  		</div>
 	  		{this.props.actionButtons ? 

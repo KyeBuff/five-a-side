@@ -180,6 +180,13 @@ h1, h2 {
     box-shadow: 1.5px 3px 3px #1B1C20;
     font-family: "Jura", "Courier", sans-serif;
     font-size: 1.25em; }
+    .players__list-section .player-list .player-list__item .ratings .ratings__star {
+      display: inline-block;
+      height: 15px;
+      margin-top: 0.25em;
+      width: 15px;
+      background-image: url("./assets/images/icons/star.png");
+      background-size: cover; }
     .players__list-section .player-list .player-list__item .player-list__item__button--delete {
       position: absolute;
       right: 1em;
@@ -189,16 +196,6 @@ h1, h2 {
       background-image: url("./assets/images/icons/delete.png");
       background-size: 90%;
       background-repeat: no-repeat; }
-
-.ratings {
-  text-align: center; }
-  .ratings .ratings__star {
-    display: inline-block;
-    height: 15px;
-    margin-top: 0.25em;
-    width: 15px;
-    background-image: url("./assets/images/icons/star.png");
-    background-size: cover; }
 
 .team .team__heading {
   margin-top: 0;
@@ -220,8 +217,18 @@ h1, h2 {
   position: relative;
   border: 3px solid #FFF;
   height: 33.3vh;
+  margin: 1em 0;
   background-color: #1B1C20;
   opacity: 0.8; }
+  .team .team__formation .pitch .ratings {
+    text-align: center; }
+    .team .team__formation .pitch .ratings .ratings__star {
+      display: inline-block;
+      height: 15px;
+      margin-top: 0.25em;
+      width: 15px;
+      background-image: url("./assets/images/icons/star.png");
+      background-size: cover; }
 
 .team .team__formation .pitch__player {
   position: absolute; }

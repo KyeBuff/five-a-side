@@ -265,6 +265,7 @@ h1, h2 {
 
 //TODO Button styling 
 //TODO CLASS NAMING?
+// TODO rename ratings and make a mixin/placeholder
 .players__list-section {
 	.players__heading {
 		@extend %h2;
@@ -293,6 +294,17 @@ h1, h2 {
 
 			font-family: $sans-font;
 			font-size: 1.25em;
+			.ratings {
+				.ratings__star {
+					display: inline-block;
+					height: 15px;
+					margin-top: $margin / 2;
+					width: 15px;
+
+					background-image: url("./assets/images/icons/star.png");
+					background-size: cover;
+				}
+			}
 			.player-list__item__button--delete {
 				position: absolute;
 				right: $padding;
@@ -307,19 +319,6 @@ h1, h2 {
 				background-repeat: no-repeat;
 			}
 		}
-	}
-}
-
-.ratings {
-	text-align: center;
-	.ratings__star {
-		display: inline-block;
-		height: 15px;
-		margin-top: $margin / 2;
-		width: 15px;
-
-		background-image: url("./assets/images/icons/star.png");
-		background-size: cover;
 	}
 }
 
@@ -351,15 +350,29 @@ h1, h2 {
 		}
 
 	}
+	// TODO style formation better for sm devices
 	.team__formation {
 		.pitch {
 			position: relative;
 
 			border: 3px solid $primary;
 			height: 33.3vh;
+			margin: $margin * 2 0;
 
 			background-color: $black;
 			opacity: 0.8;
+			.ratings {
+				text-align: center;
+				.ratings__star {
+					display: inline-block;
+					height: 15px;
+					margin-top: $margin / 2;
+					width: 15px;
+
+					background-image: url("./assets/images/icons/star.png");
+					background-size: cover;
+				}
+			}
 		}
 		.pitch__player {
 			position: absolute;
