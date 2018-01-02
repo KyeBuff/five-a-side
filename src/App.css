@@ -194,7 +194,8 @@ h1, h2 {
       height: 20px;
       width: 20px;
       background-image: url("./assets/images/icons/delete.png");
-      background-size: cover; }
+      background-size: 90%;
+      background-repeat: no-repeat; }
 
 .team .team__heading {
   margin-top: 0;

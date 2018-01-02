@@ -312,7 +312,9 @@ h1, h2 {
 				width: 20px;
 
 				background-image: url("./assets/images/icons/delete.png");
-				background-size: cover; 
+				// Prevents iPad and iPhone image clip bug
+				background-size: 90%; 
+				background-repeat: no-repeat;
 			}
 		}
 	}
