@@ -303,30 +303,6 @@ h1, h2 {
 				background-image: url("./assets/images/icons/star.png");
 				background-size: cover;
 			}
-			.player-list__item__button--edit {
-				display: block;
-
-				padding: 0;
-				width: 75%;
-
-				font-family: $sans-font;
-				font-size: 1.25em;
-
-				text-align: left;
-
-				& .edit-icon {
-					display: inline-block;
-
-					height: 15px;
-					width: 15px;
-
-					background-image: url("./assets/images/icons/edit.png");
-					background-size: cover; 
-					background-position: top;
-
-					font-size: .5em;
-				}
-			}
 			.player-list__item__button--delete {
 				position: absolute;
 				right: $padding;
@@ -337,9 +313,6 @@ h1, h2 {
 
 				background-image: url("./assets/images/icons/delete.png");
 				background-size: cover; 
-
-				font-family: $sans-font;
-				text-decoration: underline;
 			}
 		}
 	}
