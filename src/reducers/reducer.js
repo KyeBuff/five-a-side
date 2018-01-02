@@ -56,14 +56,15 @@ const removePlayer = (state, {timestamp}) => {
 
 //Recursive calls are made until the defined rating tolerance is met
 
-const generateTeams = (players) => {
+//generateTeams helper functions
+const assignTeamID = (players) => {
 
-	let teamOneSize = 0;
-	let teamTwoSize = 0;
+	let teamOneSize = 0,
+	teamTwoSize = 0;
 
 	const maxTeamSize = players.size / 2;
 
-	const playersWithTeam = players.map(player => {
+	return players.map(player => {
 		const rng = Math.floor(Math.random() * 2) + 1;
 
 		//Random assingment when both teams have < the max team size
@@ -72,12 +73,12 @@ const generateTeams = (players) => {
 			return player.set('teamID', rng);
 		}
 
-		if(teamOneSize > maxTeamSize - 1) {
+		if(teamOneSize >= maxTeamSize ) {
 			teamTwoSize += 1;
 			return player.set('teamID', 2);
 		} 
 
-		if(teamTwoSize > maxTeamSize - 1) {
+		if(teamTwoSize >= maxTeamSize) {
 			teamOneSize += 1;
 			return player.set('teamID', 1);
 		} 
@@ -85,20 +86,30 @@ const generateTeams = (players) => {
 		return player;
 
 	});
+}
+
+const allocatePlayers = (players, id) => players.filter(player => player.get('teamID') === id);
+
+const calcTeamRating = (players) => players.reduce((tot, player) => tot + player.get('rating'), 0);
+
+const generateTeams = (players) => {
+
+	const playersWithTeamID = assignTeamID(players);
 
 	//Allocate players to team based on assigned teamID
-	const teamOnePlayers = playersWithTeam.filter(player => player.get('teamID') === 1);
-	const teamTwoPlayers = playersWithTeam.filter(player => player.get('teamID') === 2);
+	const teamOnePlayers = allocatePlayers(playersWithTeamID, 1);
+	const teamTwoPlayers = allocatePlayers(playersWithTeamID, 2);
 
 	//Get total team ratings
-	const teamOneRating = teamOnePlayers.reduce((tot, player) => tot + player.get('rating'), 0);
-	const teamTwoRating = teamTwoPlayers.reduce((tot, player) => tot + player.get('rating'), 0);
+	const teamOneRating = calcTeamRating(teamOnePlayers);
+	const teamTwoRating = calcTeamRating(teamTwoPlayers);
 
 	const ratingDifference = Math.abs(teamOneRating - teamTwoRating);
 
 	// Tolerance set to 1 if total team ratings are odd and 0 for even to prevent infinite loop 
 	const tolerance = (teamOneRating + teamTwoRating) % 2;
 
+	//recursive call until tolerance satisfied
 	if(ratingDifference > tolerance) {
 		return generateTeams(players);
 	}
@@ -110,12 +121,17 @@ const generateTeams = (players) => {
 
 } 
 
+// balanceTeams helper functions
+
+const getTeambyID = (teams, id) => teams.find(team => team.find(player => player.get('teamID') === id));
+
 const balanceTeams = (state) => {
 
+	//Helper function which returns teams of equal length with balanced ratings
 	const teams = generateTeams(state.get('players'));
 
-	const teamOnePlayers = teams.find(team => team.find(player => player.get('teamID') === 1));
-	const teamTwoPlayers = teams.find(team => team.find(player => player.get('teamID') === 2));
+	const teamOnePlayers = getTeambyID(teams, 1);
+	const teamTwoPlayers = getTeambyID(teams, 2);
 
 	return state.update('teams', teams => teams.map(team => {
 
@@ -129,11 +145,7 @@ const balanceTeams = (state) => {
 
 }
 
-const clearPlayers = (state) => {
-
-	return state.set('players', List([]));
-
-}
+const clearPlayers = (state) => state.set('players', List([]));
 
 const reducer = (state=initialState, action) => {
 
@@ -151,17 +163,11 @@ const reducer = (state=initialState, action) => {
 
 // Selectors
 
-const fetchPlayers = state => {
-  return state.get('players');
-}
+const fetchPlayers = state => state.get('players');
 
-const fetchTeamOne = state => {
-	return state.get('teams').find(team => team.get('id') === 1);
-}
+const fetchTeamOne = state => state.get('teams').find(team => team.get('id') === 1);
 
-const fetchTeamTwo = state => {
-	return state.get('teams').find(team => team.get('id') === 2);
-}
+const fetchTeamTwo = state => state.get('teams').find(team => team.get('id') === 2);
 
 export default reducer;
 

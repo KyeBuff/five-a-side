@@ -5,13 +5,12 @@ import Team from '../components/Team';
 import {fetchTeamOne} from '../reducers/reducer';
 
 const mapStateToProps = (state) => {
-	//TODO convert to selector
 	return {
 		team: fetchTeamOne(state),
 	}
 }	
 
-const mapDispatchToProps = (dispatch, props) => {
+const mapDispatchToProps = (dispatch) => {
 	//TODO more effective way? team id
 	const id = 1;
 	return {

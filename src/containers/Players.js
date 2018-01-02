@@ -5,7 +5,6 @@ import {setPlayer, balanceTeams, clearPlayers} from '../actions/state';
 import { fetchPlayers } from '../reducers/reducer';
 
 const mapStateToProps = (state) => {
-	//TODO convert to selector
 	return {
 		players: fetchPlayers(state),
 	}

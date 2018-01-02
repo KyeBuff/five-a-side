@@ -4,7 +4,6 @@ import Team from '../components/Team';
 import {fetchTeamTwo} from '../reducers/reducer';
 
 const mapStateToProps = (state) => {
-	//TODO convert to selector
 	return {
 		team: fetchTeamTwo(state),
 	}
