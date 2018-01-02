@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { updateTeamName } from '../actions/state';
-import Team from '../components/Team';
+import Team from '../components/teams/Team';
 // import selectors
 import {fetchTeamOne} from '../reducers/reducer';
 

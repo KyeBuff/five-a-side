@@ -180,13 +180,6 @@ h1, h2 {
     box-shadow: 1.5px 3px 3px #1B1C20;
     font-family: "Jura", "Courier", sans-serif;
     font-size: 1.25em; }
-    .players__list-section .player-list .player-list__item .player-ratings__star {
-      display: inline-block;
-      height: 15px;
-      margin-top: 0.25em;
-      width: 15px;
-      background-image: url("./assets/images/icons/star.png");
-      background-size: cover; }
     .players__list-section .player-list .player-list__item .player-list__item__button--delete {
       position: absolute;
       right: 1em;
@@ -196,6 +189,16 @@ h1, h2 {
       background-image: url("./assets/images/icons/delete.png");
       background-size: 90%;
       background-repeat: no-repeat; }
+
+.ratings {
+  text-align: center; }
+  .ratings .ratings__star {
+    display: inline-block;
+    height: 15px;
+    margin-top: 0.25em;
+    width: 15px;
+    background-image: url("./assets/images/icons/star.png");
+    background-size: cover; }
 
 .team .team__heading {
   margin-top: 0;
@@ -212,6 +215,42 @@ h1, h2 {
     display: inline-block;
     margin-top: .5em;
     text-decoration: underline; }
+
+.team .team__formation .pitch {
+  position: relative;
+  border: 3px solid #FFF;
+  height: 33.3vh;
+  background-color: #1B1C20;
+  opacity: 0.8; }
+
+.team .team__formation .pitch__player {
+  position: absolute; }
+  .team .team__formation .pitch__player .pitch__player__name {
+    display: block;
+    width: 100px;
+    color: #FFF;
+    font-family: "Jura", "Courier", sans-serif;
+    text-align: center; }
+
+.team .team__formation .pitch__player-0 {
+  top: 10%;
+  left: calc(50% - 50px); }
+
+.team .team__formation .pitch__player-1 {
+  top: calc(40% - 10px);
+  left: calc(50% - 50px); }
+
+.team .team__formation .pitch__player-2 {
+  bottom: 15%;
+  left: calc(50% - 50px); }
+
+.team .team__formation .pitch__player-3 {
+  top: calc(50% - 10px);
+  left: 20%; }
+
+.team .team__formation .pitch__player-4 {
+  top: calc(50% - 10px);
+  right: 20%; }
 
 .team form .input--text {
   margin-top: 1.5em; }

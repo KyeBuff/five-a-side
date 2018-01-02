@@ -293,16 +293,6 @@ h1, h2 {
 
 			font-family: $sans-font;
 			font-size: 1.25em;
-
-			.player-ratings__star {
-				display: inline-block;
-				height: 15px;
-				margin-top: $margin / 2;
-				width: 15px;
-
-				background-image: url("./assets/images/icons/star.png");
-				background-size: cover;
-			}
 			.player-list__item__button--delete {
 				position: absolute;
 				right: $padding;
@@ -317,6 +307,19 @@ h1, h2 {
 				background-repeat: no-repeat;
 			}
 		}
+	}
+}
+
+.ratings {
+	text-align: center;
+	.ratings__star {
+		display: inline-block;
+		height: 15px;
+		margin-top: $margin / 2;
+		width: 15px;
+
+		background-image: url("./assets/images/icons/star.png");
+		background-size: cover;
 	}
 }
 
@@ -347,6 +350,49 @@ h1, h2 {
 			text-decoration: underline;
 		}
 
+	}
+	.team__formation {
+		.pitch {
+			position: relative;
+
+			border: 3px solid $primary;
+			height: 33.3vh;
+
+			background-color: $black;
+			opacity: 0.8;
+		}
+		.pitch__player {
+			position: absolute;
+			.pitch__player__name {
+				display: block;
+
+				width: 100px;
+
+				color: $primary;
+				font-family: $sans-font;
+				text-align: center;
+			}
+		}
+		.pitch__player-0 {
+			top: 	10%;
+			left: calc(50% - 50px);
+		}
+		.pitch__player-1 {
+			top: 	calc(40% - 10px);
+			left: calc(50% - 50px);
+		}
+		.pitch__player-2 {
+			bottom: 15%;
+			left: calc(50% - 50px);
+		}
+		.pitch__player-3 {
+			top: 	calc(50% - 10px);
+			left: 20%;
+		}
+		.pitch__player-4 {
+			top: 	calc(50% - 10px);
+			right: 20%;
+		}
 	}
 	form {
 		.input--text {

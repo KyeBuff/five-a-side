@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
-import PlayerList from './lists/PlayerList';
-import Modal from './Modal';
-import FourOhFour from './FourOhFour';
+import PlayerList from '../lists/PlayerList';
+import TeamFormation from './TeamFormation';
+import Modal from '../Modal';
+import FourOhFour from '../FourOhFour';
 
 class Team extends Component {
 
@@ -87,11 +88,8 @@ class Team extends Component {
 							<span className="team__button__text">Edit team name</span>
 						</button> 
 						}
-						<PlayerList 
+						<TeamFormation 
 							players={team.get('players')} 
-							actionButtons={false}
-							fullList={false}
-							className="player-list"
 						/>
 						<nav className="footer-nav">
 							{team.get('id') === 2 ?
@@ -146,5 +144,12 @@ class Team extends Component {
 }
 
 export default Team;
+
+// <PlayerList 
+// 							players={team.get('players')} 
+// 							actionButtons={false}
+// 							fullList={false}
+// 							className="player-list"
+// 						/>
 
 					
