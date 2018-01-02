@@ -54,7 +54,7 @@ class Form extends Component {
 		return (
 			<form onSubmit={this.onSubmit}>
 				<input className="input--text" type="text" placeholder="Player name..." onChange={this.onNameChange} value={this.state.name} />
-				{valid ? null : <p className="add-players__info">Please enter a player name</p>}
+				{valid ? null : <p className="players__info">Please enter a player name</p>}
 				<div className="rating-buttons">
 					<p className="rating-buttons__text">Skill level</p>
 					<input id="radio-low" className="input--radio" type="radio" name="rating" value={1} onChange={this.onSkillChange} checked={this.state.rating === 1} />

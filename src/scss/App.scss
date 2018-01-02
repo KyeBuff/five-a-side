@@ -186,6 +186,13 @@ h1, h2 {
 .players {
 	// Add players form
 	.players__add-section {
+		.players__info {
+			margin-top: $margin;
+			padding: $padding / 2;
+
+			color: $red;
+			text-align: center;
+		}
 		.players__info--lg {
 			display: none;
 		}
@@ -361,6 +368,18 @@ h1, h2 {
 	}
 }
 
+.page-not-found {
+	.page-not-found__message {
+		color: $primary;	
+		font-size: 1.25em;
+		text-align: center;
+	}
+	.page-not-found__link {
+		color: $secondary;
+		text-decoration: underline;
+	}
+}
+
 @media (min-width: 768px) {
 	.container { 
 		margin: 0 auto;
@@ -378,7 +397,7 @@ h1, h2 {
 		flex-wrap: wrap;
 		justify-content: space-between;
 		.player-list__item {
-			flex: 1 0 48%;
+			flex: 1 0 45%;
 
 			box-sizing: border-box;
 			&:nth-of-type(odd) {
@@ -415,7 +434,7 @@ h1, h2 {
 @media (min-width: 1200px) {
 
 	.container {
-		width: 80%;
+		width: 60%;
 	}
 
 	.header {
@@ -469,11 +488,20 @@ h1, h2 {
 			.player-list--full {
 				align-items: flex-start;
 				align-content: flex-start;
-				height: 468.28px;
+
+				padding: 0;
 			}
 		}
 	}
 
+	.team {
+		.players__list-section {
+			.player-list {
+				padding: 0 $padding * 2;
+			}
+		}
+
+	}
 	.footer-nav {
 		padding: 0 $padding * 2;
 		a.footer-nav__link:first-of-type {

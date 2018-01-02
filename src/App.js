@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.min.css';
 import Header from './components/Header';
+import FourOhFour from './components/FourOhFour';
 import TeamOne from './containers/TeamOne';
 import TeamTwo from './containers/TeamTwo';
 import Players from './containers/Players';
@@ -11,7 +12,6 @@ import {
 } from "react-router-dom";
 
 //TODO
-//404
 //Prevent user entering URL team-one etc
 
 // TODO 
@@ -27,6 +27,7 @@ class App extends Component {
           <Route path="/players" component={Players} />
           <Route path="/team-one" component={TeamOne} />
           <Route path="/team-two" component={TeamTwo} />
+          <FourOhFour />
         </Switch>
       </div>
     );
