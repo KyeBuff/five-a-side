@@ -30,6 +30,15 @@ const PlayerList = (props) => (
 				)
 			}
 		</ul>
+		{props.players.size > 0 ?
+			/*Style for btn different?*/
+		<button 
+			className="btn btn--progress"
+			onClick={props.clearPlayers}
+		>Clear players
+		</button>
+		:
+		null}
 	</div>
 )
 

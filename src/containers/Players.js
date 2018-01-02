@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Players from '../components/Players';
-import {setPlayer, balanceTeams} from '../actions/state';
+import {setPlayer, balanceTeams, clearPlayers} from '../actions/state';
 
 const mapStateToProps = (state) => {
 	//TODO convert to selector
@@ -13,6 +13,7 @@ const mapDispatchToProps = (dispatch) => {
 	return {
 		addPlayer: (player) => dispatch(setPlayer(player)),
 		balanceTeams: () => dispatch(balanceTeams()),
+		clearPlayers: () => dispatch(clearPlayers()),
 	}
 }	
 

@@ -3,15 +3,13 @@ import { Link } from 'react-router-dom';
 import NewPlayerForm from './forms/NewPlayerForm';
 import PlayerList from './lists/PlayerList';
 
-// Rename?
-// State which tracks if teams generated to prevent overwriting?
-
 class Players extends Component {
 
 	constructor(props) {
 		super(props);
 		this.addPlayer = this.addPlayer.bind(this);
 		this.balanceTeams = this.balanceTeams.bind(this);
+		this.clearPlayers = this.clearPlayers.bind(this);
 	}
 
 	componentDidMount() {
@@ -24,6 +22,10 @@ class Players extends Component {
 
 	balanceTeams() {
 		this.props.balanceTeams();
+	}
+
+	clearPlayers() {
+		this.props.clearPlayers();
 	}
 
 	render() {
@@ -46,6 +48,7 @@ class Players extends Component {
 						players={players} 
 						actionButtons={true}
 						fullList={true}
+						clearPlayers={this.clearPlayers}
 					/>
 				</section>
 				<nav className="footer-nav">

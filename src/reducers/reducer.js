@@ -129,6 +129,12 @@ const balanceTeams = (state) => {
 
 }
 
+const clearPlayers = (state) => {
+
+	return state.set('players', List([]));
+
+}
+
 const reducer = (state=initialState, action) => {
 
 	switch(action.type) {
@@ -137,6 +143,7 @@ const reducer = (state=initialState, action) => {
 		case "[Teams][Team][Players][Player] updatePlayerName": return updatePlayerName(state, action);
 		case "[Teams][Team][Players][Player] removePlayer": return removePlayer(state, action)
 		case "[Teams] balanceTeams": return balanceTeams(state)
+		case "[Teams] clearPlayers": return clearPlayers(state)
 		default: return state;
 	}
 

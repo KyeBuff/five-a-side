@@ -4,6 +4,7 @@ const actionTypes = {
 	UPDATE_PLAYER_NAME: "[Teams][Team][Players][Player] updatePlayerName",
 	REMOVE_PLAYER: "[Teams][Team][Players][Player] removePlayer",
 	BALANCE_TEAMS: "[Teams] balanceTeams",
+	CLEAR_PLAYERS: "[Teams] clearPlayers",
 }
 
 const setPlayer = (player) => ({
@@ -26,9 +27,14 @@ const balanceTeams = () => ({
 	type: actionTypes.BALANCE_TEAMS
 });
 
+const clearPlayers = () => ({
+	type: actionTypes.CLEAR_PLAYERS
+});
+
 export {
 	setPlayer,
 	updateTeamName,
 	removePlayer,
 	balanceTeams,
+	clearPlayers
 }

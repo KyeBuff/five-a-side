@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import PlayerList from './lists/PlayerList';
 import Modal from './Modal';
 
-// Rename?
 class Team extends Component {
 
 	constructor(props) {
