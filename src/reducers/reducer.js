@@ -20,16 +20,9 @@ const initialState = Map({
 
 
 // TODO same name validation
-const setPlayer = (state, player) => {
 
-	//Update players list to pass down to PlayerList.
-	if(state.get('players').size < 10) {
-		return state.update('players', players => players.push(Map(player)));
-	}
-
-	return state;
-
-}
+//Update players list if size is < 10 to pass down to PlayerList.
+const setPlayer = (state, player) => state.get('players').size < 10	? state.update('players', players => players.push(Map(player))) : state;
 
 const updateTeamName = (state, {teamName, id}) => {
 
@@ -42,15 +35,7 @@ const updateTeamName = (state, {teamName, id}) => {
 
 }
 
-const updatePlayerName = (state, {playerName, id}) => {
-	return state;
-}
-
-const removePlayer = (state, {timestamp}) => {
-
-	return state.update('players', players => players.filter(player => player.get('timestamp') !== timestamp));
-
-}
+const removePlayer = (state, {timestamp}) => state.update('players', players => players.filter(player => player.get('timestamp') !== timestamp));
 
 // generateTeams is a function that takes a list of players and produces two teams balanced by size and rating
 
@@ -152,7 +137,6 @@ const reducer = (state=initialState, action) => {
 	switch(action.type) {
 		case "[Players] setPlayer": return setPlayer(state, action.player);
 		case "[Teams][Team] updateTeamName": return updateTeamName(state, action);
-		case "[Teams][Team][Players][Player] updatePlayerName": return updatePlayerName(state, action);
 		case "[Teams][Team][Players][Player] removePlayer": return removePlayer(state, action)
 		case "[Teams] balanceTeams": return balanceTeams(state)
 		case "[Teams] clearPlayers": return clearPlayers(state)
