@@ -11,9 +11,6 @@ import {
     Switch,
 } from "react-router-dom";
 
-//TODO
-//Prevent user entering URL team-one etc
-
 // TODO 
 //Save teams at the end
 

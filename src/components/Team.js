@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import PlayerList from './lists/PlayerList';
+import Modal from './Modal';
 
 // Rename?
 class Team extends Component {
@@ -10,10 +11,13 @@ class Team extends Component {
 		this.state = {
 			teamName: this.props.team.get('teamName'),
 			isEditingName: false,
+			showModal: false,
 		}
 		this.toggleEdit = this.toggleEdit.bind(this)
 		this.onNameChange = this.onNameChange.bind(this)
 		this.onNameSubmit = this.onNameSubmit.bind(this)
+		this.showModal = this.showModal.bind(this)
+		this.hideModal = this.hideModal.bind(this)
 	}
 
 	componentDidMount() {
@@ -37,49 +41,70 @@ class Team extends Component {
 		this.props.updateTeamName(this.state.teamName);
 	}
 
+	showModal() {
+		this.setState({showModal: true});
+	}
+
+	hideModal() {
+		this.setState({showModal: false});
+	}
+
 	render() {
 		const { team } = this.props;
 		return (
-			<section className="team">
-				{ this.state.isEditingName ? 
-				<form onSubmit={this.onNameSubmit}>
-					<input 
-						className="input--text"
-						type="text" 
-						onChange={this.onNameChange}
-						value={this.state.teamName}
+			<div>
+				<section className="team">
+					{ this.state.isEditingName ? 
+					<form onSubmit={this.onNameSubmit}>
+						<input 
+							className="input--text"
+							type="text" 
+							onChange={this.onNameChange}
+							value={this.state.teamName}
+						/>
+					</form>
+					:
+					<button 
+						className="team__button--edit"
+						onClick={this.toggleEdit}
+					>
+						<h2 className="team__heading">{team.get('teamName')}</h2>
+						<span className="team__button__text">Edit team name</span>
+					</button> 
+					}
+					<PlayerList 
+						players={team.get('players')} 
+						actionButtons={false}
+						className="player-list"
 					/>
-				</form>
+					<nav className="footer-nav">
+						<button 
+							className="btn footer-nav__link"
+							onClick={this.showModal}
+						>Go back</button> 
+						<Link 
+							className="btn btn--progress" 
+							to={team.get('id') === 1 ? "/team-two" : "/" }
+							>
+							{team.get('id') === 1 ? "Go to Team two" : "Return to home" }
+						</Link>
+					</nav>
+				</section>
+				{this.state.showModal ?
+				<Modal 
+					onCancel={this.hideModal} 
+					onProceed={team.get('id') === 1 ? "/players" : "/team-one"}
+					message="You will lose your current teams if you go back. Do you still want to go back?"
+					/>
 				:
-				<button 
-					className="team__button--edit"
-					onClick={this.toggleEdit}
-				>
-					<h2 className="team__heading">{team.get('teamName')}</h2>
-					<span className="team__button__text">Edit team name</span>
-				</button> 
+				null
 				}
-				<PlayerList 
-					players={team.get('players')} 
-					actionButtons={false}
-					className="player-list"
-				/>
-				<nav className="footer-nav">
-					<Link 
-						className="btn footer-nav__link"
-						to={team.get('id') === 1 ? "/players" : "/team-one"}
-					>Go back</Link> 
-					<Link 
-						className="btn btn--progress" 
-						to={team.get('id') === 1 ? "/team-two" : "/" }
-						>
-						{team.get('id') === 1 ? "Go to Team two" : "Return to home" }
-					</Link>
-				</nav>
-			</section>
+			</div>
 		)
 	}
 		
 }
 
 export default Team;
+
+					
