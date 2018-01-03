@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { updateTeamName, clearPlayers } from '../actions/state';
+import { updateTeamName } from '../actions/state';
 import Team from '../components/teams/Team';
 // import selectors
 import {fetchTeamOne} from '../reducers/reducer';
@@ -10,12 +10,9 @@ const mapStateToProps = (state) => {
 	}
 }	
 
-const mapDispatchToProps = (dispatch) => {
-	//TODO more effective way? team id
-	const id = 1;
+const mapDispatchToProps = (dispatch, props) => {
 	return {
-		updateTeamName: (teamName) => dispatch(updateTeamName(teamName, id)),
-		clearPlayers: () => dispatch(clearPlayers()),
+		updateTeamName: (teamName, id) => dispatch(updateTeamName(teamName, id)),
 	}
 }	
 

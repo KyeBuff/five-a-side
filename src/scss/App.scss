@@ -7,15 +7,15 @@
 
 // TODO - Team component styling
 @font-face {
-	font-family: "Iceland";
-	src: url("./assets/fonts/Iceland/Iceland-Regular.ttf");
+	font-family: "Cabin";
+	src: url("./assets/fonts/Cabin/Cabin-Regular.ttf");
 }
 
-@font-face {
-	font-family: "Jura";
-	src: url("./assets/fonts/Jura/Jura-Regular.ttf");
-	src: url("./assets/fonts/Jura/Jura-SemiBold.ttf");
-}
+// @font-face {
+// 	font-family: "Jura";
+// 	src: url("./assets/fonts/Jura/Jura-Regular.ttf");
+// 	src: url("./assets/fonts/Jura/Jura-SemiBold.ttf");
+// }
 
 // Variables
 
@@ -28,8 +28,8 @@ $gray: #CDCDCD;
 $black: #1B1C20;
 
 // Fonts
-$main-header-font: "Iceland", "Courier", serif;
-$sans-font: "Jura", "Courier", sans-serif;
+$main-header-font: "Cabin", "Courier", serif;
+$sans-font: "Cabin", "Courier", sans-serif;
  
 // Size
 $sub-heading: 1.5em;
@@ -348,9 +348,9 @@ h1, h2 {
 		.team__button--edit__icon {
 			display: inline-block;
 
-			height: 20px;
+			height: 25px;
 			margin-left: 5px;
-			width: 20px;
+			width: 25px;
 
 			background-image: url("./assets/images/icons/edit.png");
 			// Prevents iPad and iPhone image clip bug
@@ -383,9 +383,10 @@ h1, h2 {
 			position: relative;
 
 			// border: 3px solid $primary;
-			min-height: 33.3vh;
+			height: 33.3vh;
 			margin: $margin * 2 auto;
 			max-width: 450px;
+			min-height: 300px;
  
 			// background-color: $black;
 			background-image: url("./assets/images/pitch.png"); 
@@ -403,13 +404,20 @@ h1, h2 {
 				font-family: $sans-font;
 				text-align: center;
 			}
+			.pitch__player__kit {
+				height: 20px;
+				margin: 0 auto $margin / 2;
+				width: 20px;
+
+				border-radius: 50%;
+			}
 		}
 		.pitch__player-0 {
 			top: 	5%;
 			left: calc(50% - 50px);
 		}
 		.pitch__player-1 {
-			top: 	calc(40% - 10px);
+			top: 	calc(35% - 10px);
 			left: calc(50% - 50px);
 		}
 		.pitch__player-2 {

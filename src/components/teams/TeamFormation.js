@@ -11,6 +11,7 @@ const TeamFormation = (props) => {
 						i={i}
 						name={player.get('name')} 
 						rating={player.get('rating')}
+						color={props.teamColor}
 					/>)}
 			</div>
 		</section>

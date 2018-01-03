@@ -1,11 +1,6 @@
 @font-face {
-  font-family: "Iceland";
-  src: url("./assets/fonts/Iceland/Iceland-Regular.ttf"); }
-
-@font-face {
-  font-family: "Jura";
-  src: url("./assets/fonts/Jura/Jura-Regular.ttf");
-  src: url("./assets/fonts/Jura/Jura-SemiBold.ttf"); }
+  font-family: "Cabin";
+  src: url("./assets/fonts/Cabin/Cabin-Regular.ttf"); }
 
 .players form .input--text, .team form .input--text {
   display: block;
@@ -14,7 +9,7 @@
   border-radius: 5px;
   padding: 0.33333em;
   width: 100%;
-  font-family: "Jura", "Courier", sans-serif;
+  font-family: "Cabin", "Courier", sans-serif;
   font-size: 1.5em; }
 
 .players .players__heading, .players__list-section .players__heading, .team .team__heading {
@@ -39,7 +34,7 @@ ul {
   padding: 0; }
 
 p {
-  font-family: "Jura", "Courier", sans-serif; }
+  font-family: "Cabin", "Courier", sans-serif; }
 
 button {
   background-color: transparent;
@@ -47,7 +42,7 @@ button {
   cursor: pointer; }
 
 h1, h2 {
-  font-family: "Iceland", "Courier", serif;
+  font-family: "Cabin", "Courier", serif;
   text-align: center; }
 
 .btn {
@@ -61,7 +56,7 @@ h1, h2 {
   border-radius: 5px;
   box-shadow: 1.5px 3px 3px #1B1C20;
   color: #1B1C20;
-  font-family: "Jura", "Courier", sans-serif;
+  font-family: "Cabin", "Courier", sans-serif;
   font-size: 1em;
   text-align: center; }
   .btn:active {
@@ -85,7 +80,7 @@ h1, h2 {
   border-radius: 5px;
   box-shadow: 1.5px 3px 3px #1B1C20;
   color: #1B1C20;
-  font-family: "Jura", "Courier", sans-serif;
+  font-family: "Cabin", "Courier", sans-serif;
   font-size: 1em;
   text-align: center; }
 
@@ -100,7 +95,7 @@ h1, h2 {
   border-radius: 5px;
   box-shadow: 1.5px 3px 3px #1B1C20;
   color: #1B1C20;
-  font-family: "Jura", "Courier", sans-serif;
+  font-family: "Cabin", "Courier", sans-serif;
   font-size: 1em;
   text-align: center;
   margin-bottom: 1em;
@@ -127,7 +122,7 @@ h1, h2 {
   .landing .landing__text {
     margin-bottom: 0;
     color: #FFF;
-    font-family: "Jura", "Courier", sans-serif;
+    font-family: "Cabin", "Courier", sans-serif;
     text-align: center; }
 
 .players .players__add-section .players__info {
@@ -143,7 +138,7 @@ h1, h2 {
 .players form .rating-buttons .rating-buttons__text {
   margin-bottom: 0;
   color: #FFF;
-  font-family: "Iceland", "Courier", serif;
+  font-family: "Cabin", "Courier", serif;
   font-size: 1.5em;
   text-align: center; }
 
@@ -161,7 +156,7 @@ h1, h2 {
   box-sizing: border-box;
   margin: 0.5em 0 1em;
   padding: 1em;
-  font-family: "Jura", "Courier", sans-serif;
+  font-family: "Cabin", "Courier", sans-serif;
   text-align: center;
   background-color: #FFF; }
 
@@ -181,7 +176,7 @@ h1, h2 {
     background-color: #FFF;
     border-radius: 5px;
     box-shadow: 1.5px 3px 3px #1B1C20;
-    font-family: "Jura", "Courier", sans-serif;
+    font-family: "Cabin", "Courier", sans-serif;
     font-size: 1.25em; }
     .players__list-section .player-list .player-list__item .ratings .ratings__star {
       display: inline-block;
@@ -213,9 +208,9 @@ h1, h2 {
   text-align: center; }
   .team .team__button--edit .team__button--edit__icon {
     display: inline-block;
-    height: 20px;
+    height: 25px;
     margin-left: 5px;
-    width: 20px;
+    width: 25px;
     background-image: url("./assets/images/icons/edit.png");
     background-size: 90%;
     background-repeat: no-repeat; }
@@ -224,7 +219,7 @@ h1, h2 {
   text-align: center; }
   .team .ratings .ratings__text {
     color: #FFF;
-    font-family: "Jura", "Courier", sans-serif;
+    font-family: "Cabin", "Courier", sans-serif;
     font-size: 1em; }
   .team .ratings .ratings__star {
     display: inline-block;
@@ -236,9 +231,10 @@ h1, h2 {
 
 .team .team__formation .pitch {
   position: relative;
-  min-height: 33.3vh;
+  height: 33.3vh;
   margin: 1em auto;
   max-width: 450px;
+  min-height: 300px;
   background-image: url("./assets/images/pitch.png");
   background-size: 100% 96%;
   background-repeat: no-repeat; }
@@ -249,15 +245,20 @@ h1, h2 {
     display: block;
     width: 100px;
     color: #FFF;
-    font-family: "Jura", "Courier", sans-serif;
+    font-family: "Cabin", "Courier", sans-serif;
     text-align: center; }
+  .team .team__formation .pitch__player .pitch__player__kit {
+    height: 20px;
+    margin: 0 auto 0.25em;
+    width: 20px;
+    border-radius: 50%; }
 
 .team .team__formation .pitch__player-0 {
   top: 5%;
   left: calc(50% - 50px); }
 
 .team .team__formation .pitch__player-1 {
-  top: calc(40% - 10px);
+  top: calc(35% - 10px);
   left: calc(50% - 50px); }
 
 .team .team__formation .pitch__player-2 {

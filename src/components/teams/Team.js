@@ -44,7 +44,7 @@ class Team extends Component {
 
 		this.setState({isEditingName: false});
 
-		this.props.updateTeamName(this.state.teamName);
+		this.props.updateTeamName(this.state.teamName, this.props.team.get('id'));
 	}
 
 	showModal(proceedTo, message, action) {
@@ -65,6 +65,7 @@ class Team extends Component {
 
 	render() {
 		const { team, clearPlayers } = this.props;
+
 		const { isEditingName, teamName, modal } = this.state;
 		const rating = team.get('rating');
 
@@ -98,7 +99,8 @@ class Team extends Component {
 						}
 						<Rating rating={rating} ratingText="Team rating average: "/>
 						<TeamFormation 
-							players={team.get('players')} 
+							players={team.get('players')}
+							teamColor={team.get('color')}
 						/>
 						{/* Footer nav not as separate component due to large amount of presentation logic */}
 						<nav className="footer-nav">

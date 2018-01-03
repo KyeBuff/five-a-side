@@ -130,7 +130,7 @@ const setTeams = (state) => {
 		Map({
 			id: 2,
 			teamName: "Team two",
-			color: 180,
+			color: 219,
 			players: teamTwoPlayers,
 			rating: teamTwoRating,
 		})

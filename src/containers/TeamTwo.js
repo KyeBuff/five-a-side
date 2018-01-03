@@ -10,9 +10,8 @@ const mapStateToProps = (state) => {
 }	
 
 const mapDispatchToProps = (dispatch, props) => {
-	const id = 2;
 	return {
-		updateTeamName: (teamName) => dispatch(updateTeamName(teamName, id)),
+		updateTeamName: (teamName, id) => dispatch(updateTeamName(teamName, id)),
 		clearPlayers: () => dispatch(clearPlayers()),
 	}
 }	
