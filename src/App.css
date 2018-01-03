@@ -455,7 +455,6 @@ body {
 
 @media (min-width: 1200px) {
   .container {
-    padding-top: 0;
     max-width: 800px;
     width: 70%; }
   .header {
