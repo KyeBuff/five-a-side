@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import TeamFormation from './TeamFormation';
+import TeamColorSlider from './TeamColorSlider';
 import Modal from '../Modal';
 import FourOhFour from '../FourOhFour';
 import Rating from '../Rating';
@@ -11,6 +12,7 @@ class Team extends Component {
 		super(props);
 		this.state = {
 			teamName: this.props.team.get('teamName'),
+			teamColor: this.props.team.get('color'),
 			isEditingName: false,
 			modal: {
 				showModal: false,
@@ -21,7 +23,9 @@ class Team extends Component {
 		}
 		this.toggleEdit = this.toggleEdit.bind(this)
 		this.onNameChange = this.onNameChange.bind(this)
+		this.onColorChange = this.onColorChange.bind(this)
 		this.onNameSubmit = this.onNameSubmit.bind(this)
+		this.onTeamColorSubmit = this.onTeamColorSubmit.bind(this)
 		this.showModal = this.showModal.bind(this)
 		this.hideModal = this.hideModal.bind(this)
 	}
@@ -35,8 +39,19 @@ class Team extends Component {
 	}
 
 	onNameChange(e) {
-		const teamName = e.target.value;
-		this.setState({teamName});
+		const teamColor = e.target.value;
+		this.setState({teamColor});
+	}
+
+	onColorChange(e) {
+		// Needs to be int to check against current color
+		const teamColor = +e.target.value;
+		this.setState({teamColor});
+		this.isEditingTeamColor();
+	}
+
+	isEditingTeamColor() {
+		return this.state.teamColor === this.props.team.get('color');
 	}
 
 	onNameSubmit(e) {
@@ -45,6 +60,12 @@ class Team extends Component {
 		this.setState({isEditingName: false});
 
 		this.props.updateTeamName(this.state.teamName, this.props.team.get('id'));
+	}
+
+	onTeamColorSubmit(e) {
+		e.preventDefault();
+
+		this.props.updateTeamColor(+this.state.teamColor, this.props.team.get('id'));
 	}
 
 	showModal(proceedTo, message, action) {
@@ -101,6 +122,12 @@ class Team extends Component {
 						<TeamFormation 
 							players={team.get('players')}
 							teamColor={team.get('color')}
+						/>
+						<TeamColorSlider 
+							color={this.state.teamColor} 
+							onChange={this.onColorChange}
+							disabled={this.isEditingTeamColor()}
+							onSubmit={this.onTeamColorSubmit}
 						/>
 						{/* Footer nav not as separate component due to large amount of presentation logic */}
 						<nav className="footer-nav">

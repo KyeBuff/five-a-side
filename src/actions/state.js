@@ -1,9 +1,10 @@
 const actionTypes = {
 	SET_PLAYER: "[Players] setPlayer",
 	UPDATE_TEAM_NAME: "[Teams][Team] updateTeamName",
+	UPDATE_TEAM_COLOR: "[Teams][Team] updateTeamColor",
 	UPDATE_PLAYER_NAME: "[Teams][Team][Players][Player] updatePlayerName",
 	REMOVE_PLAYER: "[Teams][Team][Players][Player] removePlayer",
-	BALANCE_TEAMS: "[Teams] setTeams",
+	SET_TEAMS: "[Teams] setTeams",
 	CLEAR_PLAYERS: "[Teams] clearPlayers",
 }
 
@@ -18,13 +19,19 @@ const updateTeamName = (teamName, id) => ({
 	id,
 });
 
+const updateTeamColor = (color, id) => ({
+	type: actionTypes.UPDATE_TEAM_COLOR,
+	color,
+	id,
+});
+
 const removePlayer = (timestamp) => ({
 	type: actionTypes.REMOVE_PLAYER,
 	timestamp,
 });
 
 const setTeams = () => ({
-	type: actionTypes.BALANCE_TEAMS
+	type: actionTypes.SET_TEAMS
 });
 
 const clearPlayers = () => ({
@@ -34,6 +41,7 @@ const clearPlayers = () => ({
 export {
 	setPlayer,
 	updateTeamName,
+	updateTeamColor,
 	removePlayer,
 	setTeams,
 	clearPlayers

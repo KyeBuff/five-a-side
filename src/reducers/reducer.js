@@ -31,6 +31,17 @@ const updateTeamName = (state, {teamName, id}) => {
 
 }
 
+const updateTeamColor = (state, {color, id}) => {
+
+	return state.update('teams', teams => teams.map(t => {
+		if(t.get('id') === id) {
+			return t.set('color', color);
+		}
+		return t;
+	}))
+
+}
+
 const removePlayer = (state, {timestamp}) => state.update('players', players => players.filter(player => player.get('timestamp') !== timestamp));
 
 // generateTeams is a function that takes a list of players and produces two teams balanced by size and rating
@@ -147,6 +158,7 @@ const reducer = (state=initialState, action) => {
 	switch(action.type) {
 		case "[Players] setPlayer": return setPlayer(state, action.player);
 		case "[Teams][Team] updateTeamName": return updateTeamName(state, action);
+		case "[Teams][Team] updateTeamColor": return updateTeamColor(state, action);
 		case "[Teams][Team][Players][Player] removePlayer": return removePlayer(state, action)
 		case "[Teams] setTeams": return setTeams(state)
 		case "[Teams] clearPlayers": return clearPlayers(state)

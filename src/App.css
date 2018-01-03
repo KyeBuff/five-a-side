@@ -12,7 +12,7 @@
   font-family: "Cabin", "Courier", sans-serif;
   font-size: 1.5em; }
 
-.players .players__heading, .players__list-section .players__heading, .team .team__heading {
+.players .players__heading, .players__list-section .players__heading, .team .team__heading, .team .team__color-slider .team__color__heading {
   margin-bottom: 0.5em;
   color: #FFF;
   font-size: 1.5em; }
@@ -109,7 +109,8 @@ h1, h2 {
   .header .header__main-heading {
     margin: 0;
     color: #FFF;
-    font-size: 4em; }
+    font-size: 4em;
+    letter-spacing: .1em; }
     .header .header__main-heading span {
       color: #F2D72D; }
 
@@ -275,6 +276,24 @@ h1, h2 {
 
 .team form .input--text {
   margin-top: 1.5em; }
+
+.team .team__color-slider {
+  padding: 0 4em; }
+  .team .team__color-slider .team__color__preview {
+    display: inline-block;
+    border: 2px solid #FFF;
+    box-sizing: border-box;
+    height: 50px;
+    margin-right: 3%;
+    width: 25%; }
+  .team .team__color-slider .team__color__range-input {
+    display: block;
+    float: right;
+    margin-top: 18px;
+    width: 70%; }
+  .team .team__color-slider .btn {
+    margin: 1em auto;
+    width: 30%; }
 
 .footer-nav {
   display: flex;

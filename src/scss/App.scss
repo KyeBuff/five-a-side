@@ -176,6 +176,7 @@ h1, h2 {
 
 		color: $primary;
 		font-size: 4em;
+		letter-spacing: .1em;
 
 		span {
 			color: $secondary;
@@ -437,6 +438,32 @@ h1, h2 {
 		.input--text {
 			@extend %input-text;
 			margin-top: $margin * 3;
+		}
+	}
+	.team__color-slider {
+		padding: 0 $padding * 4;
+		.team__color__heading {
+			@extend %h2;
+		}
+		.team__color__preview {
+			display: inline-block;
+
+			border: 2px solid $primary;
+			box-sizing: border-box;
+			height: 50px;
+			margin-right: 3%;
+			width: 25%;
+		}
+		.team__color__range-input {
+			display: block;
+			float: right;
+
+			margin-top: 18px;
+			width: 70%;
+		}
+		.btn {
+			margin: $margin * 2 auto $margin * 4; 
+			width: 30%;
 		}
 	}
 }
