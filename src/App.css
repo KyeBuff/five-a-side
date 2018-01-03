@@ -213,6 +213,20 @@ h1, h2 {
     margin-top: .5em;
     text-decoration: underline; }
 
+.team .ratings {
+  text-align: center; }
+  .team .ratings .ratings__text {
+    color: #FFF;
+    font-family: "Jura", "Courier", sans-serif;
+    font-size: 1em; }
+  .team .ratings .ratings__star {
+    display: inline-block;
+    height: 15px;
+    margin-top: 0.25em;
+    width: 15px;
+    background-image: url("./assets/images/icons/star.png");
+    background-size: cover; }
+
 .team .team__formation .pitch {
   position: relative;
   min-height: 33.3vh;
@@ -221,15 +235,6 @@ h1, h2 {
   background-image: url("./assets/images/pitch.png");
   background-size: 100% 96%;
   background-repeat: no-repeat; }
-  .team .team__formation .pitch .ratings {
-    text-align: center; }
-    .team .team__formation .pitch .ratings .ratings__star {
-      display: inline-block;
-      height: 15px;
-      margin-top: 0.25em;
-      width: 15px;
-      background-image: url("./assets/images/icons/star.png");
-      background-size: cover; }
 
 .team .team__formation .pitch__player {
   position: absolute; }

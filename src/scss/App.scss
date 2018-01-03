@@ -350,6 +350,23 @@ h1, h2 {
 		}
 
 	}
+	.ratings {
+		text-align: center;
+		.ratings__text {
+			color: $primary;
+			font-family: $sans-font;
+			font-size: 1em;
+		}
+		.ratings__star {
+			display: inline-block;
+			height: 15px;
+			margin-top: $margin / 2;
+			width: 15px;
+
+			background-image: url("./assets/images/icons/star.png");
+			background-size: cover;
+		}
+	}
 	// TODO style formation better for sm devices
 	.team__formation {
 		.pitch {
@@ -364,19 +381,6 @@ h1, h2 {
 			background-image: url("./assets/images/pitch.png"); 
 			background-size: 100% 96%;
 			background-repeat: no-repeat;
-
-			.ratings {
-				text-align: center;
-				.ratings__star {
-					display: inline-block;
-					height: 15px;
-					margin-top: $margin / 2;
-					width: 15px;
-
-					background-image: url("./assets/images/icons/star.png");
-					background-size: cover;
-				}
-			}
 		}
 		.pitch__player {
 			position: absolute;

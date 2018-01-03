@@ -7,12 +7,14 @@ const initialState = Map({
 			teamName: "Team one",
 			color: 0,
 			players: List([]),
+			rating: 0,
 		}),
 		Map({
 			id: 2,
 			teamName: "Team two",
 			color: 180,
 			players: List([]),
+			rating: 0,
 		}),
 	]),
 	players: List([]),
@@ -118,12 +120,16 @@ const balanceTeams = (state) => {
 	const teamOnePlayers = getTeambyID(teams, 1);
 	const teamTwoPlayers = getTeambyID(teams, 2);
 
+	//TODO DRY 
+	const teamOneRating = calcTeamRating(teamOnePlayers) / teamOnePlayers.size;
+	const teamTwoRating = calcTeamRating(teamTwoPlayers) / teamTwoPlayers.size;
+
 	return state.update('teams', teams => teams.map(team => {
 
 		if(team.get('id') === 1) {
-			return team.set('players', teamOnePlayers);
+			return team.set('players', teamOnePlayers).set('rating', teamOneRating);
 		} else {
-			return team.set('players', teamTwoPlayers);
+			return team.set('players', teamTwoPlayers).set('rating', teamTwoRating);
 		}
 
 	}));

@@ -63,6 +63,18 @@ class Team extends Component {
 	render() {
 		// TODO reusable footer nav component
 		const { team } = this.props;
+		const rating = team.get('rating');
+
+		console.log(rating);
+
+		// TODO - better way of doing this?
+		const stars = [];
+
+		for(let i=0; i<rating; i++) {
+			stars.push(
+				<span key={i} className="ratings__star"></span>
+			);
+		}
 
 		//Player size check prevents users accessing without generating teams
 		return (
@@ -80,13 +92,18 @@ class Team extends Component {
 							/>
 						</form>
 						:
-						<button 
-							className="team__button--edit"
-							onClick={this.toggleEdit}
-						>
-							<h2 className="team__heading">{team.get('teamName')}</h2>
-							<span className="team__button__text">Edit team name</span>
-						</button> 
+						<div>
+							<button 
+								className="team__button--edit"
+								onClick={this.toggleEdit}
+							>
+								<h2 className="team__heading">{team.get('teamName')}</h2>
+								<span className="team__button__text">Edit team name</span>
+							</button> 
+							<div className="ratings">
+				  			<span className="ratings__text">Team rating: </span>{stars.map(star => star)}
+				  		</div>
+				  	</div>
 						}
 						<TeamFormation 
 							players={team.get('players')} 
