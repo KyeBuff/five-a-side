@@ -15,7 +15,7 @@ body {
 
 // Header styling
 .header {
-	padding: $padding;
+	padding: $padding * 2 $padding;
 
 	.header__main-heading {
 		margin: 0; 
@@ -34,7 +34,7 @@ body {
 
 .landing {
 	box-sizing: border-box;
-	margin-top: 30vh;
+	margin-top: 20vh;
 	padding: $padding;
 
 	.landing__heading {
@@ -386,6 +386,7 @@ body {
 
 		.modal__message {
 			color: $primary;
+			font-size: 1.25em;
 		}
 	}
 }

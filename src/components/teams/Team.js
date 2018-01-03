@@ -11,7 +11,7 @@ class Team extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			teamName: this.props.team.get('teamName'),
+			teamName: '',
 			teamColor: this.props.team.get('color'),
 			isEditingName: false,
 			valid: true,
@@ -116,7 +116,7 @@ class Team extends Component {
 							/>
 						</form>
 						:
-						<div>
+						<div> 
 							<button 
 								className="team__button--edit"
 								onClick={this.toggleEdit}
