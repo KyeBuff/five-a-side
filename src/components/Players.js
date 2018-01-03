@@ -21,7 +21,7 @@ class Players extends Component {
 	}
 
 	balanceTeams() {
-		this.props.balanceTeams();
+		this.props.setTeams();
 	}
 
 	clearPlayers() {

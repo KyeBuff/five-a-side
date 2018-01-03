@@ -4,17 +4,11 @@ const initialState = Map({
 	teams: List([
 		Map({
 			id: 1,
-			teamName: "Team one",
-			color: 0,
 			players: List([]),
-			rating: 0,
 		}),
 		Map({
 			id: 2,
-			teamName: "Team two",
-			color: 180,
 			players: List([]),
-			rating: 0,
 		}),
 	]),
 	players: List([]),
@@ -108,31 +102,41 @@ const generateTeams = (players) => {
 
 } 
 
-// balanceTeams helper functions
+// setTeams helper functions
 
 const getTeambyID = (teams, id) => teams.find(team => team.find(player => player.get('teamID') === id));
 
-const balanceTeams = (state) => {
+// TODO Naming
+const setTeams = (state) => {
 
 	//Helper function which returns teams of equal length with balanced ratings
-	const teams = generateTeams(state.get('players'));
+	const genTeams = generateTeams(state.get('players'));
 
-	const teamOnePlayers = getTeambyID(teams, 1);
-	const teamTwoPlayers = getTeambyID(teams, 2);
+	const teamOnePlayers = getTeambyID(genTeams, 1);
+	const teamTwoPlayers = getTeambyID(genTeams, 2);
 
 	//TODO DRY 
 	const teamOneRating = calcTeamRating(teamOnePlayers) / teamOnePlayers.size;
 	const teamTwoRating = calcTeamRating(teamTwoPlayers) / teamTwoPlayers.size;
 
-	return state.update('teams', teams => teams.map(team => {
+	const teams = List([
+		Map({
+			id: 1,
+			teamName: "Team one",
+			color: 0,
+			players: teamOnePlayers,
+			rating: teamOneRating,
+		}),
+		Map({
+			id: 2,
+			teamName: "Team two",
+			color: 180,
+			players: teamTwoPlayers,
+			rating: teamTwoRating,
+		})
+	]);
 
-		if(team.get('id') === 1) {
-			return team.set('players', teamOnePlayers).set('rating', teamOneRating);
-		} else {
-			return team.set('players', teamTwoPlayers).set('rating', teamTwoRating);
-		}
-
-	}));
+	return state.set('teams', teams);
 
 }
 
@@ -144,7 +148,7 @@ const reducer = (state=initialState, action) => {
 		case "[Players] setPlayer": return setPlayer(state, action.player);
 		case "[Teams][Team] updateTeamName": return updateTeamName(state, action);
 		case "[Teams][Team][Players][Player] removePlayer": return removePlayer(state, action)
-		case "[Teams] balanceTeams": return balanceTeams(state)
+		case "[Teams] setTeams": return setTeams(state)
 		case "[Teams] clearPlayers": return clearPlayers(state)
 		default: return state;
 	}

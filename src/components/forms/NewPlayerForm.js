@@ -9,7 +9,7 @@ class Form extends Component {
 			name: "",
 			rating: 1,
 			valid: true,
-			showSkillOptions: false,
+			showRatingOptions: false,
 		}
 		this.onNameChange = this.onNameChange.bind(this);
 		this.onSkillChange = this.onSkillChange.bind(this);
@@ -25,9 +25,9 @@ class Form extends Component {
 	onNameChange(e) {
 		const name = e.target.value;
 
-		const showSkillOptions = name.length > 0 ? true : false;
+		const showRatingOptions = name.length > 0 ? true : false;
 
-		this.setState({name, showSkillOptions});
+		this.setState({name, showRatingOptions});
 	}
 
 	onSubmit(e) {
@@ -46,19 +46,25 @@ class Form extends Component {
 		if(playerOb.name) {
 			this.props.addPlayer(playerOb)
 
-			this.setState({name: "", rating: 1, valid: true})
+			this.setState({name: "", rating: 1, valid: true, showRatingOptions: false})
 		}
 	}
 
 	render() {
 
-		const { valid } = this.state;
+		const { valid, rating, showRatingOptions, name } = this.state;
 
 		return (
 			<form onSubmit={this.onSubmit}>
-				<input className="input--text" type="text" placeholder="Player name..." onChange={this.onNameChange} value={this.state.name} />
+				<input 
+					className="input--text" 
+					type="text" 
+					placeholder="Player name..." 
+					onChange={this.onNameChange} 
+					value={name} 
+				/>
 				{valid ? null : <p className="players__info">Please enter a player name</p>}
-				{this.state.showSkillOptions ? 
+				{showRatingOptions ? 
 				<div className="rating-buttons">
 					<p className="rating-buttons__text">Choose a skill level</p>
 					<InputRadio 
@@ -69,7 +75,7 @@ class Form extends Component {
 						name="rating"
 						value={1}
 						onChange={this.onSkillChange}
-						checked={this.state.rating === 1}
+						checked={rating === 1}
 					/>
 					<InputRadio 
 						id="radio-med"
@@ -79,7 +85,7 @@ class Form extends Component {
 						name="rating"
 						value={2}
 						onChange={this.onSkillChange}
-						checked={this.state.rating === 2}
+						checked={rating === 2}
 					/>
 					<InputRadio 
 						id="radio-high"
@@ -89,7 +95,7 @@ class Form extends Component {
 						name="rating"
 						value={3}
 						onChange={this.onSkillChange}
-						checked={this.state.rating === 3}
+						checked={rating === 3}
 					/>
 				</div>
 				:
@@ -103,10 +109,3 @@ class Form extends Component {
 };
 
 export default Form;
-
-// <input id="radio-low" className="input--radio" type="radio" name="rating" value={1} onChange={this.onSkillChange} checked={this.state.rating === 1} />
-// 					<label htmlFor="radio-low" className="label-radio">Low</label>
-// 					<input id="radio-med" className="input--radio" type="radio" name="rating" value={2} onChange={this.onSkillChange} checked={this.state.rating === 2} />
-// 					<label htmlFor="radio-med" className="label-radio">Med</label>
-// 					<input id="radio-high" className="input--radio" type="radio" name="rating" value={3} onChange={this.onSkillChange} checked={this.state.rating === 3} />
-// 					<label htmlFor="radio-high" className="label-radio">High</label>

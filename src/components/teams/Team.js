@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
-import PlayerList from '../lists/PlayerList';
 import TeamFormation from './TeamFormation';
 import Modal from '../Modal';
 import FourOhFour from '../FourOhFour';
+import Rating from '../Rating';
 
 class Team extends Component {
 
@@ -12,8 +12,8 @@ class Team extends Component {
 		this.state = {
 			teamName: this.props.team.get('teamName'),
 			isEditingName: false,
-			showModal: false,
 			modal: {
+				showModal: false,
 				proceedTo: '',
 				message: '',
 				action: null,
@@ -50,8 +50,8 @@ class Team extends Component {
 	showModal(proceedTo, message, action) {
 		// Action defines a function to pass down to Modal if something shoukd occur when proceeding
 		this.setState({
-			showModal: true, 
 			modal: {
+				showModal: true, 
 				proceedTo,
 				message,
 				action
@@ -60,36 +60,28 @@ class Team extends Component {
 	}
 
 	hideModal() {
-		this.setState({showModal: false});
+		this.setState({modal: {showModal: false}});
 	}
 
 	render() {
-		// TODO reusable footer nav component
-		const { team } = this.props;
+		const { team, clearPlayers } = this.props;
+		const { isEditingName, teamName, modal } = this.state;
 		const rating = team.get('rating');
-
-		// TODO - better way of doing this?
-		const stars = [];
-
-		for(let i=0; i<rating; i++) {
-			stars.push(
-				<span key={i} className="ratings__star"></span>
-			);
-		}
 
 		//Player size check prevents users accessing without generating teams
 		return (
 			<div>
 				{team.get('players').size ?
+				/*If size > 0 show team else show 404*/
 				<div>
 					<section className="team">
-						{ this.state.isEditingName ? 
+						{ isEditingName ? 
 						<form onSubmit={this.onNameSubmit}>
 							<input 
 								className="input--text"
 								type="text" 
 								onChange={this.onNameChange}
-								value={this.state.teamName}
+								value={teamName}
 							/>
 						</form>
 						:
@@ -98,17 +90,17 @@ class Team extends Component {
 								className="team__button--edit"
 								onClick={this.toggleEdit}
 							>
-								<h2 className="team__heading">{team.get('teamName')}</h2>
-								<span className="team__button__text">Edit team name</span>
+								<h2 className="team__heading">{team.get('teamName')}
+								<span className="team__button--edit__icon"></span>
+								</h2>
 							</button> 
-							<div className="ratings">
-				  			<span className="ratings__text">Team rating: </span>{stars.map(star => star)}
-				  		</div>
 				  	</div>
 						}
+						<Rating rating={rating} ratingText="Team rating average: "/>
 						<TeamFormation 
 							players={team.get('players')} 
 						/>
+						{/* Footer nav not as separate component due to large amount of presentation logic */}
 						<nav className="footer-nav">
 							{team.get('id') === 2 ?
 							<Link 
@@ -135,20 +127,20 @@ class Team extends Component {
 							<button 
 								className="btn btn--progress footer-nav__link"
 								onClick={() => {
-									this.showModal("/", "You will lose your player data if you return to home. Do you still want to return to home?", this.props.clearPlayers)
+									this.showModal("/", "You will lose your player data if you return to home. Do you still want to return to home?", clearPlayers)
 									}
 								}
 							>Exit</button>
 							}
 						</nav>
 					</section>
-					{this.state.showModal ?
+					{modal.showModal ?
 					<Modal 
 						onCancel={this.hideModal} 
-						onProceed={this.state.modal.proceedTo}
-						message={this.state.modal.message}
-						action={this.state.modal.action}
-						/>
+						onProceed={modal.proceedTo}
+						message={modal.message}
+						action={modal.action}
+					/>
 					:
 					null
 					}

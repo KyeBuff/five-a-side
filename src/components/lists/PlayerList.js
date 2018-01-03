@@ -3,12 +3,21 @@ import PlayerListItem from '../../containers/PlayerListItem';
 
 const PlayerList = (props) => (
 	<div className="players__list-section">
-		<h2 className="players__heading">{props.players.size === 0 ? "Players will show here..." : "Current players"}</h2>
+		<h2 
+			className="players__heading"
+		>
+			{props.players.size === 0 ? "Players will show here..." : "Current players"}
+		</h2>
 		{props.fullList ?
-		<div className="container-players__info--sm-md">
+		<div 
+			className="container-players__info--sm-md">
 			{props.players.size !== 0 && props.players.size < 3 ? 
 				/* check if size === 3 as array is increasing*/
-			<p className="players__info">At least {3 - props.players.size} more {props.players.size === 2 ? "player" : "players"} required.</p>
+			<p 
+				className="players__info"
+			>
+			At least {3 - props.players.size} more {props.players.size === 2 ? "player" : "players"} required.
+			</p>
 			:
 			null
 			}
@@ -36,7 +45,8 @@ const PlayerList = (props) => (
 		<button 
 			className="btn btn--danger"
 			onClick={props.clearPlayers}
-		>Clear players
+		>
+		Clear players
 		</button>
 		:
 		null}

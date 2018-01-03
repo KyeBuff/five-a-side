@@ -20,7 +20,7 @@
 .players .players__heading, .players__list-section .players__heading, .team .team__heading {
   margin-bottom: 0.5em;
   color: #FFF;
-  font-size: 3em; }
+  font-size: 1.5em; }
 
 body {
   min-height: 100vh;
@@ -207,14 +207,18 @@ h1, h2 {
 
 .team .team__button--edit {
   display: block;
-  margin: 2em 0;
+  margin: 0 0 2em;
   width: 100%;
   color: #FFF;
   text-align: center; }
-  .team .team__button--edit .team__button__text {
+  .team .team__button--edit .team__button--edit__icon {
     display: inline-block;
-    margin-top: .5em;
-    text-decoration: underline; }
+    height: 20px;
+    margin-left: 5px;
+    width: 20px;
+    background-image: url("./assets/images/icons/edit.png");
+    background-size: 90%;
+    background-repeat: no-repeat; }
 
 .team .ratings {
   text-align: center; }
