@@ -130,7 +130,7 @@ class Team extends Component {
 						{valid ?
 						null
 						:
-						<p className="players__info">Your team must have a name</p>
+						<p className="team__info">Your team must have a name</p>
 						}
 						<Rating rating={rating} ratingText="Team rating average: "/>
 						<TeamFormation 

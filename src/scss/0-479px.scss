@@ -34,7 +34,7 @@ body {
 
 .landing {
 	box-sizing: border-box;
-	margin-top: 20vh;
+	margin-top: $landing-margin;
 	padding: $padding;
 
 	.landing__heading {
@@ -56,13 +56,7 @@ body {
 	// Add players form
 	.players__add-section {
 		.players__info {
-			margin-top: $margin;
-			padding: $padding / 2;
-
-			background-color: $warning;
-
-			color: $primary;
-			text-align: center;
+			@extend %info;
 		}
 		.players__info--lg {
 			display: none;
@@ -82,7 +76,7 @@ body {
 
 				color: $primary;
 				font-family: $main-header-font;
-				font-size: 1.5em;
+				font-size: $input-font-size;
 				text-align: center;
 			}
 			.div__input--radio {
@@ -125,13 +119,7 @@ body {
 	}
 
 	.players__info {
-		margin-top: $margin;
-		padding: $padding / 2;
-
-		background-color: $warning;
-
-		color: $primary;
-		text-align: center;
+		@extend %info;
 	}
 	.player-list {
 		margin-top: 0;
@@ -146,16 +134,10 @@ body {
 			box-shadow: 1.5px 3px 3px $black;
 
 			font-family: $sans-font;
-			font-size: 1.25em;
+			font-size: $sans-font-size;
 			.ratings {
 				.ratings__star {
-					display: inline-block;
-					height: 15px;
-					margin-top: $margin / 2;
-					width: 15px;
-
-					background-image: url("./assets/images/icons/star.png");
-					background-size: cover;
+					@extend %star;
 				}
 			}
 			.player-list__item__button--delete {
@@ -207,14 +189,8 @@ body {
 			background-repeat: no-repeat;
 		}
 	}
-	.players__info {
-		margin-top: $margin;
-		padding: $padding / 2;
-
-		background-color: $warning;
-
-		color: $primary;
-		text-align: center;
+	.team__info {
+		@extend %info;
 	}
 	// TODO RATINGS PLACEHOLDER
 	.ratings {
@@ -225,16 +201,9 @@ body {
 			font-size: 1em;
 		}
 		.ratings__star {
-			display: inline-block;
-			height: 15px;
-			margin-top: $margin / 2;
-			width: 15px;
-
-			background-image: url("./assets/images/icons/star.png");
-			background-size: cover;
+			@extend %star;
 		}
 	}
-	// TODO style formation better for sm devices
 	.team__formation {
 		.pitch {
 			position: relative;
@@ -340,7 +309,7 @@ body {
 .page-not-found {
 	.page-not-found__message {
 		color: $primary;	
-		font-size: 1.25em;
+		font-size: $sans-font-size;
 		text-align: center;
 	}
 	.page-not-found__link {
@@ -386,7 +355,7 @@ body {
 
 		.modal__message {
 			color: $primary;
-			font-size: 1.25em;
+			font-size: $sans-font-size;
 		}
 	}
 }

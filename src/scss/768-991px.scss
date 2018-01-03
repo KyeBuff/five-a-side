@@ -43,7 +43,7 @@
 	}
 
 	.landing {
-		margin-top: 30vh;
+		margin-top: $landing-margin * 1.5;
 		.landing__heading {
 			font-size: $sub-heading * 1.5;
 		}

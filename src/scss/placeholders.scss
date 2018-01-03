@@ -8,7 +8,7 @@
 		width: 100%;
 
 	font-family: $sans-font;
-	font-size: $inputFontSize;
+	font-size: $input-font-size;
 }
 
 %h2 {
@@ -16,6 +16,26 @@
 
 	color: $primary;
 	font-size: $sub-heading;
+}
+
+%star {
+	display: inline-block;
+	height: 15px;
+	margin-top: $margin / 2;
+	width: 15px;
+
+	background-image: url("./assets/images/icons/star.png");
+	background-size: cover;
+}
+
+%info {
+	margin-top: $margin;
+	padding: $padding / 2;
+
+	background-color: $warning;
+
+	color: $primary;
+	text-align: center;
 }
 
 %slider {

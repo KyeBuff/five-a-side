@@ -7,10 +7,10 @@
 	}
 
 	.container {
-		padding-top: 15vh; 
+		padding-top: $landing-margin * .75; 
 	}
 	.landing {
-		margin-top: 20vh;
+		margin-top: $landing-margin;
 	}	
 }
  

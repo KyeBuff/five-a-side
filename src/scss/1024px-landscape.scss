@@ -1,6 +1,6 @@
 @media (min-width: 1024px) and (orientation: landscape) {
 	.landing {
-		margin-top: 5vh;
+		margin-top: $landing-margin / 4;
 	}	
 }
  
