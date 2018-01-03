@@ -236,22 +236,26 @@ h1, h2 {
 				font-size: 1.5em;
 				text-align: center;
 			}
+			.div__input--radio {
+				display: inline-block;
+
+				width: 33.3%;
+			}
 		}
 		.input--radio {
 			display: none;
 			
-			&:checked + .label-radio {
+			&:checked + .label--radio {
 				background-color: $gray;
 			}			
 		}
 		//TODO border radius
-		.label-radio {
-			display: inline-block;
+		.label--radio {
+			display: block;
 
 			box-sizing: border-box;
 			margin: $margin 0 $margin * 2;
 			padding: $padding;
-			width: 33.3%;
 
 			font-family: $sans-font;
 			text-align: center;
@@ -350,6 +354,7 @@ h1, h2 {
 		}
 
 	}
+	// TODO RATINGS PLACEHOLDER
 	.ratings {
 		text-align: center;
 		.ratings__text {

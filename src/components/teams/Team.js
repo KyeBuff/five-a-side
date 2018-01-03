@@ -16,6 +16,7 @@ class Team extends Component {
 			modal: {
 				proceedTo: '',
 				message: '',
+				action: null,
 			}
 		}
 		this.toggleEdit = this.toggleEdit.bind(this)
@@ -46,12 +47,14 @@ class Team extends Component {
 		this.props.updateTeamName(this.state.teamName);
 	}
 
-	showModal(proceedTo, message) {
+	showModal(proceedTo, message, action) {
+		// Action defines a function to pass down to Modal if something shoukd occur when proceeding
 		this.setState({
 			showModal: true, 
 			modal: {
 				proceedTo,
-				message
+				message,
+				action
 			}
 		});
 	}
@@ -64,8 +67,6 @@ class Team extends Component {
 		// TODO reusable footer nav component
 		const { team } = this.props;
 		const rating = team.get('rating');
-
-		console.log(rating);
 
 		// TODO - better way of doing this?
 		const stars = [];
@@ -134,10 +135,10 @@ class Team extends Component {
 							<button 
 								className="btn btn--progress footer-nav__link"
 								onClick={() => {
-									this.showModal("/", "You will lose your current teams if you return to home. Do you still want to return to home?")
+									this.showModal("/", "You will lose your player data if you return to home. Do you still want to return to home?", this.props.clearPlayers)
 									}
 								}
-							>Return to home</button>
+							>Exit</button>
 							}
 						</nav>
 					</section>
@@ -146,6 +147,7 @@ class Team extends Component {
 						onCancel={this.hideModal} 
 						onProceed={this.state.modal.proceedTo}
 						message={this.state.modal.message}
+						action={this.state.modal.action}
 						/>
 					:
 					null
@@ -161,12 +163,3 @@ class Team extends Component {
 }
 
 export default Team;
-
-// <PlayerList 
-// 							players={team.get('players')} 
-// 							actionButtons={false}
-// 							fullList={false}
-// 							className="player-list"
-// 						/>
-
-					

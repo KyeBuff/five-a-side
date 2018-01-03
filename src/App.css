@@ -147,17 +147,20 @@ h1, h2 {
   font-size: 1.5em;
   text-align: center; }
 
+.players form .rating-buttons .div__input--radio {
+  display: inline-block;
+  width: 33.3%; }
+
 .players form .input--radio {
   display: none; }
-  .players form .input--radio:checked + .label-radio {
+  .players form .input--radio:checked + .label--radio {
     background-color: #CDCDCD; }
 
-.players form .label-radio {
-  display: inline-block;
+.players form .label--radio {
+  display: block;
   box-sizing: border-box;
   margin: 0.5em 0 1em;
   padding: 1em;
-  width: 33.3%;
   font-family: "Jura", "Courier", sans-serif;
   text-align: center;
   background-color: #FFF; }

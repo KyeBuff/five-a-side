@@ -8,6 +8,7 @@ const Modal = (props) => (
 			<Link 
 				className="btn btn--danger modal__link"
 				to={props.onProceed}
+				onClick={props.action ? props.action : null}
 			>Go back</Link> 
 			<button 
 				className="btn modal__btn"

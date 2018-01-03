@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import InputRadio from './InputRadio';
 
 class Form extends Component {
 
@@ -60,12 +61,36 @@ class Form extends Component {
 				{this.state.showSkillOptions ? 
 				<div className="rating-buttons">
 					<p className="rating-buttons__text">Choose a skill level</p>
-					<input id="radio-low" className="input--radio" type="radio" name="rating" value={1} onChange={this.onSkillChange} checked={this.state.rating === 1} />
-					<label htmlFor="radio-low" className="label-radio">Low</label>
-					<input id="radio-med" className="input--radio" type="radio" name="rating" value={2} onChange={this.onSkillChange} checked={this.state.rating === 2} />
-					<label htmlFor="radio-med" className="label-radio">Med</label>
-					<input id="radio-high" className="input--radio" type="radio" name="rating" value={3} onChange={this.onSkillChange} checked={this.state.rating === 3} />
-					<label htmlFor="radio-high" className="label-radio">High</label>
+					<InputRadio 
+						id="radio-low"
+						inputClassName="input--radio"
+						labelClassName="label--radio"
+						labelText="Low"
+						name="rating"
+						value={1}
+						onChange={this.onSkillChange}
+						checked={this.state.rating === 1}
+					/>
+					<InputRadio 
+						id="radio-med"
+						inputClassName="input--radio"
+						labelClassName="label--radio"
+						labelText="Med"
+						name="rating"
+						value={2}
+						onChange={this.onSkillChange}
+						checked={this.state.rating === 2}
+					/>
+					<InputRadio 
+						id="radio-high"
+						inputClassName="input--radio"
+						labelClassName="label--radio"
+						labelText="High"
+						name="rating"
+						value={3}
+						onChange={this.onSkillChange}
+						checked={this.state.rating === 3}
+					/>
 				</div>
 				:
 				null
@@ -78,3 +103,10 @@ class Form extends Component {
 };
 
 export default Form;
+
+// <input id="radio-low" className="input--radio" type="radio" name="rating" value={1} onChange={this.onSkillChange} checked={this.state.rating === 1} />
+// 					<label htmlFor="radio-low" className="label-radio">Low</label>
+// 					<input id="radio-med" className="input--radio" type="radio" name="rating" value={2} onChange={this.onSkillChange} checked={this.state.rating === 2} />
+// 					<label htmlFor="radio-med" className="label-radio">Med</label>
+// 					<input id="radio-high" className="input--radio" type="radio" name="rating" value={3} onChange={this.onSkillChange} checked={this.state.rating === 3} />
+// 					<label htmlFor="radio-high" className="label-radio">High</label>
