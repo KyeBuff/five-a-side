@@ -46,7 +46,7 @@ class Players extends Component {
 					<PlayerList 
 						players={players} 
 						actionButtons={true}
-						fullList={true}
+						smList={true}
 						clearPlayers={this.clearPlayers}
 					/>
 				</section>

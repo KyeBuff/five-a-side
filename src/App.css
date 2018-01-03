@@ -490,13 +490,13 @@ body {
       padding: 0 2em 2em; }
       .players .players__list-section .name--small {
         font-size: .8em; }
-      .players .players__list-section .player-list--full {
+      .players .players__list-section .player-list {
         align-items: flex-start;
         align-content: flex-start;
         padding: 0; }
-        .players .players__list-section .player-list--full .player-list__item:first-child {
+        .players .players__list-section .player-list .player-list__item:first-child {
           margin-top: 0; }
-        .players .players__list-section .player-list--full .player-list__item:nth-child(2) {
+        .players .players__list-section .player-list .player-list__item:nth-child(2) {
           margin-top: 0; }
   .team .players__list-section .player-list {
     padding: 0 2em; }
