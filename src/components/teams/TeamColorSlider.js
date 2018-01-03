@@ -10,18 +10,20 @@ const TeamColorSlider = (props) => {
 			<form 
 				onSubmit={props.onSubmit}
 			>
-				<div 
-					className="team__color__preview"
-					style={{backgroundColor: 'hsl('+ props.color + ', 90%, 40%)'}}
-				>
-				</div><input 
-					className="team__color__range-input"
-					type="range" 
-					max={360} 
-					min={0} 
-					value={props.color}
-					onChange={props.onChange}
-				/>
+				<div className="team_color_slider-container">
+					<div 
+						className="team__color__preview"
+						style={{backgroundColor: 'hsl('+ props.color + ', 90%, 40%)'}}
+					>
+					</div><input 
+						className="team__color__range-input"
+						type="range" 
+						max={360} 
+						min={0} 
+						value={props.color}
+						onChange={props.onChange}
+					/>
+				</div>
 				<input 
 					className="btn"
 					type="submit"
