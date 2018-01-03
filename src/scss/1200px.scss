@@ -25,9 +25,6 @@
 		display: flex;
 		justify-content: space-between;
 		overflow: auto;
-		.players__heading {
-			font-size: 2.5em;
-		}
 		.container-players__info--sm-md {
 			display: none;
 		}
@@ -51,17 +48,14 @@
 			flex: 1;
 
 			box-sizing: border-box;
-			padding: 0 $padding * 2 $padding * 2;
-
-			.name--small {
-				font-size: .8em;
-			}
+			padding: 0 $padding * 2 $padding * 2;  
 
 			.player-list {
 				align-items: flex-start;
 				align-content: flex-start;
 
 				padding: 0;
+
 				.player-list__item:first-child {
 					margin-top: 0;
 				}
@@ -72,18 +66,10 @@
 		}
 	}
 
-	.team {
-		.players__list-section {
-			.player-list {
-				padding: 0 $padding * 2;
-			}
-		}
-
-	}
 	.footer-nav {
 		padding: 0 $padding * 2;
 		.footer-nav__link:first-child {
-			// margin-right: $margin * 8;
+			margin-right: $margin * 8;
 		}
 	}
 

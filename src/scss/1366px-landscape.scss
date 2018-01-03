@@ -2,15 +2,15 @@
 
 	.header {
 		.header__main-heading {
-			font-size: 5em;
+			font-size: $main-heading * 1.25;
 		}	
 	}
 
 	.container {
-		padding-top: $landing-margin * .75; 
+		padding-top: $landing-margin / 2; 
 	}
 	.landing {
-		margin-top: $landing-margin;
+		margin-top: $landing-margin; 
 	}	
 }
  

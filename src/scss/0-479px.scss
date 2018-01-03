@@ -161,7 +161,7 @@ body {
 		margin-top: 0;
 		margin-bottom: $margin / 4;
 
-		font-size: 3.5em;
+		font-size: $sub-heading * 2.25;
 	}
 	.team__button--edit {
 		display: block;
@@ -197,7 +197,7 @@ body {
 		.ratings__text {
 			color: $primary;
 			font-family: $sans-font;
-			font-size: 1em;
+			font-size: $sans-font-size;
 		}
 		.ratings__star {
 			@extend %star;

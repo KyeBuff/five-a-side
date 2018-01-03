@@ -17,7 +17,7 @@ class PlayerListItem extends Component {
 		return (
 	  	<li className="player-list__item">
 				<span 
-					className={name.length > 7 ? "name--small" : "name"}
+					className="name"
 					>
 					{name.length >= 11 ? name.slice(0, 9) + "..." : name}
 				</span>
