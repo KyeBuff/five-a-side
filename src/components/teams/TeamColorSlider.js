@@ -25,7 +25,7 @@ const TeamColorSlider = (props) => {
 					/>
 				</div>
 				<input 
-					className="btn"
+					className="btn btn--progress"
 					type="submit"
 					value="Change colour"
 					disabled={props.disabled}

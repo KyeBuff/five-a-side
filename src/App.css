@@ -1,6 +1,7 @@
 @font-face {
   font-family: "Cabin";
-  src: url("./assets/fonts/Cabin/Cabin-Regular.ttf"); }
+  src: url("./assets/fonts/Cabin/Cabin-Regular.ttf") format("truetype");
+  src: url("./assets/fonts/Cabin/Cabin-Regular.eot?#iefix") format("embedded-opentype"), url("./assets/fonts/Cabin/Cabin-Regular.woff2") format("woff2"), url("./assets/fonts/Cabin/Cabin-Regular.woff") format("woff"); }
 
 .players form .input--text, .team form .input--text {
   display: block;
@@ -313,8 +314,9 @@ h1, h2 {
   margin: 1em auto;
   max-width: 450px;
   min-height: 300px;
+  background-color: rgba(26, 77, 26, 0.7);
   background-image: url("./assets/images/pitch.png");
-  background-size: 100% 96%;
+  background-size: 100% 100%;
   background-repeat: no-repeat; }
 
 .team .team__formation .pitch__player {

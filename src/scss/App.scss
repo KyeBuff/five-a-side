@@ -1,21 +1,11 @@
 // Fonts
-//TODO
-	//Convert font types
-	//Logo size/styling
-
-	// TODO BOX SHADOWS
-
-// TODO - Team component styling
 @font-face {
 	font-family: "Cabin";
-	src: url("./assets/fonts/Cabin/Cabin-Regular.ttf");
+	src: url("./assets/fonts/Cabin/Cabin-Regular.ttf") format('truetype');
+	src: url('./assets/fonts/Cabin/Cabin-Regular.eot?#iefix') format('embedded-opentype'), 
+  url('./assets/fonts/Cabin/Cabin-Regular.woff2') format('woff2'), 
+  url('./assets/fonts/Cabin/Cabin-Regular.woff') format('woff');
 }
-
-// @font-face {
-// 	font-family: "Jura";
-// 	src: url("./assets/fonts/Jura/Jura-Regular.ttf");
-// 	src: url("./assets/fonts/Jura/Jura-SemiBold.ttf");
-// }
 
 // Variables
 
@@ -26,6 +16,7 @@ $danger: #9F1E00;
 $warning: #C46A11;
 $gray: #CDCDCD;
 $black: #1B1C20;
+$pitch: hsla(119, 50%, 20%, 0.7);
 
 // Fonts
 $main-header-font: "Cabin", "Courier", serif;
@@ -481,9 +472,10 @@ h1, h2 {
 			max-width: 450px;
 			min-height: 300px;
  
-			// background-color: $black;
-			background-image: url("./assets/images/pitch.png"); 
-			background-size: 100% 96%;
+			background-color: $pitch;
+			background-image: url("./assets/images/pitch.png");
+		 	// fixes pitch bug
+			background-size: 100% 100%;
 			background-repeat: no-repeat;
 		}
 		.pitch__player {
