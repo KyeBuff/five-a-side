@@ -83,27 +83,33 @@ body {
 				display: inline-block;
 
 				width: 33.3%;
+
+				&:first-of-type .label--radio {
+					border-radius: 5px 0 0 5px;
+				}
+				&:last-of-type .label--radio {
+					border-radius: 0 5px 5px 0;
+				}
+				.input--radio {
+					display: none;
+					
+					&:checked + .label--radio {
+						background-color: $gray;
+					}			
+				}
+				.label--radio {
+					display: block;
+
+					box-sizing: border-box;
+					margin: $margin 0 $margin * 2;
+					padding: $padding;
+
+					font-family: $sans-font;
+					text-align: center;
+
+					background-color: $primary;
+				}
 			}
-		}
-		.input--radio {
-			display: none;
-			
-			&:checked + .label--radio {
-				background-color: $gray;
-			}			
-		}
-		//TODO border radius
-		.label--radio {
-			display: block;
-
-			box-sizing: border-box;
-			margin: $margin 0 $margin * 2;
-			padding: $padding;
-
-			font-family: $sans-font;
-			text-align: center;
-
-			background-color: $primary;
 		}
 	}
 }

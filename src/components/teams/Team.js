@@ -42,11 +42,6 @@ class Team extends Component {
 	onNameChange(e) {
 		const teamName = e.target.value;
 		// Empty team name validation
-		if(!teamName) {
-			this.setState({valid: false})
-		} else {
-			this.setState({valid: true})
-		}
 		this.setState({teamName});
 	}
 
@@ -65,9 +60,11 @@ class Team extends Component {
 		e.preventDefault();
 
 		if(this.state.teamName) { 
-			this.setState({isEditingName: false});
+			this.setState({isEditingName: false, valid: true});
 
 			this.props.updateTeamName(this.state.teamName, this.props.team.get('id'));
+		} else {
+			this.setState({valid: false})
 		}
 	}
 

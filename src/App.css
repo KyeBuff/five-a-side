@@ -69,12 +69,12 @@ h1, h2 {
     cursor: pointer;
     animate: 0.2s;
     box-shadow: 1px 1px 1px #1B1C20;
-    background: #FFFFFF;
+    background: #FFF;
     border-radius: 5px;
     border: 1px solid #1B1C20; }
   .team .team__color-slider .team_color_slider-container .team__color__range-input::-webkit-slider-thumb {
-    box-shadow: 1px 1px 1px #000000;
-    border: 1px solid #000000;
+    box-shadow: 1px 1px 1px #1B1C20;
+    border: 1px solid #1B1C20;
     height: 36px;
     width: 20px;
     border-radius: 5px;
@@ -88,12 +88,12 @@ h1, h2 {
     cursor: pointer;
     animate: 0.2s;
     box-shadow: 1px 1px 1px #1B1C20;
-    background: #FFFFFF;
+    background: #FFF;
     border-radius: 5px;
     border: 1px solid #1B1C20; }
   .team .team__color-slider .team_color_slider-container .team__color__range-input::-moz-range-thumb {
-    box-shadow: 1px 1px 1px #000000;
-    border: 1px solid #000000;
+    box-shadow: 1px 1px 1px #1B1C20;
+    border: 1px solid #1B1C20;
     height: 36px;
     width: 20px;
     border-radius: 5px;
@@ -108,30 +108,30 @@ h1, h2 {
     border-color: transparent;
     color: transparent; }
   .team .team__color-slider .team_color_slider-container .team__color__range-input::-ms-fill-lower {
-    background: #FFFFFF;
+    background: #FFF;
     border: 1px solid #1B1C20;
     border-radius: 10px;
     box-shadow: 1px 1px 1px #1B1C20; }
   .team .team__color-slider .team_color_slider-container .team__color__range-input::-ms-fill-upper {
-    background: #FFFFFF;
+    background: #FFF;
     border: 1px solid #1B1C20;
     border-radius: 10px;
     box-shadow: 1px 1px 1px #1B1C20; }
   .team .team__color-slider .team_color_slider-container .team__color__range-input::-ms-thumb {
     margin-top: 1px;
-    box-shadow: 1px 1px 1px #000000;
-    border: 1px solid #000000;
+    box-shadow: 1px 1px 1px #1B1C20;
+    border: 1px solid #1B1C20;
     height: 36px;
     width: 20px;
     border-radius: 5px;
     background: #F2D72D;
     cursor: pointer; }
   .team .team__color-slider .team_color_slider-container .team__color__range-input:focus::-ms-fill-lower {
-    background: #FFFFFF; }
+    background: #FFF; }
   .team .team__color-slider .team_color_slider-container .team__color__range-input:focus::-ms-fill-upper {
-    background: #FFFFFF; }
+    background: #FFF; }
   .team .team__color-slider .team_color_slider-container .team__color__range-input:focus::-webkit-slider-runnable-track {
-    background: #FFFFFF; }
+    background: #FFF; }
 
 .btn {
   display: block;
@@ -234,20 +234,22 @@ body {
 .players form .rating-buttons .div__input--radio {
   display: inline-block;
   width: 33.3%; }
-
-.players form .input--radio {
-  display: none; }
-  .players form .input--radio:checked + .label--radio {
-    background-color: #CDCDCD; }
-
-.players form .label--radio {
-  display: block;
-  box-sizing: border-box;
-  margin: 0.5em 0 1em;
-  padding: 1em;
-  font-family: "Cabin", "Courier", sans-serif;
-  text-align: center;
-  background-color: #FFF; }
+  .players form .rating-buttons .div__input--radio:first-of-type .label--radio {
+    border-radius: 5px 0 0 5px; }
+  .players form .rating-buttons .div__input--radio:last-of-type .label--radio {
+    border-radius: 0 5px 5px 0; }
+  .players form .rating-buttons .div__input--radio .input--radio {
+    display: none; }
+    .players form .rating-buttons .div__input--radio .input--radio:checked + .label--radio {
+      background-color: #CDCDCD; }
+  .players form .rating-buttons .div__input--radio .label--radio {
+    display: block;
+    box-sizing: border-box;
+    margin: 0.5em 0 1em;
+    padding: 1em;
+    font-family: "Cabin", "Courier", sans-serif;
+    text-align: center;
+    background-color: #FFF; }
 
 .players__list-section .player-list {
   margin-top: 0; }
