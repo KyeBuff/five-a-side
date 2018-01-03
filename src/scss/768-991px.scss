@@ -1,0 +1,57 @@
+@media (min-width: 768px) { 
+
+	.container {
+		margin: 0 auto;
+		padding: $padding * 4 0;
+		width: 70%;
+	} 
+
+	.header {
+		.header__main-heading {
+			font-size: 4em;
+		}	
+	}
+
+	.player-list {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		.player-list__item {
+			flex: 1 0 45%;
+
+			box-sizing: border-box;
+			&:nth-of-type(odd) {
+				margin: $margin $margin * 2 $margin 0; 
+			}
+			&:last-of-type() {
+				margin: $margin 0 $margin 0; 
+			}
+		}
+	}
+
+	.team {
+		.team__formation {
+			.pitch {
+				.pitch__player-3 {
+					left: 10%;
+				}
+				.pitch__player-4 {
+					right: 10%;
+				}
+			}
+		}
+	}
+
+	.landing {
+		.landing__heading {
+			font-size: $sub-heading * 1.5;
+		}
+	}
+
+	.modal {
+		.modal__content {
+			left: 20%;
+			width: 60%;
+		}
+	}
+}

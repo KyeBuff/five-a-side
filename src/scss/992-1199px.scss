@@ -1,0 +1,22 @@
+@media (min-width:992px) {
+	.container {	
+		padding-top: $padding * 8;
+		width: 60%;
+	}
+
+	.header {
+		margin-top: $margin * 3;
+
+		.header__main-heading {
+			font-size: 5em;
+		}	
+	}
+
+	.modal {
+		.modal__content {
+			left: 25%;
+			width: 50%;
+		}
+	}
+
+}

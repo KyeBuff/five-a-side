@@ -1,0 +1,27 @@
+// Anchors
+
+a {
+	text-decoration: none;
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+}
+
+p {
+	font-family: $sans-font;
+}
+
+button {
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+}
+
+// Headings 
+
+h1, h2 {
+	font-family: $main-header-font;
+	text-align: center;
+} 

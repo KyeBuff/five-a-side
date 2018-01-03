@@ -3,6 +3,25 @@
   src: url("./assets/fonts/Cabin/Cabin-Regular.ttf") format("truetype");
   src: url("./assets/fonts/Cabin/Cabin-Regular.eot?#iefix") format("embedded-opentype"), url("./assets/fonts/Cabin/Cabin-Regular.woff2") format("woff2"), url("./assets/fonts/Cabin/Cabin-Regular.woff") format("woff"); }
 
+a {
+  text-decoration: none; }
+
+ul {
+  list-style: none;
+  padding: 0; }
+
+p {
+  font-family: "Cabin", "Courier", sans-serif; }
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer; }
+
+h1, h2 {
+  font-family: "Cabin", "Courier", serif;
+  text-align: center; }
+
 .players form .input--text, .team form .input--text {
   display: block;
   margin: 0.4em 0 1em;
@@ -95,34 +114,6 @@
   .team .team__color-slider .team_color_slider-container .team__color__range-input:focus::-webkit-slider-runnable-track {
     background: #FFFFFF; }
 
-body {
-  min-height: 100vh;
-  background-image: linear-gradient(#1B1C20, transparent 150%), url("./assets/images/app-bg.jpg");
-  background-size: cover;
-  background-repeat: no-repeat; }
-
-.container {
-  padding: 1.5em; }
-
-a {
-  text-decoration: none; }
-
-ul {
-  list-style: none;
-  padding: 0; }
-
-p {
-  font-family: "Cabin", "Courier", sans-serif; }
-
-button {
-  background-color: transparent;
-  border: none;
-  cursor: pointer; }
-
-h1, h2 {
-  font-family: "Cabin", "Courier", serif;
-  text-align: center; }
-
 .btn {
   display: block;
   box-sizing: border-box;
@@ -182,6 +173,15 @@ h1, h2 {
   width: auto;
   color: #FFF; }
 
+body {
+  min-height: 100vh;
+  background-image: linear-gradient(#1B1C20, transparent 150%), url("./assets/images/app-bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat; }
+
+.container {
+  padding: 1.5em; }
+
 .header {
   padding: 1em; }
   .header .header__main-heading {
@@ -193,7 +193,8 @@ h1, h2 {
       color: #F2D72D; }
 
 .landing {
-  margin-top: 2.5em;
+  box-sizing: border-box;
+  margin-top: 30vh;
   padding: 1em; }
   .landing .landing__heading {
     color: #FFF;
@@ -416,9 +417,15 @@ h1, h2 {
     .modal .modal__content .modal__message {
       color: #FFF; }
 
+@media (min-width: 480px) {
+  .container {
+    margin: 0 auto;
+    max-width: 60%; } }
+
 @media (min-width: 768px) {
   .container {
     margin: 0 auto;
+    padding: 4em 0;
     width: 70%; }
   .header .header__main-heading {
     font-size: 4em; }
@@ -445,6 +452,7 @@ h1, h2 {
 
 @media (min-width: 992px) {
   .container {
+    padding-top: 8em;
     width: 60%; }
   .header {
     margin-top: 1.5em; }
@@ -456,6 +464,7 @@ h1, h2 {
 
 @media (min-width: 1200px) {
   .container {
+    padding-top: 2em;
     max-width: 800px;
     width: 70%; }
   .header {
@@ -463,7 +472,8 @@ h1, h2 {
     .header .header__main-heading {
       font-size: 4em; }
   .landing {
-    margin: 7.5em auto 0;
+    margin-left: auto;
+    margin-right: auto;
     width: 75%; }
     .landing .landing__heading {
       font-size: 3em; }

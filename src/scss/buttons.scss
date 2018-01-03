@@ -1,0 +1,33 @@
+.btn {
+	@include button($primary);
+	&:active {
+		position: relative;
+		top: 3px;
+	}
+	&:disabled {
+		background-color: $gray;
+		opacity: 0.4;
+
+		color: $black; 
+	}
+	&[type="submit"] {	
+		// ios override
+		-webkit-appearance: none;
+	}
+}
+
+.btn--progress {
+	@include button($secondary);
+}
+
+.btn--danger {
+	// TODO add props to mixin
+	@include button($danger);
+
+	margin-bottom: $margin * 2;
+	margin-left: auto;
+	padding: $padding / 2;
+	width: auto;
+
+	color: $primary;
+}

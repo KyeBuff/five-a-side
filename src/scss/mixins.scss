@@ -1,0 +1,18 @@
+@mixin button($bgColor) {
+	display: block;
+
+	box-sizing: border-box;
+	margin: $margin 0 $margin * 4;
+	padding: $padding $padding / 4;
+	width: 100%;
+
+	background-color: $bgColor;
+	border: none;
+	border-radius: 5px;
+	box-shadow: 1.5px 3px 3px $black;
+
+	color: $black;
+	font-family: $sans-font;
+	font-size: 1em;
+	text-align: center; 
+}
