@@ -7,9 +7,10 @@ class Form extends Component {
 		super(props);
 		this.state = {
 			name: "",
-			rating: 1,
+			rating: 0,
 			valid: true,
-			showRatingOptions: false,
+			errorMessage: "",
+			showRatingInput: false,
 		}
 		this.onNameChange = this.onNameChange.bind(this);
 		this.onSkillChange = this.onSkillChange.bind(this);
@@ -22,12 +23,13 @@ class Form extends Component {
 		this.setState({rating});
 	}
 
+	// TODO VALIDATE name input
 	onNameChange(e) {
 		const name = e.target.value;
 
-		const showRatingOptions = name.length > 0 ? true : false;
+		const showRatingInput = name.length > 0 ? true : false;
 
-		this.setState({name, showRatingOptions});
+		this.setState({name, showRatingInput});
 	}
 
 	onSubmit(e) {
@@ -40,19 +42,34 @@ class Form extends Component {
 			rating: this.state.rating,
 		}
 
-		this.setState({valid: false});
+		const {name, rating} = playerOb;
+
+		let errorMessage = "";
+
+		// Validation
+
+		// Allowing any characters as this is not a formal form and nicknames etc may be used.
+		errorMessage = !name && !rating ? "Please enter a player name and select a rating" : "";
+
+		if(!name) {
+			errorMessage = "Please enter a player name";
+		} else if(!rating) {
+			errorMessage = "Please give the player a rating";
+		}
+
+		this.setState({valid: false, errorMessage});
 
 		//Empty name validation
-		if(playerOb.name) {
+		if(name && rating) {
 			this.props.addPlayer(playerOb)
 
-			this.setState({name: "", rating: 1, valid: true, showRatingOptions: false})
+			this.setState({name: "", rating: 0, valid: true, errorMessage: "", showRatingInput: false})
 		}
 	}
 
 	render() {
 
-		const { valid, rating, showRatingOptions, name } = this.state;
+		const { valid, rating, showRatingInput, name, errorMessage } = this.state;
 
 		return (
 			<form onSubmit={this.onSubmit}>
@@ -63,8 +80,8 @@ class Form extends Component {
 					onChange={this.onNameChange} 
 					value={name} 
 				/>
-				{valid ? null : <p className="players__info">Please enter a player name</p>}
-				{showRatingOptions ? 
+				{valid ? null : <p className="players__info">{errorMessage}</p>}
+				{showRatingInput ? 
 				<div className="rating-buttons">
 					<p className="rating-buttons__text">Choose a skill level</p>
 					<InputRadio 

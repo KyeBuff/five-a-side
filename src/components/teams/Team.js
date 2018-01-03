@@ -14,6 +14,7 @@ class Team extends Component {
 			teamName: this.props.team.get('teamName'),
 			teamColor: this.props.team.get('color'),
 			isEditingName: false,
+			valid: true,
 			modal: {
 				showModal: false,
 				proceedTo: '',
@@ -39,8 +40,14 @@ class Team extends Component {
 	}
 
 	onNameChange(e) {
-		const teamColor = e.target.value;
-		this.setState({teamColor});
+		const teamName = e.target.value;
+		// Empty team name validation
+		if(!teamName) {
+			this.setState({valid: false})
+		} else {
+			this.setState({valid: true})
+		}
+		this.setState({teamName});
 	}
 
 	onColorChange(e) {
@@ -57,9 +64,11 @@ class Team extends Component {
 	onNameSubmit(e) {
 		e.preventDefault();
 
-		this.setState({isEditingName: false});
+		if(this.state.teamName) { 
+			this.setState({isEditingName: false});
 
-		this.props.updateTeamName(this.state.teamName, this.props.team.get('id'));
+			this.props.updateTeamName(this.state.teamName, this.props.team.get('id'));
+		}
 	}
 
 	onTeamColorSubmit(e) {
@@ -87,7 +96,7 @@ class Team extends Component {
 	render() {
 		const { team, clearPlayers } = this.props;
 
-		const { isEditingName, teamName, modal } = this.state;
+		const { isEditingName, teamName, modal, valid } = this.state;
 		const rating = team.get('rating');
 
 		//Player size check prevents users accessing without generating teams
@@ -117,6 +126,11 @@ class Team extends Component {
 								</h2>
 							</button> 
 				  	</div>
+						}
+						{valid ?
+						null
+						:
+						<p className="players__info">Your team must have a name</p>
 						}
 						<Rating rating={rating} ratingText="Team rating average: "/>
 						<TeamFormation 

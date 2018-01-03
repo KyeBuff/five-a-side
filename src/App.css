@@ -294,6 +294,13 @@ h1, h2 {
     background-size: 90%;
     background-repeat: no-repeat; }
 
+.team .players__info {
+  margin-top: 0.5em;
+  padding: 0.5em;
+  background-color: #C46A11;
+  color: #FFF;
+  text-align: center; }
+
 .team .ratings {
   text-align: center; }
   .team .ratings .ratings__text {
@@ -477,7 +484,7 @@ h1, h2 {
         display: block;
         padding: 0.5em;
         background-color: #C46A11;
-        xcolor: #FFF;
+        color: #FFF;
         text-align: center; }
     .players .players__list-section {
       float: left;

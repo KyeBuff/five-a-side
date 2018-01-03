@@ -1,5 +1,4 @@
 import React from 'react';
-import PitchPlayerItem from './PitchPlayerItem';
 
 const TeamColorSlider = (props) => {
 

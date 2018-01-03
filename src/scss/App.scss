@@ -7,166 +7,10 @@
   url('./assets/fonts/Cabin/Cabin-Regular.woff') format('woff');
 }
 
-// Variables
-
-// Colors
-$primary: #FFF;
-$secondary: #F2D72D;
-$danger: #9F1E00;
-$warning: #C46A11;
-$gray: #CDCDCD;
-$black: #1B1C20;
-$pitch: hsla(119, 50%, 20%, 0.7);
-
-// Fonts
-$main-header-font: "Cabin", "Courier", serif;
-$sans-font: "Cabin", "Courier", sans-serif;
- 
-// Size
-$sub-heading: 1.5em;
-$inputFontSize: 1.5em;
-
-// Dimensions
-
-$padding: 1em;
-$margin: .5em;
-
-// List item mixin/placeholder
-
-// Extends/placeholders
-
-%input-text {
-	display: block;
-	margin: $margin / 1.25 0 $margin * 2;
-
-	box-sizing: border-box;
-	border-radius: 5px;
-	padding: $padding / 3;
-		width: 100%;
-
-	font-family: $sans-font;
-	font-size: $inputFontSize;
-}
-
-%h2 {
-	margin-bottom: $margin;
-
-	color: $primary;
-	font-size: $sub-heading;
-}
-
-%slider {
-	display: block;
-
-	width: 65%;
-
-	background-color: transparent;
-	-webkit-appearance: none;
-	&:hover {
-		cursor: pointer;
-	}
-	&::-webkit-slider-runnable-track {
-	  width: 100%;
-	  height: 24px;
-	  cursor: pointer;
-	  animate: 0.2s;
-	  box-shadow: 1px 1px 1px #1B1C20;
-	  background: #FFFFFF;
-	  border-radius: 5px;
-	  border: 1px solid #1B1C20;
-	}
-	&::-webkit-slider-thumb {
-	  box-shadow: 1px 1px 1px #000000;
-	  border: 1px solid #000000;
-	  height: 36px;
-	  width: 20px;
-	  border-radius: 5px;
-	  background: #F2D72D;
-	  cursor: pointer;
-	  -webkit-appearance: none;
-	  margin-top: -7px; 
-	}
-	&::-moz-range-track {
-	  width: 100%;
-	  height: 24px;
-	  cursor: pointer;
-	  animate: 0.2s;
-	  box-shadow: 1px 1px 1px #1B1C20;
-	  background: #FFFFFF;
-	  border-radius: 5px;
-	  border: 1px solid #1B1C20;
-	}
-	&::-moz-range-thumb {
-	  box-shadow: 1px 1px 1px #000000;
-	  border: 1px solid #000000;
-	  height: 36px;
-	  width: 20px;
-	  border-radius: 5px;
-	  background: #F2D72D;
-	  cursor: pointer;
-	}
-	&::-ms-track {
-	  width: 100%;
-	  height: 24px;
-	  cursor: pointer;
-	  animate: 0.2s;
-	  background: transparent;
-	  border-color: transparent;
-	  color: transparent;
-	}
-	&::-ms-fill-lower {
-	  background: #FFFFFF;
-	  border: 1px solid #1B1C20;
-	  border-radius: 10px;
-	  box-shadow: 1px 1px 1px #1B1C20;
-	}
-	&::-ms-fill-upper {
-	  background: #FFFFFF;
-	  border: 1px solid #1B1C20;
-	  border-radius: 10px;
-	  box-shadow: 1px 1px 1px #1B1C20;
-	}
-	&::-ms-thumb {
-	  margin-top: 1px;
-	  box-shadow: 1px 1px 1px #000000;
-	  border: 1px solid #000000;
-	  height: 36px;
-	  width: 20px;
-	  border-radius: 5px;
-	  background: #F2D72D;
-	  cursor: pointer;
-	}
-	&:focus::-ms-fill-lower {
-	  background: #FFFFFF;
-	}
-	&:focus::-ms-fill-upper {
-	  background: #FFFFFF;
-	}
-	&:focus::-webkit-slider-runnable-track {
-	  background: #FFFFFF;
-	}
-}
-
-// Mixins
-
-@mixin button($bgColor) {
-	display: block;
-
-	box-sizing: border-box;
-	margin: $margin 0 $margin * 4;
-	padding: $padding $padding / 4;
-	width: 100%;
-
-	background-color: $bgColor;
-	border: none;
-	border-radius: 5px;
-	box-shadow: 1.5px 3px 3px $black;
-
-	color: $black;
-	font-family: $sans-font;
-	font-size: 1em;
-	text-align: center;
-}
+// Imports
+@import 'variables';
+@import 'mixins';
+@import 'placeholders';
 
 // Body styling
 body {
@@ -181,7 +25,7 @@ body {
 // Container styling
 
 .container {
-	padding: $padding * 1.5;
+	padding: $padding * 1.5; 
 }
 
 // Generics - towards top to be overriden
@@ -441,7 +285,15 @@ h1, h2 {
 			background-size: 90%; 
 			background-repeat: no-repeat;
 		}
+	}
+	.players__info {
+		margin-top: $margin;
+		padding: $padding / 2;
 
+		background-color: $warning;
+
+		color: $primary;
+		text-align: center;
 	}
 	// TODO RATINGS PLACEHOLDER
 	.ratings {
@@ -742,7 +594,7 @@ h1, h2 {
 
 				background-color: $warning;
 
-				xcolor: $primary;
+				color: $primary;
 				text-align: center;
 			}
 		}
