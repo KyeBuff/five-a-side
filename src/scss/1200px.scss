@@ -1,17 +1,13 @@
 @media (min-width: 1200px) {
 
 	.container {
-		padding-top: $padding * 2;
+		padding-top: 0;
 		max-width: 800px;
 		width: 70%;
 	}
 
 	.header {
 		margin-top: 0;
-
-		.header__main-heading {
-			font-size: 4em;
-		}	 
 	}
 	.landing {
 		margin-left: auto;
@@ -26,6 +22,8 @@
 	}
 
 	.players {
+		display: flex;
+		justify-content: space-between;
 		overflow: auto;
 		.players__heading {
 			font-size: 2.5em;
@@ -34,11 +32,9 @@
 			display: none;
 		}
 		.players__add-section {
-			float: left;
-
+			flex: 1;
 			box-sizing: border-box;
 			padding: 0 $padding * 2 $padding * 2;
-			width: 50%;
 
 			.players__info--lg {
 				display: block;
@@ -52,11 +48,10 @@
 			}
 		}
 		.players__list-section {
-			float: left;
+			flex: 1;
 
 			box-sizing: border-box;
 			padding: 0 $padding * 2 $padding * 2;
-			width: 50%;
 
 			.name--small {
 				font-size: .8em;

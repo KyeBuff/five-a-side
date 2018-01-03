@@ -35,7 +35,26 @@ h1, h2 {
 .players .players__heading, .players__list-section .players__heading, .team .team__heading, .team .team__color-slider .team__color__heading {
   margin-bottom: 0.5em;
   color: #FFF;
-  font-size: 1.5em; }
+  font-size: 1.5em;
+  letter-spacing: 0.1em; }
+
+.players__list-section .player-list .player-list__item .ratings .ratings__star, .team .ratings .ratings__star {
+  display: inline-block;
+  height: 15px;
+  margin-top: 0.25em;
+  width: 15px;
+  background-image: url("./assets/images/icons/star.png");
+  background-size: cover; }
+
+.players .players__add-section .players__info, .players__list-section .players__info, .team .team__info {
+  margin-top: 0.5em;
+  padding: 0.5em;
+  background-color: #C46A11;
+  color: #FFF;
+  text-align: center; }
+
+.btn, .btn--progress, .btn--danger, .players__list-section .player-list .player-list__item {
+  box-shadow: 1.5px 3px 3px #1B1C20; }
 
 .team .team__color-slider .team_color_slider-container .team__color__range-input {
   display: block;
@@ -123,10 +142,9 @@ h1, h2 {
   background-color: #FFF;
   border: none;
   border-radius: 5px;
-  box-shadow: 1.5px 3px 3px #1B1C20;
   color: #1B1C20;
   font-family: "Cabin", "Courier", sans-serif;
-  font-size: 1em;
+  font-size: 1.125em;
   text-align: center; }
   .btn:active {
     position: relative;
@@ -147,10 +165,9 @@ h1, h2 {
   background-color: #F2D72D;
   border: none;
   border-radius: 5px;
-  box-shadow: 1.5px 3px 3px #1B1C20;
   color: #1B1C20;
   font-family: "Cabin", "Courier", sans-serif;
-  font-size: 1em;
+  font-size: 1.125em;
   text-align: center; }
 
 .btn--danger {
@@ -162,10 +179,9 @@ h1, h2 {
   background-color: #9F1E00;
   border: none;
   border-radius: 5px;
-  box-shadow: 1.5px 3px 3px #1B1C20;
   color: #1B1C20;
   font-family: "Cabin", "Courier", sans-serif;
-  font-size: 1em;
+  font-size: 1.125em;
   text-align: center;
   margin-bottom: 1em;
   margin-left: auto;
@@ -188,7 +204,7 @@ body {
     margin: 0;
     color: #FFF;
     font-size: 4em;
-    letter-spacing: .1em; }
+    letter-spacing: 0.1em; }
     .header .header__main-heading span {
       color: #F2D72D; }
 
@@ -204,13 +220,6 @@ body {
     color: #FFF;
     font-family: "Cabin", "Courier", sans-serif;
     text-align: center; }
-
-.players .players__add-section .players__info {
-  margin-top: 0.5em;
-  padding: 0.5em;
-  background-color: #C46A11;
-  color: #FFF;
-  text-align: center; }
 
 .players .players__add-section .players__info--lg {
   display: none; }
@@ -240,13 +249,6 @@ body {
   text-align: center;
   background-color: #FFF; }
 
-.players__list-section .players__info {
-  margin-top: 0.5em;
-  padding: 0.5em;
-  background-color: #C46A11;
-  color: #FFF;
-  text-align: center; }
-
 .players__list-section .player-list {
   margin-top: 0; }
   .players__list-section .player-list .player-list__item {
@@ -255,16 +257,8 @@ body {
     padding: 0.66667em;
     background-color: #FFF;
     border-radius: 5px;
-    box-shadow: 1.5px 3px 3px #1B1C20;
     font-family: "Cabin", "Courier", sans-serif;
     font-size: 1.25em; }
-    .players__list-section .player-list .player-list__item .ratings .ratings__star {
-      display: inline-block;
-      height: 15px;
-      margin-top: 0.25em;
-      width: 15px;
-      background-image: url("./assets/images/icons/star.png");
-      background-size: cover; }
     .players__list-section .player-list .player-list__item .player-list__item__button--delete {
       position: absolute;
       right: 1em;
@@ -272,7 +266,7 @@ body {
       height: 20px;
       width: 20px;
       background-image: url("./assets/images/icons/delete.png");
-      background-size: 90%;
+      background-size: 100% 100%;
       background-repeat: no-repeat; }
 
 .team .team__heading {
@@ -287,20 +281,15 @@ body {
   color: #FFF;
   text-align: center; }
   .team .team__button--edit .team__button--edit__icon {
+    position: relative;
+    top: 10px;
     display: inline-block;
-    height: 25px;
+    height: 40px;
     margin-left: 5px;
-    width: 25px;
+    width: 40px;
     background-image: url("./assets/images/icons/edit.png");
     background-size: 90%;
     background-repeat: no-repeat; }
-
-.team .players__info {
-  margin-top: 0.5em;
-  padding: 0.5em;
-  background-color: #C46A11;
-  color: #FFF;
-  text-align: center; }
 
 .team .ratings {
   text-align: center; }
@@ -308,13 +297,6 @@ body {
     color: #FFF;
     font-family: "Cabin", "Courier", sans-serif;
     font-size: 1em; }
-  .team .ratings .ratings__star {
-    display: inline-block;
-    height: 15px;
-    margin-top: 0.25em;
-    width: 15px;
-    background-image: url("./assets/images/icons/star.png");
-    background-size: cover; }
 
 .team .team__formation .pitch {
   position: relative;
@@ -367,7 +349,7 @@ body {
     display: flex;
     justify-content: space-between; }
     .team .team__color-slider .team_color_slider-container .team__color__preview {
-      border: 2px solid #FFF;
+      border: 5px solid #FFF;
       box-sizing: border-box;
       height: 50px;
       margin-right: 3%;
@@ -471,13 +453,11 @@ body {
 
 @media (min-width: 1200px) {
   .container {
-    padding-top: 2em;
+    padding-top: 0;
     max-width: 800px;
     width: 70%; }
   .header {
     margin-top: 0; }
-    .header .header__main-heading {
-      font-size: 4em; }
   .landing {
     margin-left: auto;
     margin-right: auto;
@@ -487,16 +467,17 @@ body {
     .landing .landing__text {
       margin-bottom: 0; }
   .players {
+    display: flex;
+    justify-content: space-between;
     overflow: auto; }
     .players .players__heading {
       font-size: 2.5em; }
     .players .container-players__info--sm-md {
       display: none; }
     .players .players__add-section {
-      float: left;
+      flex: 1;
       box-sizing: border-box;
-      padding: 0 2em 2em;
-      width: 50%; }
+      padding: 0 2em 2em; }
       .players .players__add-section .players__info--lg {
         display: block;
         padding: 0.5em;
@@ -504,10 +485,9 @@ body {
         color: #FFF;
         text-align: center; }
     .players .players__list-section {
-      float: left;
+      flex: 1;
       box-sizing: border-box;
-      padding: 0 2em 2em;
-      width: 50%; }
+      padding: 0 2em 2em; }
       .players .players__list-section .name--small {
         font-size: .8em; }
       .players .players__list-section .player-list--full {

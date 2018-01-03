@@ -8,11 +8,11 @@
 
 	background-color: $bgColor;
 	border: none;
-	border-radius: 5px;
-	box-shadow: 1.5px 3px 3px $black;
+	border-radius: $border-radius;
+	@extend %box-shadow;
 
 	color: $black;
 	font-family: $sans-font;
-	font-size: 1em;
+	font-size: $sans-font-size * .9;
 	text-align: center; 
 }

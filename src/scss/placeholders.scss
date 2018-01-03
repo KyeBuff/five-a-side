@@ -16,6 +16,7 @@
 
 	color: $primary;
 	font-size: $sub-heading;
+	letter-spacing: $letter-spacing;
 }
 
 %star {
@@ -36,6 +37,10 @@
 
 	color: $primary;
 	text-align: center;
+}
+
+%box-shadow {
+	box-shadow: 1.5px 3px 3px $black;
 }
 
 %slider {
