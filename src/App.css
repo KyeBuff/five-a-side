@@ -215,11 +215,12 @@ h1, h2 {
 
 .team .team__formation .pitch {
   position: relative;
-  border: 3px solid #FFF;
-  height: 33.3vh;
-  margin: 1em 0;
-  background-color: #1B1C20;
-  opacity: 0.8; }
+  min-height: 33.3vh;
+  margin: 1em auto;
+  max-width: 450px;
+  background-image: url("./assets/images/pitch.png");
+  background-size: 100% 96%;
+  background-repeat: no-repeat; }
   .team .team__formation .pitch .ratings {
     text-align: center; }
     .team .team__formation .pitch .ratings .ratings__star {
@@ -240,7 +241,7 @@ h1, h2 {
     text-align: center; }
 
 .team .team__formation .pitch__player-0 {
-  top: 10%;
+  top: 5%;
   left: calc(50% - 50px); }
 
 .team .team__formation .pitch__player-1 {
@@ -248,16 +249,16 @@ h1, h2 {
   left: calc(50% - 50px); }
 
 .team .team__formation .pitch__player-2 {
-  bottom: 15%;
+  bottom: 20%;
   left: calc(50% - 50px); }
 
 .team .team__formation .pitch__player-3 {
   top: calc(50% - 10px);
-  left: 20%; }
+  left: 0%; }
 
 .team .team__formation .pitch__player-4 {
   top: calc(50% - 10px);
-  right: 20%; }
+  right: 0%; }
 
 .team form .input--text {
   margin-top: 1.5em; }
@@ -319,6 +320,10 @@ h1, h2 {
         margin: 0.5em 1em 0.5em 0; }
       .player-list .player-list__item:last-of-type {
         margin: 0.5em 0 0.5em 0; }
+  .team .team__formation .pitch .pitch__player-3 {
+    left: 10%; }
+  .team .team__formation .pitch .pitch__player-4 {
+    right: 10%; }
   .landing .landing__heading {
     font-size: 2.25em; }
   .modal .modal__content {

@@ -36,9 +36,9 @@ class Players extends Component {
 					<div className="players__add-section">
 						<h2 className="players__heading">Add a player</h2>
 						<NewPlayerForm addPlayer={this.addPlayer}/>
-						{players.size !== 0 && players.size < 4 ? 
+						{players.size !== 0 && players.size < 3 ? 
 						/* check if size === 3 as array is increasing*/
-						<p className="players__info--lg">At least {4 - players.size} more {players.size === 3 ? "player" : "players"} required.</p>
+						<p className="players__info--lg">At least {4 - players.size} more {players.size === 2 ? "player" : "players"} required.</p>
 						:
 						null
 						}
@@ -55,7 +55,7 @@ class Players extends Component {
 						className="btn footer-nav__link"
 						to="/"
 					>Go back</Link> 
-					{players.size > 3 ? 
+					{players.size > 2 ? 
 					<Link 
 						className="btn btn--progress footer-nav__link"
 						to="/team-one"
