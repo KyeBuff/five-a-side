@@ -83,14 +83,24 @@ const generateTeams = (players) => {
 	teamTwoRating = calcTeamRating(teamTwoPlayers),
 
 	// Booleans used to prevent infinite loop on even total rating but odd number of players
-	isTotalRatingEven = !((teamOneRating + teamTwoRating) % 2),
+	totalRating = teamOneRating + teamTwoRating;
+	avgRating = totalRating / players.size;
+	isTotalRatingEven = !(totalRating) % 2),
 	isOddNumPlayers = !!(players.size % 2),
 
-	ratingDifference = Math.abs(teamOneRating - teamTwoRating),
+	ratingDifference = Math.abs(teamOneRating - teamTwoRating);
 
 	// Tolerance set to 1 if total team ratings are odd and 0 for even to prevent infinite loop 
-	//Exception is when even total team ratings and odd num players where rating difference will be 2
-	tolerance = isTotalRatingEven && isOddNumPlayers ? 2 : (teamOneRating + teamTwoRating) % 2;
+	// If players are odd and numbers are odd - tolerance should be as high as 3
+	//1 Exception is when even total team ratings and odd num players where rating difference will be 2
+	let tolerance = 0;
+
+	//if total rating / num players === 3 and players is odd then tol should be 3 
+	if(avgRating === 3 && isOddNumPlayers) {
+		tolerance = 3;
+	} else {
+		tolerance = isTotalRatingEven && isOddNumPlayers ? 2 : (teamOneRating + teamTwoRating);
+	}
 
 	//recursive call until tolerance satisfied
 	if(ratingDifference > tolerance) {
