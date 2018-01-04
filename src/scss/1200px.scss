@@ -18,48 +18,6 @@
 		}
 	}
 
-	.players {
-		@include flex-display(flex);
-		@include justify-content(space-between);
-		overflow: auto;
-		.container-players__info--sm-md {
-			display: none;
-		}
-		.players__add-section {
-			@include short-flex(1);
-			@include box-sizing(border-box);
-			padding: 0 $padding * 2.5 $padding * 2 0;
-
-			.players__info--lg {
-				display: block;
-
-				padding: $padding / 2;
-
-				background-color: $warning;
-
-				color: $primary;
-				text-align: center;
-			}
-		}
-		.players__list-section {
-			@include short-flex(1);
-
-			@include box-sizing(border-box);
-			padding: 0 0 $padding * 2 $padding * 2.5;  
-
-			.player-list {
-				padding: 0;
-
-				.player-list__item:first-child {
-					margin-top: 0;
-				}
-				.player-list__item:nth-child(2) {
-					margin-top: 0;
-				}
-			}
-		}
-	}
-
 	.footer-nav {
 		padding: 0;
 		.footer-nav__link:first-child {
