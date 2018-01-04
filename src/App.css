@@ -322,7 +322,7 @@ body {
   margin: 1em auto;
   max-width: 450px;
   min-height: 300px;
-  background-color: rgba(26, 77, 26, 0.7);
+  background-color: rgba(26, 77, 26, 0.8);
   background-image: url("./assets/images/pitch.png");
   background-size: 100% 100%;
   background-repeat: no-repeat; }
@@ -525,6 +525,11 @@ body {
     .team .team-right-col-lg {
       flex: 1;
       padding: 0 0 0 2.5em; }
+    .team .team__color-slider {
+      padding-right: 0;
+      padding-left: 0; }
+      .team .team__color-slider .team__color__heading {
+        margin: 1em 0; }
   .footer-nav {
     padding: 0; }
     .footer-nav .footer-nav__link:first-child {

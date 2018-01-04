@@ -78,6 +78,14 @@
 
 			padding: 0 0 0 $padding * 2.5;
 		}
+		.team__color-slider {
+			padding-right: 0;
+			padding-left: 0;
+
+			.team__color__heading {
+				margin: $margin * 2 0;
+			}
+		}
 	}
 
 	.footer-nav {
