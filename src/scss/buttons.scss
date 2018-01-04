@@ -5,19 +5,36 @@
 		top: 3px;
 	}
 	&:disabled {
-		background-color: $gray;
+		@include linear-gradient($gray, $black, 300%);
 		opacity: 0.4;
 
 		color: $black; 
 	}
+	&:hover:enabled {
+		transition: all .5s;
+
+		@include linear-gradient($primary, $black, 300%);
+
+		letter-spacing: .1em;
+
+	}
 	&[type="submit"] {	
 		// ios override
 		-webkit-appearance: none;
+		cursor: pointer;
 	}
 }
 
 .btn--progress {
 	@include button($secondary);
+	&:hover:enabled {
+		transition: all .5s;
+
+		@include linear-gradient($secondary, $black, 300%);
+
+		letter-spacing: .1em;
+
+	}
 }
 
 .btn--danger {
@@ -27,16 +44,29 @@
 	margin-bottom: $margin * 2;
 	margin-left: auto;
 	padding: $padding / 2;
+	min-width: 138.06px;
 	width: auto;
 
 	color: $primary;
+	&:hover:enabled {
+		transition: all .5s;
+
+		@include linear-gradient($danger, $black, 200%);
+
+		font-weight: bold;
+	}
 }
 
 .btn--action {
 	// TODO add props to mixin
-	@include button($danger);
-
-	background-color: $pitchGreen;
+	@include button($pitchGreen);
 
 	color: $primary;
+
+	&:hover:enabled {
+		transition: all .5s;
+
+		@include linear-gradient($pitchGreen, $black, 200%);
+
+	}
 }

@@ -2,7 +2,6 @@
 	display: block;
 	margin: $margin / 1.25 0 $margin * 2;
 
-	//Hard coded as placeholders are dependant on mixins
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 	border-radius: 5px;
@@ -43,6 +42,11 @@
 %box-shadow {
 	-webkit-box-shadow: 1.5px 3px 3px $black;
 	box-shadow: 1.5px 3px 3px $black;
+}
+
+%btn-inset-box-shadow {
+	-webkit-box-shadow: 1.5px 3px 3px inset $black;
+	box-shadow: 1.5px 3px 3px inset $black;
 }
 
 %slider {
