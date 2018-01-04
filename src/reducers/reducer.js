@@ -83,9 +83,9 @@ const generateTeams = (players) => {
 	teamTwoRating = calcTeamRating(teamTwoPlayers),
 
 	// Booleans used to prevent infinite loop on even total rating but odd number of players
-	totalRating = teamOneRating + teamTwoRating;
-	avgRating = totalRating / players.size;
-	isTotalRatingEven = !(totalRating) % 2),
+	totalRating = teamOneRating + teamTwoRating,
+	avgRating = totalRating / players.size,
+	isTotalRatingEven = !(totalRating % 2),
 	isOddNumPlayers = !!(players.size % 2),
 
 	ratingDifference = Math.abs(teamOneRating - teamTwoRating);
