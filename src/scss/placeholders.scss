@@ -13,7 +13,6 @@
 
 %h2 {
 	margin-bottom: $margin;
-
 	color: $primary;
 	font-size: $sub-heading;
 	letter-spacing: $letter-spacing;
@@ -49,87 +48,107 @@
 	width: 65%;
 
 	background-color: transparent;
+	// Remove default webkit appearance
 	-webkit-appearance: none;
 	&:hover {
 		cursor: pointer;
 	}
+	//Styles track
 	&::-webkit-slider-runnable-track {
-	  width: 100%;
+	  border: 1px solid $black;
 	  height: 24px;
-	  cursor: pointer;
-	  animate: 0.2s;
+	  width: 100%;
+	  
 	  box-shadow: 1px 1px 1px $black;
 	  background: $primary;
 	  border-radius: 5px;
-	  border: 1px solid $black;
+
+	  cursor: pointer;
 	}
 	&::-webkit-slider-thumb {
-	  box-shadow: 1px 1px 1px $black;
 	  border: 1px solid $black;
 	  height: 36px;
+	  margin-top: -7px; 
 	  width: 20px;
+
 	  border-radius: 5px;
 	  background: $secondary;
+	  box-shadow: 1px 1px 1px $black;
+
 	  cursor: pointer;
 	  -webkit-appearance: none;
-	  margin-top: -7px; 
 	}
+	//Styles track
 	&::-moz-range-track {
-	  width: 100%;
+	  border: 1px solid $black;
 	  height: 24px;
-	  cursor: pointer;
-	  animate: 0.2s;
+	  width: 100%;
+	 
 	  box-shadow: 1px 1px 1px $black;
 	  background: $primary;
 	  border-radius: 5px;
-	  border: 1px solid $black;
+
+   	cursor: pointer;
 	}
 	&::-moz-range-thumb {
-	  box-shadow: 1px 1px 1px $black;
 	  border: 1px solid $black;
 	  height: 36px;
 	  width: 20px;
-	  border-radius: 5px;
+
 	  background: $secondary;
+	  border-radius: 5px;
+	  box-shadow: 1px 1px 1px $black;
+
 	  cursor: pointer;
 	}
+	//Styles track
 	&::-ms-track {
-	  width: 100%;
 	  height: 24px;
-	  cursor: pointer;
-	  animate: 0.2s;
+	  width: 100%;
+	  
 	  background: transparent;
 	  border-color: transparent;
 	  color: transparent;
+
+	  cursor: pointer;
 	}
+	// Fills < thumb part of track
 	&::-ms-fill-lower {
-	  background: $primary;
 	  border: 1px solid $black;
+
+	  background: $primary;
 	  border-radius: 10px;
 	  box-shadow: 1px 1px 1px $black;
 	}
+	// Fills > thumb part of track
 	&::-ms-fill-upper {
-	  background: $primary;
 	  border: 1px solid $black;
+
+	  background: $primary;
 	  border-radius: 10px;
 	  box-shadow: 1px 1px 1px $black;
 	}
 	&::-ms-thumb {
-	  margin-top: 1px;
-	  box-shadow: 1px 1px 1px $black;
 	  border: 1px solid $black;
 	  height: 36px;
+	  margin-top: 1px;
 	  width: 20px;
-	  border-radius: 5px;
+	  
 	  background: $secondary;
+	  border-radius: 5px;
+	  box-shadow: 1px 1px 1px $black;
+
 	  cursor: pointer;
 	}
+	// Fills < thumb part of track
 	&:focus::-ms-fill-lower {
 	  background: $primary;
 	}
+	// Fills > thumb part of track
 	&:focus::-ms-fill-upper {
 	  background: $primary;
 	}
+	// Styles track on focus
 	&:focus::-webkit-slider-runnable-track {
 	  background: $primary;
 	}
