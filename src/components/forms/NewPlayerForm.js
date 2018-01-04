@@ -27,9 +27,17 @@ class Form extends Component {
 	onNameChange(e) {
 		const name = e.target.value;
 
+		let errorMessage = "";
+		let valid = true;
+
+		if(!this.props.canAdd) {
+			errorMessage = "Maximum of 10 players allowed"; 
+			valid = false;
+		}
+
 		const showRatingInput = name.length > 0 ? true : false;
 
-		this.setState({name, showRatingInput});
+		this.setState({name, showRatingInput, valid, errorMessage});
 	}
 
 	onSubmit(e) {
@@ -51,7 +59,9 @@ class Form extends Component {
 		// Allowing any characters as this is not a formal form and nicknames etc may be used.
 		errorMessage = !name && !rating ? "Please enter a player name and select a rating" : "";
 
-		if(!name) {
+		if(!this.props.canAdd) {
+			errorMessage = "Maximum of 10 players allowed";
+		} else if(!name) {
 			errorMessage = "Please enter a player name";
 		} else if(!rating) {
 			errorMessage = "Please give the player a rating";
@@ -59,8 +69,8 @@ class Form extends Component {
 
 		this.setState({valid: false, errorMessage});
 
-		//Empty name validation
-		if(name && rating) {
+		//Empty name, rating and < 10 players validation
+		if(name && rating && this.props.canAdd) {
 			this.props.addPlayer(playerOb)
 
 			this.setState({name: "", rating: 0, valid: true, errorMessage: "", showRatingInput: false})

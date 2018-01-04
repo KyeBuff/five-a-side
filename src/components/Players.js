@@ -38,13 +38,15 @@ class Players extends Component {
 	render() {
 		const { players } = this.props,
 		{ teamsGenerated } = this.state;
-
 		return (
 			<div>
 				<section className="players">
 					<div className="players__add-section">
 						<h2 className="players__heading">Add a player</h2>
-						<NewPlayerForm addPlayer={this.addPlayer}/>
+						<NewPlayerForm 
+							addPlayer={this.addPlayer}
+							canAdd={players.size < 10}
+						/>
 						{players.size !== 0 && players.size < 3 ? 
 						/* check if size === 3 as array is increasing*/
 						<p className="players__info--lg">At least {3 - players.size} more {players.size === 2 ? "player" : "players"} required.</p>
@@ -64,7 +66,7 @@ class Players extends Component {
 						className="btn footer-nav__link"
 						to="/"
 					>Go back</Link> 
-					{players.size > 2 ? 
+					{players.size > 2 && players.size < 11 ? 
 					<div className="footer-nav-link_container">
 						{teamsGenerated ?
 						<Link 
