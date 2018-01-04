@@ -110,6 +110,7 @@ class Team extends Component {
 									className="input--text"
 									type="text" 
 									onChange={this.onNameChange}
+									placeholder="Team name..."
 									value={teamName}
 								/>
 							</form>
