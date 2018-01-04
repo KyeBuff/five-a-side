@@ -7,8 +7,13 @@ class Players extends Component {
 
 	constructor(props) {
 		super(props);
+
+		this.state = {
+			teamsGenerated: false,
+		}
+
 		this.addPlayer = this.addPlayer.bind(this);
-		this.balanceTeams = this.balanceTeams.bind(this);
+		this.generateTeams = this.generateTeams.bind(this);
 		this.clearPlayers = this.clearPlayers.bind(this);
 	}
 
@@ -20,8 +25,10 @@ class Players extends Component {
 		this.props.addPlayer(player);
 	}
 
-	balanceTeams() {
+	generateTeams() {
 		this.props.setTeams();
+
+		this.setState({teamsGenerated: true})
 	}
 
 	clearPlayers() {
@@ -29,7 +36,9 @@ class Players extends Component {
 	}
 
 	render() {
-		const { players } = this.props;
+		const { players } = this.props,
+		{ teamsGenerated } = this.state;
+
 		return (
 			<div>
 				<section className="players">
@@ -56,11 +65,19 @@ class Players extends Component {
 						to="/"
 					>Go back</Link> 
 					{players.size > 2 ? 
-					<Link 
-						className="btn btn--progress footer-nav__link"
-						to="/team-one"
-						onClick={this.balanceTeams}
-					>Generate teams</Link> 
+					<div className="footer-nav-link_container">
+						{teamsGenerated ?
+						<Link 
+							className="btn btn--progress footer-nav__link"
+							to="/team-one"
+						>Go to Team one</Link> 
+						:
+						<button 
+							className="btn btn--action footer-nav__link"
+							onClick={this.generateTeams}
+						>Generate teams</button>	
+						}
+					</div>
 					:
 					<button 
 						className="btn footer-nav__link"

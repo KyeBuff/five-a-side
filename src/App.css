@@ -53,7 +53,7 @@ h1, h2 {
   color: #FFF;
   text-align: center; }
 
-.btn, .btn--progress, .btn--danger, .players__list-section .player-list .player-list__item {
+.btn, .btn--progress, .btn--danger, .btn--action, .players__list-section .player-list .player-list__item {
   box-shadow: 1.5px 3px 3px #1B1C20; }
 
 .team .team__color-slider .team_color_slider-container .team__color__range-input {
@@ -187,6 +187,22 @@ h1, h2 {
   margin-left: auto;
   padding: 0.5em;
   width: auto;
+  color: #FFF; }
+
+.btn--action {
+  display: block;
+  box-sizing: border-box;
+  margin: 0.5em 0 2em;
+  padding: 1em 0.25em;
+  width: 100%;
+  background-color: #9F1E00;
+  border: none;
+  border-radius: 5px;
+  color: #1B1C20;
+  font-family: "Cabin", "Courier", sans-serif;
+  font-size: 1.125em;
+  text-align: center;
+  background-color: #287326;
   color: #FFF; }
 
 body {
@@ -362,10 +378,15 @@ body {
     width: 30%; }
 
 .footer-nav {
-  display: flex;
-  justify-content: space-between; }
-  .footer-nav .footer-nav__link:first-child {
-    margin-right: 1em; }
+  display: flex; }
+  .footer-nav .footer-nav__link {
+    display: block;
+    flex: 1; }
+  .footer-nav > .footer-nav__link:first-child {
+    margin-right: 1em;
+    flex: 1; }
+  .footer-nav .footer-nav-link_container {
+    flex: 1; }
 
 .page-not-found .page-not-found__message {
   color: #FFF;
@@ -446,7 +467,7 @@ body {
     padding-top: 8em;
     width: 60%; }
   .header {
-    margin-top: 1.5em; }
+    padding-top: 0; }
     .header .header__main-heading {
       font-size: 5em; }
   .modal .modal__content {
@@ -476,7 +497,7 @@ body {
     .players .players__add-section {
       flex: 1;
       box-sizing: border-box;
-      padding: 0 2em 2em; }
+      padding: 0 2.5em 2em 0; }
       .players .players__add-section .players__info--lg {
         display: block;
         padding: 0.5em;
@@ -486,7 +507,7 @@ body {
     .players .players__list-section {
       flex: 1;
       box-sizing: border-box;
-      padding: 0 2em 2em; }
+      padding: 0 0 2em 2.5em; }
       .players .players__list-section .player-list {
         align-items: flex-start;
         align-content: flex-start;
@@ -495,8 +516,17 @@ body {
           margin-top: 0; }
         .players .players__list-section .player-list .player-list__item:nth-child(2) {
           margin-top: 0; }
+  .team {
+    display: flex;
+    justify-content: space-between; }
+    .team .team-left-col-lg {
+      flex: 1;
+      padding: 0 2.5em 0 0; }
+    .team .team-right-col-lg {
+      flex: 1;
+      padding: 0 0 0 2.5em; }
   .footer-nav {
-    padding: 0 2em; }
+    padding: 0; }
     .footer-nav .footer-nav__link:first-child {
       margin-right: 4em; }
   .modal .modal__content {

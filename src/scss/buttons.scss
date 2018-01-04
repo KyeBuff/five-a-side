@@ -31,3 +31,12 @@
 
 	color: $primary;
 }
+
+.btn--action {
+	// TODO add props to mixin
+	@include button($danger);
+
+	background-color: $pitchGreen;
+
+	color: $primary;
+}

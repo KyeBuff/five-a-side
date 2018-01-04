@@ -304,10 +304,17 @@ body {
 
 .footer-nav {
 	display: flex;
-	justify-content: space-between;
 
-	.footer-nav__link:first-child {
+	.footer-nav__link {
+		display: block;
+		flex: 1;
+	}
+	& > .footer-nav__link:first-child {
 		margin-right: $margin * 2;
+		flex: 1;
+	}
+	.footer-nav-link_container {
+		flex: 1;
 	}
 }
 

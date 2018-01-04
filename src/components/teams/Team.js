@@ -103,45 +103,50 @@ class Team extends Component {
 				/*If size > 0 show team else show 404*/
 				<div>
 					<section className="team">
-						{ isEditingName ? 
-						<form onSubmit={this.onNameSubmit}>
-							<input 
-								className="input--text"
-								type="text" 
-								onChange={this.onNameChange}
-								value={teamName}
+						<div className="team-left-col-lg">
+							{ isEditingName ? 
+							<form onSubmit={this.onNameSubmit}>
+								<input 
+									className="input--text"
+									type="text" 
+									onChange={this.onNameChange}
+									value={teamName}
+								/>
+							</form>
+							:
+							<div> 
+								<button 
+									className="team__button--edit"
+									onClick={this.toggleEdit}
+								>
+									<h2 className="team__heading">{team.get('teamName')}
+									<span className="team__button--edit__icon"></span>
+									</h2>
+								</button> 
+					  	</div>
+							}
+							{valid ?
+							null
+							:
+							<p className="team__info">Your team must have a name</p>
+							}
+							<Rating rating={rating} ratingText="Team rating average: "/>
+							<TeamFormation 
+								players={team.get('players')}
+								teamColor={team.get('color')}
 							/>
-						</form>
-						:
-						<div> 
-							<button 
-								className="team__button--edit"
-								onClick={this.toggleEdit}
-							>
-								<h2 className="team__heading">{team.get('teamName')}
-								<span className="team__button--edit__icon"></span>
-								</h2>
-							</button> 
-				  	</div>
-						}
-						{valid ?
-						null
-						:
-						<p className="team__info">Your team must have a name</p>
-						}
-						<Rating rating={rating} ratingText="Team rating average: "/>
-						<TeamFormation 
-							players={team.get('players')}
-							teamColor={team.get('color')}
-						/>
-						<TeamColorSlider 
-							color={this.state.teamColor} 
-							onChange={this.onColorChange}
-							disabled={this.isEditingTeamColor()}
-							onSubmit={this.onTeamColorSubmit}
-						/>
+						</div>
+						<div className="team-right-col-lg">
+							<TeamColorSlider 
+								color={this.state.teamColor} 
+								onChange={this.onColorChange}
+								disabled={this.isEditingTeamColor()}
+								onSubmit={this.onTeamColorSubmit}
+							/>
+						</div>
 						{/* Footer nav not as separate component due to large amount of presentation logic */}
-						<nav className="footer-nav">
+					</section>
+					<nav className="footer-nav">
 							{team.get('id') === 2 ?
 							<Link 
 								className="btn footer-nav__link"
@@ -173,7 +178,6 @@ class Team extends Component {
 							>Exit</button>
 							}
 						</nav>
-					</section>
 					{modal.showModal ?
 					<Modal 
 						onCancel={this.hideModal} 
