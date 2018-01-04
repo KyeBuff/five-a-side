@@ -1,6 +1,7 @@
 {
   "name": "five-a-side",
   "version": "0.1.0",
+  "homepage": "http://kyebuffery.co.uk/five-a-side/",
   "private": true,
   "dependencies": {
     "gulp": "^3.9.1",
