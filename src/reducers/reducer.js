@@ -15,8 +15,6 @@ const initialState = Map({
 });
 
 
-// TODO same name validation
-
 //Update players list if size is < 10 to pass down to PlayerList.
 const setPlayer = (state, player) => state.get('players').size < 10	? state.update('players', players => players.push(Map(player))) : state;
 
@@ -96,10 +94,16 @@ const generateTeams = (players) => {
 	const teamOneRating = calcTeamRating(teamOnePlayers);
 	const teamTwoRating = calcTeamRating(teamTwoPlayers);
 
+	// Booleans used to prevent infinite loop on even total rating but odd number of players
+	const isTotalRatingEven = !((teamOneRating + teamTwoRating) % 2);
+	const isOddNumPlayers = !!(players.size % 2);
+
 	const ratingDifference = Math.abs(teamOneRating - teamTwoRating);
 
 	// Tolerance set to 1 if total team ratings are odd and 0 for even to prevent infinite loop 
-	const tolerance = (teamOneRating + teamTwoRating) % 2;
+	//Exception is when even total team ratings and odd num players where rating difference will be 2
+	const tolerance = isTotalRatingEven && isOddNumPlayers ? 2 : (teamOneRating + teamTwoRating) % 2;
+
 
 	//recursive call until tolerance satisfied
 	if(ratingDifference > tolerance) {
