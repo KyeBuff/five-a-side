@@ -16,29 +16,15 @@ const initialState = Map({
 
 
 //Update players list if size is < 10 to pass down to PlayerList.
+
+// TODO - disable button when size === 10
 const setPlayer = (state, player) => state.get('players').size < 10	? state.update('players', players => players.push(Map(player))) : state;
 
-const updateTeamName = (state, {teamName, id}) => {
+// Takes new name and id and replaces teamName when id match or returns team
+const updateTeamName = (state, {teamName, id}) => state.update('teams', teams => teams.map(t => t.get('id') === id ? t.set('teamName', teamName) : t));
 
-	return state.update('teams', teams => teams.map(t => {
-		if(t.get('id') === id) {
-			return t.set('teamName', teamName);
-		}
-		return t;
-	}))
-
-}
-
-const updateTeamColor = (state, {color, id}) => {
-
-	return state.update('teams', teams => teams.map(t => {
-		if(t.get('id') === id) {
-			return t.set('color', color);
-		}
-		return t;
-	}))
-
-}
+// Takes new color Hue val and id and replaces color when id match or returns team
+const updateTeamColor = (state, {color, id}) => state.update('teams', teams => teams.map(t => t.get('id') === id ? t.set('color', color) : t));
 
 const removePlayer = (state, {timestamp}) => state.update('players', players => players.filter(player => player.get('timestamp') !== timestamp));
 

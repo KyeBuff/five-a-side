@@ -2,8 +2,8 @@
 body {
 	min-height: 100vh;
 
-	background-image: linear-gradient($black, transparent 150%),
-		url("./assets/images/app-bg.jpg");
+	background-image: linear-gradient($black, transparent 100%),
+		url("./assets/images/app-bg@0-468px.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 }
@@ -237,11 +237,14 @@ body {
 				text-align: center;
 			}
 			.pitch__player__kit {
+				border: 3px solid $black;
 				height: 20px;
 				margin: 0 auto $margin / 2;
 				width: 20px;
 
 				border-radius: 50%;
+
+				box-sizing: border-box;
 			}
 		}
 		.pitch__player-0 {

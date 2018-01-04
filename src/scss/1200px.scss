@@ -1,4 +1,8 @@
 @media (min-width: 1200px) {
+	body {
+		background-image: linear-gradient($black, transparent 150%),
+		url("./assets/images/app-bg@1200px.jpg");
+	}
 
 	.container {
 		max-width: 800px;

@@ -1,4 +1,8 @@
-@media (min-width: 480px) { 
+@media (min-width: 480px) {
+	body {
+		background-image: linear-gradient($black, transparent 125%),
+		url("./assets/images/app-bg@480-991px.jpg");
+	} 
 	.container { 
 		margin: 0 auto;
 		max-width: 60%;

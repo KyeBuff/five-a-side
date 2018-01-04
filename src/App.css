@@ -207,7 +207,7 @@ h1, h2 {
 
 body {
   min-height: 100vh;
-  background-image: linear-gradient(#1B1C20, transparent 150%), url("./assets/images/app-bg.jpg");
+  background-image: linear-gradient(#1B1C20, transparent 100%), url("./assets/images/app-bg@0-468px.jpg");
   background-size: cover;
   background-repeat: no-repeat; }
 
@@ -336,10 +336,12 @@ body {
     font-family: "Cabin", "Courier", sans-serif;
     text-align: center; }
   .team .team__formation .pitch__player .pitch__player__kit {
+    border: 3px solid #1B1C20;
     height: 20px;
     margin: 0 auto 0.25em;
     width: 20px;
-    border-radius: 50%; }
+    border-radius: 50%;
+    box-sizing: border-box; }
 
 .team .team__formation .pitch__player-0 {
   top: 5%;
@@ -424,6 +426,8 @@ body {
       font-size: 1.25em; }
 
 @media (min-width: 480px) {
+  body {
+    background-image: linear-gradient(#1B1C20, transparent 125%), url("./assets/images/app-bg@480-991px.jpg"); }
   .container {
     margin: 0 auto;
     max-width: 60%; } }
@@ -463,6 +467,8 @@ body {
     margin-top: 5vh; } }
 
 @media (min-width: 992px) {
+  body {
+    background-image: linear-gradient(#1B1C20, transparent 150%), url("./assets/images/app-bg@992-1366px.jpg"); }
   .container {
     padding-top: 8em;
     width: 60%; }
@@ -475,6 +481,8 @@ body {
     width: 50%; } }
 
 @media (min-width: 1200px) {
+  body {
+    background-image: linear-gradient(#1B1C20, transparent 150%), url("./assets/images/app-bg@1200px.jpg"); }
   .container {
     max-width: 800px;
     width: 70%; }
