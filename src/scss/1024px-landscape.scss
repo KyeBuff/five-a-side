@@ -2,5 +2,28 @@
 	.landing {
 		margin-top: $landing-margin / 4;
 	}	
+
+	.team {
+		@include flex-display(flex);
+		@include justify-content(space-between);
+		.team-left-col-lg {
+			@include short-flex(1);
+
+			padding: 0 $padding * 2.5 0 0;
+		}
+		.team-right-col-lg {
+			@include short-flex(1);
+
+			padding: 0 0 0 $padding * 2.5;
+		}
+		.team__color-slider {
+			padding-right: 0;
+			padding-left: 0;
+
+			.team__color__heading {
+				margin: $margin * 2 0;
+			}
+		}
+	}
 }
  

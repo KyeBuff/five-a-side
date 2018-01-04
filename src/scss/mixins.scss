@@ -1,7 +1,7 @@
 @mixin button($bgColor) {
 	display: block;
 
-	box-sizing: border-box;
+	@include box-sizing(border-box);
 	margin: $margin 0 $margin * 4;
 	padding: $padding $padding / 4;
 	width: 100%;
@@ -15,4 +15,37 @@
 	font-family: $sans-font;
 	font-size: $sans-font-size * .9;
 	text-align: center; 
+}
+
+@mixin linear-gradient-img($from, $to, $toPerc, $img) {
+	background-image: -webkit-gradient(linear, left top, left bottom, from($from), to($to)), url($img);
+  background-image: -webkit-linear-gradient($from, $to $toPerc), url($img);
+  background-image: -o-linear-gradient($from, $to $toPerc), url($img);
+  background-image: linear-gradient($from, $to $toPerc), url($img);
+}
+
+@mixin flex-display($value) {
+	display: -webkit-box;
+  display: -ms-flexbox;
+  display: $value;
+}
+
+@mixin short-flex($value) {
+	flex: $value;
+}
+
+@mixin flex-wrap($wrap) {
+	-ms-flex-wrap: $wrap;
+  flex-wrap: $wrap;
+}
+
+@mixin justify-content($value) {
+	-webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: $value; 
+}
+
+@mixin box-sizing($value) {
+	-webkit-box-sizing: $value;
+	box-sizing: $value;
 }

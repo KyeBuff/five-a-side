@@ -1,14 +1,8 @@
 @media (min-width: 1200px) {
+
 	body {
-		background-image: linear-gradient($black, transparent 150%),
-		url("./assets/images/app-bg@1200px.jpg");
+		@include linear-gradient-img($black, transparent, 150%, "./assets/images/app-bg@1200px.jpg");
 	}
-
-	.container {
-		max-width: 800px;
-		width: 70%;
-	}
-
 	.header {
 		margin-top: 0;
 	}
@@ -25,15 +19,15 @@
 	}
 
 	.players {
-		display: flex;
-		justify-content: space-between;
+		@include flex-display(flex);
+		@include justify-content(space-between);
 		overflow: auto;
 		.container-players__info--sm-md {
 			display: none;
 		}
 		.players__add-section {
-			flex: 1;
-			box-sizing: border-box;
+			@include short-flex(1);
+			@include box-sizing(border-box);
 			padding: 0 $padding * 2.5 $padding * 2 0;
 
 			.players__info--lg {
@@ -48,15 +42,12 @@
 			}
 		}
 		.players__list-section {
-			flex: 1;
+			@include short-flex(1);
 
-			box-sizing: border-box;
+			@include box-sizing(border-box);
 			padding: 0 0 $padding * 2 $padding * 2.5;  
 
 			.player-list {
-				align-items: flex-start;
-				align-content: flex-start;
-
 				padding: 0;
 
 				.player-list__item:first-child {
@@ -65,29 +56,6 @@
 				.player-list__item:nth-child(2) {
 					margin-top: 0;
 				}
-			}
-		}
-	}
-
-	.team {
-		display: flex;
-		justify-content: space-between;
-		.team-left-col-lg {
-			flex: 1;	
-
-			padding: 0 $padding * 2.5 0 0;
-		}
-		.team-right-col-lg {
-			flex: 1;	
-
-			padding: 0 0 0 $padding * 2.5;
-		}
-		.team__color-slider {
-			padding-right: 0;
-			padding-left: 0;
-
-			.team__color__heading {
-				margin: $margin * 2 0;
 			}
 		}
 	}

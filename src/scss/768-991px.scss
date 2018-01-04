@@ -13,13 +13,16 @@
 	}
 
 	.player-list {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-between;
+		@include flex-display(flex);
+		@include justify-content(space-between);
+		@include flex-wrap(wrap);
 		.player-list__item {
-			flex: 1 0 45%;
+			//No placeholder as 1 instance and specific
+			-webkit-box-flex: 1;
+      -ms-flex: 1 0 45%;
+      flex: 1 0 45%;	
 
-			box-sizing: border-box;
+			@include box-sizing(border-box);
 			&:nth-of-type(odd) {
 				margin: $margin $margin * 2 $margin 0; 
 			}

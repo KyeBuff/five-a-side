@@ -1,11 +1,10 @@
 // Body styling 
 body {
 	min-height: 100vh;
+	@include linear-gradient-img($black, transparent, 100%, "./assets/images/app-bg@0-468px.jpg");
 
-	background-image: linear-gradient($black, transparent 100%),
-		url("./assets/images/app-bg@0-468px.jpg");
-	background-size: cover;
-	background-repeat: no-repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 // Container styling
@@ -33,7 +32,7 @@ body {
 // landing styling
 
 .landing {
-	box-sizing: border-box;
+	@include box-sizing(border-box);
 	margin-top: $landing-margin;
 	padding: $padding;
 
@@ -100,7 +99,7 @@ body {
 				.label--radio {
 					display: block;
 
-					box-sizing: border-box;
+					@include box-sizing(border-box);
 					margin: $margin 0 $margin * 2;
 					padding: $padding;
 
@@ -244,7 +243,7 @@ body {
 
 				border-radius: 50%;
 
-				box-sizing: border-box;
+				@include box-sizing(border-box);
 			}
 		}
 		.pitch__player-0 {
@@ -279,11 +278,12 @@ body {
 			@extend %h2;
 		}
 		.team_color_slider-container {
-			display: flex;
-			justify-content: space-between; 
+			@include flex-display(flex);
+			@include justify-content(space-between);
+
 			.team__color__preview {
 				border: 5px solid $primary;
-				box-sizing: border-box;
+				@include box-sizing(border-box);
 				height: 50px;
 				margin-right: 3%;
 				width: 25%;
@@ -306,18 +306,18 @@ body {
 // Footer
 
 .footer-nav {
-	display: flex;
+	@include flex-display(flex);
 
 	.footer-nav__link {
 		display: block;
-		flex: 1;
+		@include short-flex(1);
 	}
 	& > .footer-nav__link:first-child {
 		margin-right: $margin * 2;
-		flex: 1;
+		@include short-flex(1);
 	}
 	.footer-nav-link_container {
-		flex: 1;
+		@include short-flex(1);
 	}
 }
 
