@@ -50,9 +50,10 @@ h1, h2 {
 .players .players__add-section .players__info, .players__list-section .players__info, .team .team__info {
   margin-top: 0.5em;
   padding: 0.5em;
-  background-color: #C46A11;
   color: #FFF;
-  text-align: center; }
+  text-align: center;
+  background-color: #C46A11;
+  border-radius: 8px; }
 
 .team .team__color-slider .team_color_slider-container .team__color__range-input::-ms-thumb, .btn, .btn--progress, .btn--danger, .btn--action, .players__list-section .player-list .player-list__item {
   -webkit-box-shadow: 1.5px 3px 3px #1B1C20;

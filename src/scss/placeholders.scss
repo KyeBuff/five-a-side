@@ -33,10 +33,11 @@
 	margin-top: $margin;
 	padding: $padding / 2;
 
-	background-color: $warning;
-
 	color: $primary;
 	text-align: center;
+
+	background-color: $warning;
+	border-radius: $border-radius;
 }
 
 %box-shadow {
