@@ -11,9 +11,6 @@ import {
     Switch,
 } from "react-router-dom";
 
-// TODO 
-//Save teams at the end
-
 class App extends Component {
   render() {
     return (

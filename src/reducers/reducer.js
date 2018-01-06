@@ -118,7 +118,6 @@ const generateTeams = (players) => {
 
 const getTeambyID = (teams, id) => teams.find(team => team.find(player => player.get("teamID") === id));
 
-// TODO Naming
 const setTeams = (state) => {
 
 	//Helper function which returns teams of equal length with balanced ratings
