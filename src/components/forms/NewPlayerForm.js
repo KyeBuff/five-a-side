@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import InputRadio from './InputRadio';
+import React, {Component} from "react";
+import InputRadio from "./InputRadio";
 
 class NewPlayerForm extends Component {
 

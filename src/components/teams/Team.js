@@ -166,7 +166,8 @@ class Team extends Component {
 						</div>
 						{/* Footer nav not as separate component due to large amount of presentation logic */}
 					</section>
-					<nav className="footer-nav">
+					<footer>
+						<nav className="footer-nav">
 							{team.get("id") === 2 ?
 							<Link 
 								className="btn footer-nav__link"
@@ -197,7 +198,8 @@ class Team extends Component {
 								}
 							>Finish</button>
 							}
-						</nav>
+					</nav>
+					</footer>
 					{modal.showModal ?
 					<Modal 
 						onCancel={this.hideModal} 

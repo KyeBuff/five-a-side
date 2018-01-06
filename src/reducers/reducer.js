@@ -39,7 +39,7 @@ const assignTeamID = (players) => {
 	return players.map(player => {
 		const rng = Math.floor(Math.random() * 2) + 1;
 
-		//Random assingment when both teams have < the max team size, else is dependant on team size
+		//Random assignment when both teams have < the max team size, else is dependant on team size
 		if(teamOneSize < maxTeamSize && teamTwoSize < maxTeamSize) {
 			rng === 1 ? teamOneSize += 1 : teamTwoSize += 1;
 			return player.set("teamID", rng);
@@ -84,7 +84,6 @@ const generateTeams = (players) => {
 
 	// Booleans used to prevent infinite loop on even total rating but odd number of players
 	totalRating = teamOneRating + teamTwoRating,
-	avgRating = totalRating / players.size,
 	isTotalRatingEven = !(totalRating % 2),
 	isOddNumPlayers = !!(players.size % 2),
 
@@ -96,7 +95,7 @@ const generateTeams = (players) => {
 	let tolerance = 0;
 
 	//if total rating / num players === 3 and players is odd then tol should be 3 
-	if(avgRating === 3 && isOddNumPlayers) {
+	if(ratingDifference > 2 && isOddNumPlayers) {
 		tolerance = 3;
 	} else {
 		tolerance = isTotalRatingEven && isOddNumPlayers ? 2 : (teamOneRating + teamTwoRating);

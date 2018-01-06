@@ -59,33 +59,35 @@ class Players extends Component {
 						clearPlayers={this.clearPlayers}
 					/>
 				</section>
-				<nav className="footer-nav">
-					<Link 
-						className="btn footer-nav__link"
-						to="/"
-					>Go back</Link> 
-					{players.size > 2 && players.size < 11 ? 
-					<div className="footer-nav-link_container">
-						{teamsGenerated ?
-						/* Flipping between link and button due to onClick bug with React Router */
+				<footer>
+					<nav className="footer-nav">
 						<Link 
-							className="btn btn--progress footer-nav__link"
-							to="/team-one"
-						>Go to Team one</Link> 
+							className="btn footer-nav__link"
+							to="/"
+						>Go back</Link> 
+						{players.size > 2 && players.size < 11 ? 
+						<div className="footer-nav-link_container">
+							{teamsGenerated ?
+							/* Flipping between link and button due to onClick bug with React Router */
+							<Link 
+								className="btn btn--progress footer-nav__link"
+								to="/team-one"
+							>Go to Team one</Link> 
+							:
+							<button 
+								className="btn btn--action footer-nav__link"
+								onClick={this.generateTeams}
+							>Generate teams</button>	
+							}
+						</div>
 						:
 						<button 
-							className="btn btn--action footer-nav__link"
-							onClick={this.generateTeams}
-						>Generate teams</button>	
+							className="btn footer-nav__link"
+							disabled={true}
+						>Generate teams</button>
 						}
-					</div>
-					:
-					<button 
-						className="btn footer-nav__link"
-						disabled={true}
-					>Generate teams</button>
-					}
-				</nav>
+					</nav>
+				</footer>
 			</div>
 		)
 	}
