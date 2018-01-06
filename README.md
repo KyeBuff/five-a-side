@@ -239,9 +239,11 @@ The app has a very presentation logic heavy footer navigation, especially in the
 
 I would have liked to carry out unit tests on the app prior to the deadline. I am going study unit testing, whilst taking a look at Jest and Jest snapshots for React and UI testing. 
 
-### Testing/Validation
+### Testing/Validation/Process
 * CSS validator/autoprefixer
 * BrowserStack/Quirk Tools and family/friend devices for responsive/device testing
 * Google PageSpeed/Lighthouse and DevTools for performance and accessbiility testing
+* Gulp tasks set up to watch process Sass, convert to CSS and minify
+* Images sized appropriately and compressed
 
 This led to a lot of optimisation, refactoring and bug fixing.
