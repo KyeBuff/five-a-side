@@ -84,10 +84,10 @@ body {
 				width: 33.3%;
 
 				&:first-of-type .label--radio {
-					border-radius: 5px 0 0 5px;
+					border-radius: $border-radius 0 0 $border-radius;
 				}
 				&:last-of-type .label--radio {
-					border-radius: 0 5px 5px 0;
+					border-radius: 0 $border-radius $border-radius 0;
 				}
 				.input--radio {
 					display: none;

@@ -64,7 +64,7 @@ class Team extends Component {
 		const { teamName } = this.state;
 
 		//Not the specified characters between []
-		const hasNoSymbols = teamName.search(/[^a-zA-Z\d\s:]/g) === -1;
+		const hasNoSymbols = teamName.search(/[^a-zA-Z\d\s:\u00C0-\u00FF]/g) === -1;
 
 		let errorMessage = "";
 

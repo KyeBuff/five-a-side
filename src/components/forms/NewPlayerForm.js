@@ -57,7 +57,7 @@ class NewPlayerForm extends Component {
 		const {name, rating} = playerOb;
 
 		//Not the specified characters between []
-		const hasNoSymbols = name.search(/[^a-zA-Z\d\s:]/g) === -1;
+		const hasNoSymbols = name.search(/[^a-zA-Z\d\s:\u00C0-\u00FF]/g) === -1;
 
 		let errorMessage = "";
 

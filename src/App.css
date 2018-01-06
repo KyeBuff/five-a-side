@@ -27,7 +27,7 @@ h1, h2 {
   margin: 0.4em 0 1em;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  border-radius: 5px;
+  border-radius: 8px;
   padding: 0.33333em;
   width: 100%;
   font-family: "Cabin", "Courier", sans-serif;
@@ -71,14 +71,14 @@ h1, h2 {
     width: 100%;
     box-shadow: 1px 1px 1px #1B1C20;
     background: #FFF;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer; }
   .team .team__color-slider .team_color_slider-container .team__color__range-input::-webkit-slider-thumb {
     border: 1px solid #1B1C20;
     height: 36px;
     margin-top: -7px;
     width: 20px;
-    border-radius: 5px;
+    border-radius: 8px;
     background: #F2D72D;
     box-shadow: 1px 1px 1px #1B1C20;
     cursor: pointer;
@@ -89,14 +89,14 @@ h1, h2 {
     width: 100%;
     box-shadow: 1px 1px 1px #1B1C20;
     background: #FFF;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer; }
   .team .team__color-slider .team_color_slider-container .team__color__range-input::-moz-range-thumb {
     border: 1px solid #1B1C20;
     height: 36px;
     width: 20px;
     background: #F2D72D;
-    border-radius: 5px;
+    border-radius: 8px;
     box-shadow: 1px 1px 1px #1B1C20;
     cursor: pointer; }
   .team .team__color-slider .team_color_slider-container .team__color__range-input::-ms-track {
@@ -122,7 +122,7 @@ h1, h2 {
     margin-top: 1px;
     width: 20px;
     background: #F2D72D;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer; }
   .team .team__color-slider .team_color_slider-container .team__color__range-input:focus::-ms-fill-lower {
     background: #FFF; }
@@ -143,7 +143,7 @@ h1, h2 {
   background-image: -o-linear-gradient(#FFF, #1B1C20 400%);
   background-image: linear-gradient(#FFF, #1B1C20 400%);
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   color: #1B1C20;
   font-family: "Cabin", "Courier", sans-serif;
   font-size: 1.125em;
@@ -181,7 +181,7 @@ h1, h2 {
   background-image: -o-linear-gradient(#F2D72D, #1B1C20 400%);
   background-image: linear-gradient(#F2D72D, #1B1C20 400%);
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   color: #1B1C20;
   font-family: "Cabin", "Courier", sans-serif;
   font-size: 1.125em;
@@ -206,7 +206,7 @@ h1, h2 {
   background-image: -o-linear-gradient(#9F1E00, #1B1C20 400%);
   background-image: linear-gradient(#9F1E00, #1B1C20 400%);
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   color: #1B1C20;
   font-family: "Cabin", "Courier", sans-serif;
   font-size: 1.125em;
@@ -237,7 +237,7 @@ h1, h2 {
   background-image: -o-linear-gradient(#287326, #1B1C20 400%);
   background-image: linear-gradient(#287326, #1B1C20 400%);
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   color: #1B1C20;
   font-family: "Cabin", "Courier", sans-serif;
   font-size: 1.125em;
@@ -301,9 +301,9 @@ body {
   display: inline-block;
   width: 33.3%; }
   .players form .rating-buttons .div__input--radio:first-of-type .label--radio {
-    border-radius: 5px 0 0 5px; }
+    border-radius: 8px 0 0 8px; }
   .players form .rating-buttons .div__input--radio:last-of-type .label--radio {
-    border-radius: 0 5px 5px 0; }
+    border-radius: 0 8px 8px 0; }
   .players form .rating-buttons .div__input--radio .input--radio {
     display: none; }
     .players form .rating-buttons .div__input--radio .input--radio:checked + .label--radio {
@@ -325,7 +325,7 @@ body {
     margin: 0.5em 0;
     padding: 0.66667em;
     background-color: #FFF;
-    border-radius: 5px;
+    border-radius: 8px;
     font-family: "Cabin", "Courier", sans-serif;
     font-size: 1.25em; }
     .players__list-section .player-list .player-list__item .player-list__item__button--delete {

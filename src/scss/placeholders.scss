@@ -4,7 +4,7 @@
 
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
-	border-radius: 5px;
+	border-radius: $border-radius;
 	padding: $padding / 3;
 		width: 100%;
 
@@ -68,7 +68,7 @@
 	  
 	  box-shadow: 1px 1px 1px $black;
 	  background: $primary;
-	  border-radius: 5px;
+	  border-radius: $border-radius;
 
 	  cursor: pointer;
 	}
@@ -78,7 +78,7 @@
 	  margin-top: -7px; 
 	  width: 20px;
 
-	  border-radius: 5px;
+	  border-radius: $border-radius;
 	  background: $secondary;
 	  box-shadow: 1px 1px 1px $black;
 
@@ -93,7 +93,7 @@
 	 
 	  box-shadow: 1px 1px 1px $black;
 	  background: $primary;
-	  border-radius: 5px;
+	  border-radius: $border-radius;
 
    	cursor: pointer;
 	}
@@ -103,7 +103,7 @@
 	  width: 20px;
 
 	  background: $secondary;
-	  border-radius: 5px;
+	  border-radius: $border-radius;
 	  box-shadow: 1px 1px 1px $black;
 
 	  cursor: pointer;
@@ -142,7 +142,7 @@
 	  width: 20px;
 
 	  background: $secondary;
-	  border-radius: 5px;
+	  border-radius: $border-radius;
 	  @extend %box-shadow;
 
 	  cursor: pointer;

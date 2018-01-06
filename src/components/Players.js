@@ -77,14 +77,14 @@ class Players extends Component {
 							<button 
 								className="btn btn--action footer-nav__link"
 								onClick={this.generateTeams}
-							>Generate teams</button>	
+							>Generate</button>	
 							}
 						</div>
 						:
 						<button 
 							className="btn footer-nav__link"
 							disabled={true}
-						>Generate teams</button>
+						>Generate</button>
 						}
 					</nav>
 				</footer>
