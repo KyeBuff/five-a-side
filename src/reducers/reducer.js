@@ -1,4 +1,4 @@
-import { Map, List } from 'immutable';
+import { Map, List } from "immutable";
 
 const initialState = Map({
 	teams: List([
@@ -17,15 +17,15 @@ const initialState = Map({
 
 //Update players list if size is < 10 to pass down to PlayerList.
 
-const setPlayer = (state, player) => state.get('players').size < 10	? state.update('players', players => players.push(Map(player))) : state;
+const setPlayer = (state, player) => state.get("players").size < 10	? state.update("players", players => players.push(Map(player))) : state;
 
 // Takes new name and id and replaces teamName when id match or returns team
-const updateTeamName = (state, {teamName, id}) => state.update('teams', teams => teams.map(t => t.get('id') === id ? t.set('teamName', teamName) : t));
+const updateTeamName = (state, {teamName, id}) => state.update("teams", teams => teams.map(t => t.get("id") === id ? t.set("teamName", teamName) : t));
 
 // Takes new color hue val and id and replaces color when id match or returns team
-const updateTeamColor = (state, {color, id}) => state.update('teams', teams => teams.map(t => t.get('id') === id ? t.set('color', color) : t));
+const updateTeamColor = (state, {color, id}) => state.update("teams", teams => teams.map(t => t.get("id") === id ? t.set("color", color) : t));
 
-const removePlayer = (state, {timestamp}) => state.update('players', players => players.filter(player => player.get('timestamp') !== timestamp));
+const removePlayer = (state, {timestamp}) => state.update("players", players => players.filter(player => player.get("timestamp") !== timestamp));
 
 //HELPER FUNCTIONS - generateTeams
 const assignTeamID = (players) => {
@@ -42,17 +42,17 @@ const assignTeamID = (players) => {
 		//Random assingment when both teams have < the max team size, else is dependant on team size
 		if(teamOneSize < maxTeamSize && teamTwoSize < maxTeamSize) {
 			rng === 1 ? teamOneSize += 1 : teamTwoSize += 1;
-			return player.set('teamID', rng);
+			return player.set("teamID", rng);
 		}
 
 		if(teamOneSize >= maxTeamSize ) {
 			teamTwoSize += 1;
-			return player.set('teamID', 2);
+			return player.set("teamID", 2);
 		} 
 
 		if(teamTwoSize >= maxTeamSize) {
 			teamOneSize += 1;
-			return player.set('teamID', 1);
+			return player.set("teamID", 1);
 		} 
 
 		return player;
@@ -61,10 +61,10 @@ const assignTeamID = (players) => {
 }
 
 //Returns a set of players based on their ID
-const allocatePlayers = (players, id) => players.filter(player => player.get('teamID') === id);
+const allocatePlayers = (players, id) => players.filter(player => player.get("teamID") === id);
 
 //Takes a team and reduces each player rating to a total team rating
-const calcTeamRating = (players) => players.reduce((tot, player) => tot + player.get('rating'), 0);
+const calcTeamRating = (players) => players.reduce((tot, player) => tot + player.get("rating"), 0);
 
 // generateTeams is a function that takes a list of players and produces two teams balanced by size and rating
 
@@ -116,20 +116,16 @@ const generateTeams = (players) => {
 
 // setTeams helper functions
 
-const getTeambyID = (teams, id) => teams.find(team => team.find(player => player.get('teamID') === id));
+const getTeambyID = (teams, id) => teams.find(team => team.find(player => player.get("teamID") === id));
 
 // TODO Naming
 const setTeams = (state) => {
 
 	//Helper function which returns teams of equal length with balanced ratings
-	const genTeams = generateTeams(state.get('players')),
+	const genTeams = generateTeams(state.get("players")),
 
 	teamOnePlayers = getTeambyID(genTeams, 1),
 	teamTwoPlayers = getTeambyID(genTeams, 2),
-
-	//Used to output a team rating
-	teamOneRating = calcTeamRating(teamOnePlayers) / teamOnePlayers.size,
-	teamTwoRating = calcTeamRating(teamTwoPlayers) / teamTwoPlayers.size,
 
 	teams = List([
 		Map({
@@ -137,18 +133,18 @@ const setTeams = (state) => {
 			teamName: "Team one",
 			color: 0,
 			players: teamOnePlayers,
-			rating: teamOneRating,
+			rating: calcTeamRating(teamOnePlayers),
 		}),
 		Map({
 			id: 2,
 			teamName: "Team two",
 			color: 219,
 			players: teamTwoPlayers,
-			rating: teamTwoRating,
+			rating: calcTeamRating(teamTwoPlayers),
 		})
 	]);
 
-	return state.set('teams', teams);
+	return state.set("teams", teams);
 
 }
 
@@ -165,7 +161,7 @@ const clearPlayers = (state) => {
 		}),
 	]);
 
-	return state.set('players', List([])).set('teams', emptyTeams);
+	return state.set("players", List([])).set("teams", emptyTeams);
 }
 
 const reducer = (state=initialState, action) => {
@@ -183,15 +179,15 @@ const reducer = (state=initialState, action) => {
 }
 
 // Selectors
-const fetchPlayers = state => state.get('players');
-const fetchTeamOne = state => state.get('teams').find(team => team.get('id') === 1);
-const fetchTeamTwo = state => state.get('teams').find(team => team.get('id') === 2);
+const selectPlayers = state => state.get("players");
+const selectTeamOne = state => state.get("teams").find(team => team.get("id") === 1);
+const selectTeamTwo = state => state.get("teams").find(team => team.get("id") === 2);
 
 export default reducer;
 
 export {
-	fetchPlayers,
-	fetchTeamOne,
-	fetchTeamTwo
+	selectPlayers,
+	selectTeamOne,
+	selectTeamTwo
 }
 

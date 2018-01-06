@@ -14,7 +14,9 @@ const InputRadio = (props) => (
 		<label 
 			htmlFor={props.id} 
 			className={props.labelClassName}
-		>{props.labelText}</label>
+		>
+		{props.labelText}
+		</label>
 	</div>
 )
 

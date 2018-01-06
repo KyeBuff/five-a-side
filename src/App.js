@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import './App.min.css';
-import Header from './components/Header';
-import FourOhFour from './components/FourOhFour';
-import TeamOne from './containers/TeamOne';
-import TeamTwo from './containers/TeamTwo';
-import Players from './containers/Players';
-import Landing from './components/landing-page/Landing';
+import React, { Component } from "react";
+import "./App.min.css";
+import Header from "./components/Header";
+import FourOhFour from "./components/FourOhFour";
+import TeamOne from "./containers/TeamOne";
+import TeamTwo from "./containers/TeamTwo";
+import Players from "./containers/Players";
+import Landing from "./components/landing-page/Landing";
 import {
     Route,
     Switch,

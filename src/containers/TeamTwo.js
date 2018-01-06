@@ -1,11 +1,11 @@
-import { connect } from 'react-redux';
-import { updateTeamName, updateTeamColor, clearPlayers } from '../actions/state';
-import Team from '../components/teams/Team';
-import {fetchTeamTwo} from '../reducers/reducer';
+import { connect } from "react-redux";
+import { updateTeamName, updateTeamColor, clearPlayers } from "../actions/state";
+import Team from "../components/teams/Team";
+import {selectTeamTwo} from "../reducers/reducer";
 
 const mapStateToProps = (state) => {
 	return {
-		team: fetchTeamTwo(state),
+		team: selectTeamTwo(state),
 	}
 }	
 

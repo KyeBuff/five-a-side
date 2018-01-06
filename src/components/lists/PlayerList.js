@@ -1,52 +1,55 @@
-import React from 'react';
-import PlayerListItem from '../../containers/PlayerListItem';
+import React from "react";
+import PlayerListItem from "../../containers/PlayerListItem";
 
-const PlayerList = (props) => (
-	<div className="players__list-section">
-		<h2 
-			className="players__heading"
-		>
-			{props.players.size === 0 ? "Players will show here..." : "Current players"}
-		</h2>
-		<div 
-			className="container-players__info--sm-md">
-			{props.players.size !== 0 && props.players.size < 3 ? 
-				/* check if size < 3 as array is increasing*/
-			<p 
-				className="players__info"
+// container-players__info--sm-md - Show this up to tablet devices only
+
+const PlayerList = (props) => {
+	const playerSize = props.players.size;
+	return (
+		<div className="players__list-section">
+			<h2 
+				className="players__heading"
 			>
-			At least {3 - props.players.size} more {props.players.size === 2 ? "player" : "players"} required.
-			</p>
-			:
-			null
-			}
-		</div>
-		<ul className="player-list">
-			{
-				props.players.map(player => (
-					<PlayerListItem 
-						key={player.get('timestamp')} 
-						timestamp={player.get('timestamp')} 
-						name={player.get('name')} 
-						rating={player.get('rating')} 
-						teamID={player.get('teamID')}
-						actionButtons={props.actionButtons}
-					/>
+				{playerSize === 0 ? "Players will show here..." : "Current players"}
+			</h2>
+			<div 
+				className="container-players__info--sm-md">
+				{playerSize !== 0 && playerSize < 3 ? 
+					/* check if size < 3 as array is increasing*/
+				<p 
+					className="players__info"
+				>
+				At least {3 - playerSize} more {playerSize === 2 ? "player" : "players"} required.
+				</p>
+				:
+				null
+				}
+			</div>
+			<ul className="player-list">
+				{
+					props.players.map(player => (
+						<PlayerListItem 
+							key={player.get("timestamp")} 
+							timestamp={player.get("timestamp")} 
+							name={player.get("name")} 
+							rating={player.get("rating")} 
+							teamID={player.get("teamID")}
+						/>
+						)
 					)
-				)
-			}
-		</ul>
-		{props.players.size > 0 ?
-			/*Style for btn different?*/
-		<button 
-			className="btn btn--danger"
-			onClick={props.clearPlayers}
-		>
-		Clear players
-		</button>
-		:
-		null}
-	</div>
-)
+				}
+			</ul>
+			{playerSize > 0 ?
+			<button 
+				className="btn btn--danger"
+				onClick={props.clearPlayers}
+			>
+			Clear players
+			</button>
+			:
+			null}
+		</div>
+	)
+}
 
 export default PlayerList;

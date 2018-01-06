@@ -1,6 +1,6 @@
-import { connect } from 'react-redux';
-import PlayerListItem from '../components/lists/PlayerListItem';
-import {removePlayer} from '../actions/state';
+import { connect } from "react-redux";
+import PlayerListItem from "../components/lists/PlayerListItem";
+import {removePlayer} from "../actions/state";
 
 const mapDispatchToProps = (dispatch, {timestamp}) => {
 	return {

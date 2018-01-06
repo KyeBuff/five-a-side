@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const Rating = (props) => {
 
@@ -13,7 +13,9 @@ const Rating = (props) => {
 	return (	
 		<div className="ratings">
 			{props.ratingText ? 
-				<span className="ratings__text">{props.ratingText}</span> 
+				<div>
+					<span className="ratings__text">{props.ratingText}</span><br/>
+				</div>
 				: null
 			} 
 			{stars.map(star => star)}

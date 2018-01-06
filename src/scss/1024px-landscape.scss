@@ -66,5 +66,11 @@
 			}
 		}
 	}
+	//Target only the 1st direct child of the footer and apply margin
+	.footer-nav {
+		& > .footer-nav__link:first-child {
+			margin-right: $margin * 8;
+		}
+	}
 }
  

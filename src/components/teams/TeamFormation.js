@@ -1,18 +1,20 @@
-import React from 'react';
-import PitchPlayerItem from './PitchPlayerItem';
+import React from "react";
+import PitchPlayerItem from "./PitchPlayerItem";
 
 const TeamFormation = (props) => {
 
 	return (
 		<section className="team__formation">
 			<div className="pitch">
-				{props.players.map((player, i) => <PitchPlayerItem 
-						key={player.get('timestamp')}
+				{props.players.map((player, i) => (
+					<PitchPlayerItem 
+						key={player.get("timestamp")}
 						i={i}
-						name={player.get('name')} 
-						rating={player.get('rating')}
+						name={player.get("name")} 
+						rating={player.get("rating")}
 						color={props.teamColor}
-					/>)}
+					/>
+				))}
 			</div>
 		</section>
 	)

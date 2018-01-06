@@ -11,6 +11,3 @@ const Landing = () => (
 )
 
 export default Landing;
-
-// <p className="landing__text">Saved teams</p>
-// 		<Link className="btn" to="/">Team one vs Team two</Link>

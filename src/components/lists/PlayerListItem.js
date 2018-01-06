@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import Rating from '../Rating';
+import React, { Component } from "react";
+import Rating from "../Rating";
 
 class PlayerListItem extends Component {
 	constructor(props){
@@ -7,7 +7,7 @@ class PlayerListItem extends Component {
 		this.removePlayer = this.removePlayer.bind(this)
 	}
 
-	removePlayer(e) {
+	removePlayer() {
 		this.props.removePlayer();
 	}
 
@@ -22,14 +22,10 @@ class PlayerListItem extends Component {
 					{name.length >= 11 ? name.slice(0, 9) + "..." : name}
 				</span>
 	  		<Rating rating={rating} />
-	  		{this.props.actionButtons ? 
 	  		<button 
 	  			className="player-list__item__button--delete"
 	  			onClick={this.removePlayer}
 	  		></button>
-	  		:
-	  		null
-	  		}
 	  	</li>
 		)
 	}

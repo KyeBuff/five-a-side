@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
-import { Link } from 'react-router-dom';
-import NewPlayerForm from './forms/NewPlayerForm';
-import PlayerList from './lists/PlayerList';
+import React, {Component} from "react";
+import { Link } from "react-router-dom";
+import NewPlayerForm from "./forms/NewPlayerForm";
+import PlayerList from "./lists/PlayerList";
 
 class Players extends Component {
 
@@ -48,7 +48,7 @@ class Players extends Component {
 							canAdd={players.size < 10}
 						/>
 						{players.size !== 0 && players.size < 3 ? 
-						/* check if size === 3 as array is increasing*/
+						/* Show message if we have players in list and we have less than min players (3)*/
 						<p className="players__info--lg">At least {3 - players.size} more {players.size === 2 ? "player" : "players"} required.</p>
 						:
 						null
@@ -56,8 +56,6 @@ class Players extends Component {
 					</div>
 					<PlayerList 
 						players={players} 
-						actionButtons={true}
-						smList={true}
 						clearPlayers={this.clearPlayers}
 					/>
 				</section>
@@ -69,6 +67,7 @@ class Players extends Component {
 					{players.size > 2 && players.size < 11 ? 
 					<div className="footer-nav-link_container">
 						{teamsGenerated ?
+						/* Flipping between link and button due to onClick bug with React Router */
 						<Link 
 							className="btn btn--progress footer-nav__link"
 							to="/team-one"

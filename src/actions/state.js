@@ -8,6 +8,8 @@ const actionTypes = {
 	SET_TEAMS: "[Teams] setTeams",
 }
 
+// Action creators
+
 const setPlayer = (player) => ({
 	type: actionTypes.SET_PLAYER,
 	player,

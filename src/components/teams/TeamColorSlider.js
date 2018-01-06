@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
 const TeamColorSlider = (props) => {
-
+	const style = {backgroundColor: "hsl("+ props.color + ", 90%, 40%)"};
 	//Don't update color straight away as API implementation would be slow
 	return (
 		<div className="team__color-slider">
@@ -12,9 +12,10 @@ const TeamColorSlider = (props) => {
 				<div className="team_color_slider-container">
 					<div 
 						className="team__color__preview"
-						style={{backgroundColor: 'hsl('+ props.color + ', 90%, 40%)'}}
+						style={style}
 					>
-					</div><input 
+					</div>
+					<input 
 						className="team__color__range-input"
 						type="range" 
 						max={360} 

@@ -1,15 +1,19 @@
 import React, {Component} from 'react';
 import InputRadio from './InputRadio';
 
-class Form extends Component {
+class NewPlayerForm extends Component {
 
 	constructor(props) {
 		super(props);
 		this.state = {
+			// new player details
 			name: "",
 			rating: 0,
+			// validation
 			valid: true,
 			errorMessage: "",
+
+			// toggles rating input on name entering
 			showRatingInput: false,
 		}
 		this.onNameChange = this.onNameChange.bind(this);
@@ -23,13 +27,13 @@ class Form extends Component {
 		this.setState({rating});
 	}
 
-	// TODO VALIDATE name input
 	onNameChange(e) {
 		const name = e.target.value;
 
 		let errorMessage = "";
 		let valid = true;
 
+		//If there is 10 players we cannot add
 		if(!this.props.canAdd) {
 			errorMessage = "Maximum of 10 players allowed"; 
 			valid = false;
@@ -52,6 +56,9 @@ class Form extends Component {
 
 		const {name, rating} = playerOb;
 
+		//Not the specified characters between []
+		const hasNoSymbols = name.search(/[^a-zA-Z\d\s:]/g) === -1;
+
 		let errorMessage = "";
 
 		// Validation
@@ -65,12 +72,15 @@ class Form extends Component {
 			errorMessage = "Please enter a player name";
 		} else if(!rating) {
 			errorMessage = "Please give the player a rating";
-		}
+		} else if(!hasNoSymbols) {
+			errorMessage = "A player's name can only contain letters and numbers";
+		} 
 
+		//Set valid to false but will be overwritten if form is valid
 		this.setState({valid: false, errorMessage});
 
 		//Empty name, rating and < 10 players validation
-		if(name && rating && this.props.canAdd) {
+		if(name && rating && this.props.canAdd && hasNoSymbols) {
 			this.props.addPlayer(playerOb)
 
 			this.setState({name: "", rating: 0, valid: true, errorMessage: "", showRatingInput: false})
@@ -135,4 +145,4 @@ class Form extends Component {
 	
 };
 
-export default Form;
+export default NewPlayerForm;

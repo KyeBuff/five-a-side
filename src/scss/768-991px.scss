@@ -23,9 +23,11 @@
       flex: 1 0 45%;	
 
 			@include box-sizing(border-box);
+			// Maintain a margin right for all odd players to keep space on player list
 			&:nth-of-type(odd) {
 				margin: $margin $margin * 2 $margin 0; 
 			}
+			// Last item (if odd) should not have margin right and take full width
 			&:last-of-type() {
 				margin: $margin 0 $margin 0; 
 			}
