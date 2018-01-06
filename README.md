@@ -46,7 +46,7 @@ A features list, wireframes and other supporting documentation were created befo
 
 ## How the app was made
 
-I chose to work with JavaScript because it's a technology I really enjoy working with and is also my technology of choice for my internship. I felt that React/Redux suited the brief, given it is based around building a UI. 
+I chose to work with JavaScript because it's a technology that I really enjoy working with and is also my technology of choice for my internship. I felt that React/Redux suited the brief, given it is based around building a UI. 
 
 ### Choices
 
@@ -142,7 +142,7 @@ const generateTeams = (players) => {
   let tolerance = 0;
 
   //if total rating / num players === 3 and players is odd then tol should be 3 
-  if(ratingDifference > 2 && isOddNumPlayers) {
+  if(avgRating === 3 && isOddNumPlayers) {
     tolerance = 3;
   } else {
     tolerance = isTotalRatingEven && isOddNumPlayers ? 2 : (teamOneRating + teamTwoRating);
