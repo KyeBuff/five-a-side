@@ -84,6 +84,7 @@ const generateTeams = (players) => {
 
 	// Booleans used to prevent infinite loop on even total rating but odd number of players
 	totalRating = teamOneRating + teamTwoRating,
+	avgRating = totalRating / players.size,
 	isTotalRatingEven = !(totalRating % 2),
 	isOddNumPlayers = !!(players.size % 2),
 
@@ -94,8 +95,8 @@ const generateTeams = (players) => {
 	//1 Exception is when even total team ratings and odd num players where rating difference will be 2
 	let tolerance = 0;
 
-	//if total rating / num players === 3 and players is odd then tol should be 3 
-	if(avgRating === 3 && isOddNumPlayers) {
+	//if total rating / num players > 2 and players is odd then tol should be 3 
+	if(avgRating > 2 && isOddNumPlayers) {
 		tolerance = 3;
 	} else {
 		tolerance = isTotalRatingEven && isOddNumPlayers ? 2 : (teamOneRating + teamTwoRating);
