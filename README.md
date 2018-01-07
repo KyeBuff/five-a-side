@@ -14,8 +14,6 @@ You will need to have NPM installed in order to set the application up.
 
 ### Installing
 
-A step by step series of examples that tell you how to install the app for testing purposes.
-
 Clone the git repository and run NPM install.
 
 ```
@@ -108,9 +106,9 @@ assignTeamID is a helper function to generateTeams.
 
 This is a function that recursively calls itself until the difference between the two team's ratings satisfies a defined tolerance.
 
-Team rating balancing is attempted 10 times before gracefully falling back to balancing by team size, if generateTeams is unable to produce teams of equal ratings.
+generateTeams attempts team rating balancing 10 times before gracefully falling back to balancing by team size,.
 
-The tolerance varies (from 0 - 3) depending on conditions using these stats from generateTeams:
+The tolerance varies (from 0 - 3) depending on conditional statements which use these stats held as variables in generateTeams:
 
 ```
   totalRating = teamOneRating + teamTwoRating,
@@ -156,7 +154,7 @@ const generateTeams = (players) => {
   } else if(!isAllSameRating && isOddNumPlayers && isTotalRatingEven && avgRating <= 2) {
     //ELSE IF - players do not share the same rating, there is odd total players, the total rating is even and the avgRating <= 2
 
-    // We can perfectly balance the teams
+    // We can perfectly balance these teams
     tolerance = 0;
   } 
 
@@ -179,7 +177,7 @@ const generateTeams = (players) => {
 
 Testing was conducted by firing the setTeams action in Redux dev tools, comparing the tolerance variable value to the desired/expected tolerance.
 
-I tested this function 121 times with unique tests which consisted of all possible variations of player skill across a total of 3-4 players. At least 10 tests were carried out per variation. Testing was also carried out across player number of 5-10, but not up to all possible variations.
+I tested this function with 121 unique tests which consisted of all possible variations of player skill across a total of 3-4 players. At least 10 tests were carried out per variation. Testing was also carried out across player numbers of 5-10, but not up to all possible variations.
 
 I separated any fails into major and minor fails:
 
@@ -188,7 +186,7 @@ I separated any fails into major and minor fails:
 
 **Stats**
 Total tests: 121 (* 10)
-Major fails: 0 - There were 2 major fails, fallback to balance on team size only prevents this
+Major fails: 0 - There were 2 major fails, which led to the fallback to balance using team size
 Minor fails: 8 - includes the 2 fallback fixes
 
 The major fails led to the implementation of the balanceAttempts variable. generateTeams will attempt skill balancing 10 times before falling back to team size balancing, preventing any fatal errors occuring.
@@ -285,5 +283,6 @@ I would have liked to carry out unit tests on the app prior to the deadline. I a
 * Google PageSpeed/Lighthouse and DevTools for performance and accessbiility testing
 * Gulp tasks set up to watch process Sass, convert to CSS and minify
 * Images sized appropriately and compressed
+* Team balancing testing as documented above
 
 This led to a lot of optimisation, refactoring and bug fixing.
