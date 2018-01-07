@@ -1,7 +1,7 @@
 @media (min-width:992px) {
 
 	body {
-		@include linear-gradient-img($black, transparent, 150%, "./assets/images/app-bg@992-1366px.jpg");
+		@include linear-gradient-img($black, $black-opaque, 150%, "./assets/images/app-bg@992-1366px.jpg");
 	}
 
 	.container {	

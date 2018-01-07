@@ -4,7 +4,7 @@ body {
 	min-height: 100vh;
   padding: 0;
 	
-	@include linear-gradient-img($black, transparent, 100%, "./assets/images/app-bg@0-468px.jpg");
+	@include linear-gradient-img($black, $black-opaque, 125%, "./assets/images/app-bg@0-468px.jpg");
 
   background-size: cover;
   background-repeat: no-repeat;
@@ -25,6 +25,7 @@ body {
 		color: $primary;
 		font-size: $main-heading;
 		letter-spacing: $letter-spacing;
+		text-shadow: $text-shadow;
 
 		span {
 			color: $secondary;
@@ -42,6 +43,8 @@ body {
 	.landing__heading {
 		color: $primary; 
 		font-size: $sub-heading;  
+
+		text-shadow: $text-shadow;
 	}
 }
 

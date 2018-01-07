@@ -35,9 +35,10 @@ h1, h2 {
 
 .players .players__heading, .players__list-section .players__heading, .team .team__heading, .team .team__color-slider .team__color__heading {
   margin-bottom: 0.5em;
-  color: #FFF;
+  color: #F3F3F3;
   font-size: 1.5em;
-  letter-spacing: 0.1em; }
+  letter-spacing: 0.1em;
+  text-shadow: 1px 1px 0 #1B1C20; }
 
 .players__list-section .player-list .player-list__item .ratings .ratings__star, .team .ratings .ratings__star {
   display: inline-block;
@@ -50,7 +51,7 @@ h1, h2 {
 .players .players__add-section .players__info, .players__list-section .players__info, .team .team__info {
   margin-top: 0.5em;
   padding: 0.5em;
-  color: #FFF;
+  color: #F3F3F3;
   text-align: center;
   background-color: #C46A11;
   border-radius: 8px; }
@@ -71,7 +72,7 @@ h1, h2 {
     height: 24px;
     width: 100%;
     box-shadow: 1px 1px 1px #1B1C20;
-    background: #FFF;
+    background: #F3F3F3;
     border-radius: 8px;
     cursor: pointer; }
   .team .team__color-slider .team_color_slider-container .team__color__range-input::-webkit-slider-thumb {
@@ -89,7 +90,7 @@ h1, h2 {
     height: 24px;
     width: 100%;
     box-shadow: 1px 1px 1px #1B1C20;
-    background: #FFF;
+    background: #F3F3F3;
     border-radius: 8px;
     cursor: pointer; }
   .team .team__color-slider .team_color_slider-container .team__color__range-input::-moz-range-thumb {
@@ -109,12 +110,12 @@ h1, h2 {
     cursor: pointer; }
   .team .team__color-slider .team_color_slider-container .team__color__range-input::-ms-fill-lower {
     border: 1px solid #1B1C20;
-    background: #FFF;
+    background: #F3F3F3;
     border-radius: 10px;
     box-shadow: 1px 1px 1px #1B1C20; }
   .team .team__color-slider .team_color_slider-container .team__color__range-input::-ms-fill-upper {
     border: 1px solid #1B1C20;
-    background: #FFF;
+    background: #F3F3F3;
     border-radius: 10px;
     box-shadow: 1px 1px 1px #1B1C20; }
   .team .team__color-slider .team_color_slider-container .team__color__range-input::-ms-thumb {
@@ -126,11 +127,11 @@ h1, h2 {
     border-radius: 8px;
     cursor: pointer; }
   .team .team__color-slider .team_color_slider-container .team__color__range-input:focus::-ms-fill-lower {
-    background: #FFF; }
+    background: #F3F3F3; }
   .team .team__color-slider .team_color_slider-container .team__color__range-input:focus::-ms-fill-upper {
-    background: #FFF; }
+    background: #F3F3F3; }
   .team .team__color-slider .team_color_slider-container .team__color__range-input:focus::-webkit-slider-runnable-track {
-    background: #FFF; }
+    background: #F3F3F3; }
 
 .btn {
   display: block;
@@ -139,10 +140,10 @@ h1, h2 {
   margin: 0.5em 0 2em;
   padding: 1em 0.25em;
   width: 100%;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#FFF), to(#1B1C20));
-  background-image: -webkit-linear-gradient(#FFF, #1B1C20 400%);
-  background-image: -o-linear-gradient(#FFF, #1B1C20 400%);
-  background-image: linear-gradient(#FFF, #1B1C20 400%);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#F3F3F3), to(#1B1C20));
+  background-image: -webkit-linear-gradient(#F3F3F3, #1B1C20 400%);
+  background-image: -o-linear-gradient(#F3F3F3, #1B1C20 400%);
+  background-image: linear-gradient(#F3F3F3, #1B1C20 400%);
   border: none;
   border-radius: 8px;
   color: #1B1C20;
@@ -161,10 +162,10 @@ h1, h2 {
     color: #1B1C20; }
   .btn:hover:enabled {
     transition: all .5s;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#FFF), to(#1B1C20));
-    background-image: -webkit-linear-gradient(#FFF, #1B1C20 300%);
-    background-image: -o-linear-gradient(#FFF, #1B1C20 300%);
-    background-image: linear-gradient(#FFF, #1B1C20 300%);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#F3F3F3), to(#1B1C20));
+    background-image: -webkit-linear-gradient(#F3F3F3, #1B1C20 300%);
+    background-image: -o-linear-gradient(#F3F3F3, #1B1C20 300%);
+    background-image: linear-gradient(#F3F3F3, #1B1C20 300%);
     letter-spacing: .1em; }
   .btn[type="submit"] {
     -webkit-appearance: none;
@@ -217,7 +218,7 @@ h1, h2 {
   padding: 0.5em;
   min-width: 138.06px;
   width: auto;
-  color: #FFF; }
+  color: #F3F3F3; }
   .btn--danger:hover:enabled {
     transition: all .5s;
     background-image: -webkit-gradient(linear, left top, left bottom, from(#9F1E00), to(#1B1C20));
@@ -243,7 +244,7 @@ h1, h2 {
   font-family: "Cabin", "Courier", sans-serif;
   font-size: 1.125em;
   text-align: center;
-  color: #FFF; }
+  color: #F3F3F3; }
   .btn--action:hover:enabled {
     transition: all .5s;
     background-image: -webkit-gradient(linear, left top, left bottom, from(#287326), to(#1B1C20));
@@ -255,10 +256,10 @@ body {
   margin: 0;
   min-height: 100vh;
   padding: 0;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#1B1C20), to(transparent)), url("./assets/images/app-bg@0-468px.jpg");
-  background-image: -webkit-linear-gradient(#1B1C20, transparent 100%), url("./assets/images/app-bg@0-468px.jpg");
-  background-image: -o-linear-gradient(#1B1C20, transparent 100%), url("./assets/images/app-bg@0-468px.jpg");
-  background-image: linear-gradient(#1B1C20, transparent 100%), url("./assets/images/app-bg@0-468px.jpg");
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#1B1C20), to(rgba(28, 30, 38, 0.3))), url("./assets/images/app-bg@0-468px.jpg");
+  background-image: -webkit-linear-gradient(#1B1C20, rgba(28, 30, 38, 0.3) 125%), url("./assets/images/app-bg@0-468px.jpg");
+  background-image: -o-linear-gradient(#1B1C20, rgba(28, 30, 38, 0.3) 125%), url("./assets/images/app-bg@0-468px.jpg");
+  background-image: linear-gradient(#1B1C20, rgba(28, 30, 38, 0.3) 125%), url("./assets/images/app-bg@0-468px.jpg");
   background-size: cover;
   background-repeat: no-repeat; }
 
@@ -269,9 +270,10 @@ body {
   padding: 2em 1em; }
   .header .header__main-heading {
     margin: 0;
-    color: #FFF;
+    color: #F3F3F3;
     font-size: 4em;
-    letter-spacing: 0.1em; }
+    letter-spacing: 0.1em;
+    text-shadow: 1px 1px 0 #1B1C20; }
     .header .header__main-heading span {
       color: #F2D72D; }
 
@@ -281,8 +283,9 @@ body {
   margin-top: 20vh;
   padding: 1em; }
   .landing .landing__heading {
-    color: #FFF;
-    font-size: 1.5em; }
+    color: #F3F3F3;
+    font-size: 1.5em;
+    text-shadow: 1px 1px 0 #1B1C20; }
 
 .players .players__add-section .players__info--lg {
   display: none; }
@@ -293,7 +296,7 @@ body {
 
 .players form .rating-buttons .rating-buttons__text {
   margin-bottom: 0;
-  color: #FFF;
+  color: #F3F3F3;
   font-family: "Cabin", "Courier", serif;
   font-size: 1.5em;
   text-align: center; }
@@ -315,7 +318,7 @@ body {
     box-sizing: border-box;
     margin: 0.5em 0 1em;
     padding: 1em;
-    background-color: #FFF;
+    background-color: #F3F3F3;
     font-family: "Cabin", "Courier", sans-serif;
     text-align: center; }
 
@@ -325,7 +328,7 @@ body {
     position: relative;
     margin: 0.5em 0;
     padding: 0.66667em;
-    background-color: #FFF;
+    background-color: #F3F3F3;
     border-radius: 8px;
     font-family: "Cabin", "Courier", sans-serif;
     font-size: 1.25em; }
@@ -348,7 +351,7 @@ body {
   display: block;
   margin: 0 0 2em;
   width: 100%;
-  color: #FFF;
+  color: #F3F3F3;
   text-align: center; }
   .team .team__button--edit .team__button--edit__icon {
     position: relative;
@@ -364,7 +367,7 @@ body {
 .team .ratings {
   text-align: center; }
   .team .ratings .ratings__text {
-    color: #FFF;
+    color: #F3F3F3;
     font-family: "Cabin", "Courier", sans-serif;
     font-size: 1.25em; }
 
@@ -383,7 +386,7 @@ body {
   .team .team__formation .pitch__player .pitch__player__name {
     display: block;
     width: 100px;
-    color: #FFF;
+    color: #F3F3F3;
     font-family: "Cabin", "Courier", sans-serif;
     text-align: center; }
   .team .team__formation .pitch__player .pitch__player__kit {
@@ -425,7 +428,7 @@ body {
     -ms-flex-pack: justify;
     justify-content: space-between; }
     .team .team__color-slider .team_color_slider-container .team__color__preview {
-      border: 5px solid #FFF;
+      border: 5px solid #F3F3F3;
       -webkit-box-sizing: border-box;
       box-sizing: border-box;
       height: 50px;
@@ -452,7 +455,7 @@ body {
     flex: 1; }
 
 .page-not-found .page-not-found__message {
-  color: #FFF;
+  color: #F3F3F3;
   font-size: 1.25em;
   text-align: center; }
 
@@ -483,15 +486,15 @@ body {
     width: 80%;
     z-index: 20; }
     .modal .modal__content .modal__message {
-      color: #FFF;
+      color: #F3F3F3;
       font-size: 1.25em; }
 
 @media (min-width: 480px) {
   body {
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#1B1C20), to(transparent)), url("./assets/images/app-bg@480-991px.jpg");
-    background-image: -webkit-linear-gradient(#1B1C20, transparent 125%), url("./assets/images/app-bg@480-991px.jpg");
-    background-image: -o-linear-gradient(#1B1C20, transparent 125%), url("./assets/images/app-bg@480-991px.jpg");
-    background-image: linear-gradient(#1B1C20, transparent 125%), url("./assets/images/app-bg@480-991px.jpg"); }
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#1B1C20), to(rgba(28, 30, 38, 0.3))), url("./assets/images/app-bg@480-991px.jpg");
+    background-image: -webkit-linear-gradient(#1B1C20, rgba(28, 30, 38, 0.3) 125%), url("./assets/images/app-bg@480-991px.jpg");
+    background-image: -o-linear-gradient(#1B1C20, rgba(28, 30, 38, 0.3) 125%), url("./assets/images/app-bg@480-991px.jpg");
+    background-image: linear-gradient(#1B1C20, rgba(28, 30, 38, 0.3) 125%), url("./assets/images/app-bg@480-991px.jpg"); }
   .container {
     margin: 0 auto;
     max-width: 60%; } }
@@ -558,7 +561,7 @@ body {
         display: block;
         padding: 0.5em;
         background-color: #C46A11;
-        color: #FFF;
+        color: #F3F3F3;
         text-align: center; }
     .players .players__list-section {
       flex: 1;
@@ -594,10 +597,10 @@ body {
 
 @media (min-width: 992px) {
   body {
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#1B1C20), to(transparent)), url("./assets/images/app-bg@992-1366px.jpg");
-    background-image: -webkit-linear-gradient(#1B1C20, transparent 150%), url("./assets/images/app-bg@992-1366px.jpg");
-    background-image: -o-linear-gradient(#1B1C20, transparent 150%), url("./assets/images/app-bg@992-1366px.jpg");
-    background-image: linear-gradient(#1B1C20, transparent 150%), url("./assets/images/app-bg@992-1366px.jpg"); }
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#1B1C20), to(rgba(28, 30, 38, 0.3))), url("./assets/images/app-bg@992-1366px.jpg");
+    background-image: -webkit-linear-gradient(#1B1C20, rgba(28, 30, 38, 0.3) 150%), url("./assets/images/app-bg@992-1366px.jpg");
+    background-image: -o-linear-gradient(#1B1C20, rgba(28, 30, 38, 0.3) 150%), url("./assets/images/app-bg@992-1366px.jpg");
+    background-image: linear-gradient(#1B1C20, rgba(28, 30, 38, 0.3) 150%), url("./assets/images/app-bg@992-1366px.jpg"); }
   .container {
     padding-top: 8em;
     max-width: 1000px;
@@ -614,10 +617,10 @@ body {
 
 @media (min-width: 1200px) {
   body {
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#1B1C20), to(transparent)), url("./assets/images/app-bg@1200px.jpg");
-    background-image: -webkit-linear-gradient(#1B1C20, transparent 150%), url("./assets/images/app-bg@1200px.jpg");
-    background-image: -o-linear-gradient(#1B1C20, transparent 150%), url("./assets/images/app-bg@1200px.jpg");
-    background-image: linear-gradient(#1B1C20, transparent 150%), url("./assets/images/app-bg@1200px.jpg"); }
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#1B1C20), to(rgba(28, 30, 38, 0.3))), url("./assets/images/app-bg@1200px.jpg");
+    background-image: -webkit-linear-gradient(#1B1C20, rgba(28, 30, 38, 0.3) 150%), url("./assets/images/app-bg@1200px.jpg");
+    background-image: -o-linear-gradient(#1B1C20, rgba(28, 30, 38, 0.3) 150%), url("./assets/images/app-bg@1200px.jpg");
+    background-image: linear-gradient(#1B1C20, rgba(28, 30, 38, 0.3) 150%), url("./assets/images/app-bg@1200px.jpg"); }
   .header {
     margin-top: 0; }
   .landing {

@@ -1,7 +1,7 @@
 @media (min-width: 1200px) {
 
 	body {
-		@include linear-gradient-img($black, transparent, 150%, "./assets/images/app-bg@1200px.jpg");
+		@include linear-gradient-img($black, $black-opaque, 150%, "./assets/images/app-bg@1200px.jpg");
 	}
 	.header {
 		margin-top: 0;

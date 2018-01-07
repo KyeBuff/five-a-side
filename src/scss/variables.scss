@@ -1,11 +1,12 @@
 // Colors
-$primary: #FFF;
+$primary: #F3F3F3;
 $secondary: #F2D72D;
 $danger: #9F1E00;
 $warning: #C46A11;
 $gray: #CDCDCD;
 $black: #1B1C20;
 $pitch: hsla(119, 50%, 20%, 0.8);
+$black-opaque: hsla(228, 16%, 13%, 0.3);
 $pitchGreen: hsl(119, 50%, 30%);
 
 // Fonts
@@ -24,3 +25,6 @@ $padding: 1em;
 $margin: .5em;
 $landing-margin: 20vh;
 $border-radius: 8px;
+
+// Others
+$text-shadow: 1px 1px 0 $black;
