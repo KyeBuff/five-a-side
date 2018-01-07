@@ -104,7 +104,6 @@ const generateTeams = (players) => {
 		//ELSE IF - players do not share the same rating, there is odd total players, the total rating is even and the avgRating <= 2
 
 		// We can perfectly balance the teams
-		// avgRating < 2 as part of testing to prevent infinite loop
 		tolerance = 0;
 	} 
 
