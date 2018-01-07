@@ -70,6 +70,8 @@ const calcTeamRating = (players) => players.reduce((tot, player) => tot + player
 
 //Recursive calls are made until the defined rating tolerance is met
 
+let balanceAttempts = 0;
+
 const generateTeams = (players) => {
 
 	const playersWithTeamID = assignTeamID(players),
@@ -98,8 +100,8 @@ const generateTeams = (players) => {
 		//IF - all players have the same rating and total players size off
 		// Tolerance should be set to the avgRating if all players share the same rating
 		tolerance = avgRating;
-	} else if(!isAllSameRating && isOddNumPlayers && !(totalRating%2) && avgRating < 2) {
-		//ELSE IF - players do not share the same rating, there is odd total players, the total rating is even and the avgRating < 2
+	} else if(!isAllSameRating && isOddNumPlayers && isTotalRatingEven && avgRating <= 2) {
+		//ELSE IF - players do not share the same rating, there is odd total players, the total rating is even and the avgRating <= 2
 
 		// We can perfectly balance the teams
 		// avgRating < 2 as part of testing to prevent infinite loop
@@ -107,7 +109,9 @@ const generateTeams = (players) => {
 	} 
 
 	//recursive call until tolerance satisfied
-	if(ratingDifference > tolerance) {
+	//balanceAttempts forces fall back to team size balancing if tolerance cannot be satisfied
+	if(ratingDifference > tolerance && balanceAttempts < 10) {
+		balanceAttempts += 1;
 		return generateTeams(players);
 	}
 

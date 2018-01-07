@@ -108,6 +108,8 @@ assignTeamID is a helper function to generateTeams.
 
 This is a function that recursively calls itself until the difference between the two team's ratings satisfies a defined tolerance.
 
+Team rating balancing is attempted 10 times before gracefully falling back to balancing by team size, if generateTeams is unable to produce teams of equal ratings.
+
 The tolerance varies (from 0 - 3) depending on conditions using these stats from generateTeams:
 
 ```
@@ -121,6 +123,8 @@ The tolerance varies (from 0 - 3) depending on conditions using these stats from
 Helper functions are created to allocate players to a team by teamID and to subsequently calculate that team's rating.
 
 ```
+let balanceAttempts = 0;
+
 const generateTeams = (players) => {
 
   const playersWithTeamID = assignTeamID(players),
@@ -149,8 +153,8 @@ const generateTeams = (players) => {
     //IF - all players have the same rating and total players size off
     // Tolerance should be set to the avgRating if all players share the same rating
     tolerance = avgRating;
-  } else if(!isAllSameRating && isOddNumPlayers && !(totalRating%2) && avgRating < 2) {
-    //ELSE IF - players do not share the same rating, there is odd total players, the total rating is even and the avgRating < 2
+  } else if(!isAllSameRating && isOddNumPlayers && isTotalRatingEven && avgRating <= 2) {
+    //ELSE IF - players do not share the same rating, there is odd total players, the total rating is even and the avgRating <= 2
 
     // We can perfectly balance the teams
     // avgRating < 2 as part of testing to prevent infinite loop
@@ -158,7 +162,9 @@ const generateTeams = (players) => {
   } 
 
   //recursive call until tolerance satisfied
-  if(ratingDifference > tolerance) {
+  //balanceAttempts forces fall back to team size balancing if tolerance cannot be satisfied
+  if(ratingDifference > tolerance && balanceAttempts < 10) {
+    balanceAttempts += 1;
     return generateTeams(players);
   }
 
@@ -167,20 +173,14 @@ const generateTeams = (players) => {
     teamTwoPlayers,
   ]);
 
-}
+} 
 ```
-
-Total tests: 112
-Major fails: 0
-Minor fails: 6
-
-Minor fail rate: 5.4%
 
 ###### Testing generateTeams
 
 Testing was conducted by firing the setTeams action in Redux dev tools, comparing the tolerance variable value to the desired/expected tolerance.
 
-I tested this function with 112 unique tests which consisted of all possible variations of player skill across all possible team sizes. At least 10 tests were carried out per variation. 
+I tested this function 121 times with unique tests which consisted of all possible variations of player skill across a total of 3-4 players. At least 10 tests were carried out per variation. Testing was also carried out across player number of 5-10, but not up to all possible variations.
 
 I separated any fails into major and minor fails:
 
@@ -188,13 +188,11 @@ I separated any fails into major and minor fails:
 * Minor fail - no fatal errors but team balancing isn't perfect
 
 **Stats**
-Total tests: 112 (* 10)
-Major fails: 0
-Minor fails: 6
+Total tests: 121 (* 10)
+Major fails: 0 - There were 2 major fails, fallback to balance on team size only prevents this
+Minor fails: 8 - includes the 2 fallback fixes
 
-Minor fail rate: 5.4%
-
-All fails occured when there were a odd number of players and in particular more so with higher ratings and a higher number of players. On each occasion the tolerance variable should be 0 but is set to 2.
+The major fails led to the implementation of the balanceAttempts variable. generateTeams will attempt skill balancing 10 times before falling back to team size balancing, preventing any fatal errors occuring.
 
 I would like to refactor and remove these fails but did not want to risk breaking the app completely on it's due date. This has helped me see the need for testing throughout development, rather than leaving it until the end.
 
