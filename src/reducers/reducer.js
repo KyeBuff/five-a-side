@@ -89,22 +89,22 @@ const generateTeams = (players) => {
 	isTotalRatingEven = !(totalRating % 2),
 	isOddNumPlayers = !!(players.size % 2),
 
-	ratingDifference = Math.abs(teamOneRating - teamTwoRating);
+	ratingDifference = Math.abs(teamOneRating - teamTwoRating); 
 
-	// Tolerance set to 1 if total team ratings are odd and 0 for even to prevent infinite loop 
-	// If players are odd and numbers are odd - tolerance should be as high as 3
-	//1 Exception is when even total team ratings and odd num players where rating difference will be 2
-	let tolerance = 0;
+	let tolerance = isTotalRatingEven && isOddNumPlayers ? 2 : (teamOneRating + teamTwoRating) % 2;
 
-	//if total rating / num players > 2 and players is odd then tol should be 3 
-	//If all players have the same rating, then tolerance should be equal to that rating if odd players
+	//Overwrite tolerance
 	if(isAllSameRating && isOddNumPlayers) {
+		//IF - all players have the same rating and total players size off
+		// Tolerance should be set to the avgRating if all players share the same rating
 		tolerance = avgRating;
 	} else if(!isAllSameRating && isOddNumPlayers && !(totalRating%2) && avgRating < 2) {
+		//ELSE IF - players do not share the same rating, there is odd total players, the total rating is even and the avgRating < 2
+
+		// We can perfectly balance the teams
+		// avgRating < 2 as part of testing to prevent infinite loop
 		tolerance = 0;
-	} else {
-		tolerance = isTotalRatingEven && isOddNumPlayers ? 2 : (teamOneRating + teamTwoRating) % 2;
-	}
+	} 
 
 	//recursive call until tolerance satisfied
 	if(ratingDifference > tolerance) {

@@ -62,7 +62,7 @@ Two key functions are involved in generating two teams of equal length, using ra
 
 The idea is to use a functional approach, where helper functions are pure and return values for the reducer functions to operate with.
 
-**assignTeamID**
+##### assignTeamID
 
 This function holds the logic for random assignment of players up to a specified maximum team size (length of players array / 2).
 
@@ -104,15 +104,19 @@ const assignTeamID = (players) => {
 
 assignTeamID is a helper function to generateTeams.
 
-**generateTeams** 
+##### generateTeams
 
 This is a function that recursively calls itself until the difference between the two team's ratings satisfies a defined tolerance.
 
-The tolerance varies (from 1 - 3) depending on:
+The tolerance varies (from 0 - 3) depending on conditions using these stats from generateTeams:
 
-* number of players (odd/even)
-* total team ratings (odd/even)
-* if the rating difference is greater than 2
+```
+  totalRating = teamOneRating + teamTwoRating,
+  avgRating = totalRating / players.size,
+  isAllSameRating = players.every(player => player.get('rating') === avgRating),
+  isTotalRatingEven = !(totalRating % 2),
+  isOddNumPlayers = !!(players.size % 2),
+```
 
 Helper functions are created to allocate players to a team by teamID and to subsequently calculate that team's rating.
 
@@ -129,24 +133,29 @@ const generateTeams = (players) => {
   teamOneRating = calcTeamRating(teamOnePlayers),
   teamTwoRating = calcTeamRating(teamTwoPlayers),
 
-  // Booleans used to prevent infinite loop on even total rating but odd number of players
+  // Stats/booleans used to prevent infinite loops / unbalanced teams
   totalRating = teamOneRating + teamTwoRating,
+  avgRating = totalRating / players.size,
+  isAllSameRating = players.every(player => player.get('rating') === avgRating),
   isTotalRatingEven = !(totalRating % 2),
   isOddNumPlayers = !!(players.size % 2),
 
-  ratingDifference = Math.abs(teamOneRating - teamTwoRating);
+  ratingDifference = Math.abs(teamOneRating - teamTwoRating); 
 
-  // Tolerance set to 1 if total team ratings are odd and 0 for even to prevent infinite loop 
-  // If players are odd and numbers are odd - tolerance should be as high as 3
-  //1 Exception is when even total team ratings and odd num players where rating difference will be 2
-  let tolerance = 0;
+  let tolerance = isTotalRatingEven && isOddNumPlayers ? 2 : (teamOneRating + teamTwoRating) % 2;
 
-  //if total rating / num players === 3 and players is odd then tol should be 3 
-  if(avgRating === 3 && isOddNumPlayers) {
-    tolerance = 3;
-  } else {
-    tolerance = isTotalRatingEven && isOddNumPlayers ? 2 : (teamOneRating + teamTwoRating);
-  }
+  //Overwrite tolerance
+  if(isAllSameRating && isOddNumPlayers) {
+    //IF - all players have the same rating and total players size off
+    // Tolerance should be set to the avgRating if all players share the same rating
+    tolerance = avgRating;
+  } else if(!isAllSameRating && isOddNumPlayers && !(totalRating%2) && avgRating < 2) {
+    //ELSE IF - players do not share the same rating, there is odd total players, the total rating is even and the avgRating < 2
+
+    // We can perfectly balance the teams
+    // avgRating < 2 as part of testing to prevent infinite loop
+    tolerance = 0;
+  } 
 
   //recursive call until tolerance satisfied
   if(ratingDifference > tolerance) {
@@ -161,7 +170,35 @@ const generateTeams = (players) => {
 }
 ```
 
-generateTeams is a helper function to the reducer setTeams.
+Total tests: 112
+Major fails: 0
+Minor fails: 6
+
+Minor fail rate: 5.4%
+
+###### Testing generateTeams
+
+Testing was conducted by firing the setTeams action in Redux dev tools, comparing the tolerance variable value to the desired/expected tolerance.
+
+I tested this function with 112 unique tests which consisted of all possible variations of player skill across all possible team sizes. At least 10 tests were carried out per variation. 
+
+I separated any fails into major and minor fails:
+
+* Major fail - causes a fatal error, app crashes
+* Minor fail - no fatal errors but team balancing isn't perfect
+
+**Stats**
+Total tests: 112 (* 10)
+Major fails: 0
+Minor fails: 6
+
+Minor fail rate: 5.4%
+
+All fails occured when there were a odd number of players and in particular more so with higher ratings and a higher number of players. On each occasion the tolerance variable should be 0 but is set to 2.
+
+I would like to refactor and remove these fails but did not want to risk breaking the app completely on it's due date. This has helped me see the need for testing throughout development, rather than leaving it until the end.
+
+The full test results can be found [here](https://www.dropbox.com/s/1mbxu2snzvy2mc9/balance-tests.numbers?dl=0). 
 
 #### Git workflow
 
