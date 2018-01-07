@@ -195,7 +195,13 @@ The major fails led to the implementation of the balanceAttempts variable. gener
 
 I would like to refactor and remove these fails but did not want to risk breaking the app completely on it's due date. This has helped me see the need for testing throughout development, rather than leaving it until the end.
 
-The full test results can be found [here](https://www.dropbox.com/s/1mbxu2snzvy2mc9/balance-tests.numbers?dl=0). 
+The full test results can be found here:
+
+* [Numbers](https://www.dropbox.com/s/1mbxu2snzvy2mc9/balance-tests.numbers?dl=0)
+
+* [Excel](https://www.dropbox.com/s/dbft135c1n90h4k/balance-tests.xlsx?dl=0)
+
+The letters represent an individual player and their rating.
 
 #### Git workflow
 
