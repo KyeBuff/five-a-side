@@ -85,7 +85,7 @@ const generateTeams = (players) => {
 	// Stats/booleans used to prevent infinite loops / unbalanced teams
 	totalRating = teamOneRating + teamTwoRating,
 	avgRating = totalRating / players.size,
-	isAllSameRating = players.every(player => player.rating === avgRating),
+	isAllSameRating = players.every(player => player.get('rating') === avgRating),
 	isTotalRatingEven = !(totalRating % 2),
 	isOddNumPlayers = !!(players.size % 2),
 
@@ -97,7 +97,6 @@ const generateTeams = (players) => {
 	let tolerance = 0;
 
 	//if total rating / num players > 2 and players is odd then tol should be 3 
-	
 	//If all players have the same rating, then tolerance should be equal to that rating if odd players
 	if(isAllSameRating && isOddNumPlayers) {
 		tolerance = avgRating;
@@ -106,6 +105,8 @@ const generateTeams = (players) => {
 	} else {
 		tolerance = isTotalRatingEven && isOddNumPlayers ? 2 : (teamOneRating + teamTwoRating) % 2;
 	}
+
+	console.log(tolerance);
 
 	//recursive call until tolerance satisfied
 	if(ratingDifference > tolerance) {
