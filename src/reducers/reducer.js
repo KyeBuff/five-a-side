@@ -106,8 +106,6 @@ const generateTeams = (players) => {
 		tolerance = isTotalRatingEven && isOddNumPlayers ? 2 : (teamOneRating + teamTwoRating) % 2;
 	}
 
-	console.log(tolerance);
-
 	//recursive call until tolerance satisfied
 	if(ratingDifference > tolerance) {
 		return generateTeams(players);
